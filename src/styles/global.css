@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Tactic Sans Extra Extended Italic";
+  src: url("/fonts/TacticSansExtraExtendedItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-size: 1.125rem;
+  }
+
+  @media screen and (max-width: 1920px) {
+    html {
+      font-size: calc(0.625rem + 0.4166666667vw);
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    html {
+      font-size: calc(0.5991091314rem + 0.4454342984vw);
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    html {
+      font-size: 1rem;
+    }
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h2 {
+    @apply font-heading italic;
+  }
+}
+
+@layer components {
+  .hero-drop {
+    border-radius: 52% 48% 50% 50% / 60% 60% 40% 40%;
+    transform: rotate(45deg);
+  }
+
+  .hero-drop-content {
+    transform: rotate(-45deg);
+  }
+
+  .glyph-rhythm span {
+    border-color: currentColor;
+  }
+
+  [data-scroll-scale-image] {
+    transform: scale(1.04);
+    transform-origin: center;
+    will-change: transform;
+  }
+}
