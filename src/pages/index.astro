@@ -1,73 +1,92 @@
 ---
 import { Image } from 'astro:assets';
 import {
+  Activity,
   ArrowRight,
-  Droplets,
-  Gauge,
+  Check,
+  CheckCircle2,
+  Clock3,
+  Home,
+  House,
   Mail,
   MapPin,
   Phone,
-  RefreshCw,
-  Wind,
-  X,
-  Zap,
+  ShieldCheck,
 } from '@lucide/astro';
+import ajCallegan from '../assets/images/aj-callegan.jpg';
 import logo from '../assets/images/logo.png';
-import scienceHouse from '../assets/images/building-science-house.jpg';
 import '../styles/global.css';
 
 const navItems = [
-  ['Why Us', 'why'],
-  ['Our Approach', 'approach'],
-  ['Our Solutions', 'solutions'],
-  ['Customer Stories', 'projects'],
+  ['Services', 'services'],
+  ['About', 'about'],
+  ['Projects', 'projects'],
+  ['Contact', 'contact'],
 ];
 
-const trusted = ['Manual J', 'Manual S', 'Manual D', 'Blower Door'];
+const heroImage =
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1500&q=85';
 
-const features = [
-  {
-    title: 'We diagnose the home as a system',
-    copy: 'Thermal imaging, pressure diagnostics, moisture mapping, and IAQ snapshots reveal the hidden causes.',
-  },
-  {
-    title: 'We design a solution for your needs',
-    copy: 'HVAC sizing, equipment selection, duct design, ventilation, filtration, and humidity control work together.',
-  },
-  {
-    title: 'We verify and document everything',
-    copy: 'Testing, trade coordination, and clear reporting make performance measurable instead of assumed.',
-  },
+const stats = [
+  ['20+', 'Years in HVAC & construction', Clock3],
+  ['10', 'Building science specialty areas', Home],
+  ['4', 'ACCA Manuals - J, S, D & T', Activity],
+  ['100%', 'Verified & documented results', CheckCircle2],
 ];
 
-const cards = [
+const services = [
   {
+    eyebrow: '01 - For Existing Homes',
     title: 'Home Performance Assessment',
-    stat: 'Whole-home diagnostics for air, moisture, comfort, and durability problems',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80',
+    copy: 'A science-based diagnostic that uncovers hidden factors affecting your home’s health, comfort, and durability. Not a checklist - a real investigation.',
+    image: 'https://images.unsplash.com/photo-1581091215367-59ab6b140f0e?auto=format&fit=crop&w=900&q=80',
+    action: 'Schedule Assessment',
+    bullets: [
+      'Thermal imaging & moisture mapping',
+      'Static & zonal pressure diagnostics',
+      'AirAdvice IAQ monitoring snapshot',
+      '4-6 hours on-site + comprehensive report',
+    ],
   },
   {
-    title: 'Healthy Home Consulting',
-    stat: 'Pre-construction through final verification for custom builders',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80',
+    eyebrow: '02 - For Custom Builders',
+    title: 'Healthy Home Consulting Package',
+    copy: 'Expert design and oversight from pre-construction through final sign-off. For builders who want more than code compliance - verified, documented results.',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80',
+    action: 'Start a Project',
+    bullets: [
+      'Design & trade coordination meetings',
+      'Full ACCA Manual J, S, D & T HVAC design',
+      'Two blower door tests + duct leakage testing',
+      'Complete documentation + ongoing support',
+    ],
   },
   {
+    eyebrow: '03 - Design & Testing',
     title: 'HVAC Design Services',
-    stat: 'Manual J, S, D, and T support with duct testing and commissioning',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=80',
+    copy: 'Precision engineering for high-performance HVAC systems. Load calculations, equipment selection, 3D ductwork design, and performance verification.',
+    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80',
+    action: 'Get a Quote',
+    bullets: [
+      'ACCA Manual J load calculations',
+      'Manual S equipment selection',
+      'Manual D ductwork design + 3D modeling',
+      'Blower door & duct leakage testing',
+    ],
   },
 ];
 
-const numbers = [
-  ['20+', 'years of HVAC and construction experience', Droplets],
-  ['4', 'ACCA manuals used for design decisions', RefreshCw],
-  ['10', 'building science practice areas', Zap],
-];
-
-const footerLinks = [
-  ['Company', ['About AJ', 'Careers']],
-  ['Resources', ['News', 'White Papers', 'Case Studies']],
-  ['Follow', ['LinkedIn']],
+const practiceAreas = [
+  ['Building Science Principles', 'House-as-a-system thinking'],
+  ['HVAC+D Design', 'Heating, cooling & distribution'],
+  ['High-Performance Construction', 'Verified builds beyond code'],
+  ['ACCA Manuals J, S, D & T', 'Precision load & equipment design'],
+  ['Dehumidification & Ventilation', 'Whole-home moisture strategy'],
+  ['Filtration & IAQ', 'Indoor air quality assessment'],
+  ['Mold Investigation', 'Source ID & remediation guidance'],
+  ['Blower Door Testing', 'Envelope airtightness verification'],
+  ['Duct Leakage Testing', 'Total & to-outside measurements'],
+  ['Attic & Crawlspace Encapsulation', 'Conditioned or sealed assemblies'],
 ];
 ---
 
@@ -76,306 +95,242 @@ const footerLinks = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="ACC Building Performance LLC - building science consulting, HVAC design, and performance diagnostics for healthier homes in Louisiana and the Gulf South." />
+    <meta
+      name="description"
+      content="ACC Building Performance LLC - building science consulting, HVAC design, and performance diagnostics for healthier homes in Louisiana and the Gulf South."
+    />
     <title>ACC Building Performance LLC - Building Science and HVAC Consulting</title>
   </head>
-  <body class="font-sans text-acc-deep">
+  <body class="bg-[#063f46] font-sans text-slate-950">
     <div class="min-h-screen overflow-hidden">
-      <header class="relative z-20">
-        <div class="bg-acc-deep px-5 py-2 text-acc-mist">
-          <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 text-xs">
-            <a href="#projects" class="flex min-w-0 items-center gap-4">
-              <span class="font-bold">Company News</span>
-              <span class="hidden truncate text-acc-pale sm:block">ACC expands building science and HVAC design services across the Gulf South</span>
-              <span class="hidden items-center gap-1 font-bold md:inline-flex">
-                Read more
-                <ArrowRight class="h-3 w-3" />
-              </span>
-            </a>
-            <button type="button" aria-label="Close announcement" class="text-acc-pale">
-              <X class="h-4 w-4" />
-            </button>
-          </div>
-        </div>
+      <header class="relative z-30 border-t border-[#e8a83e]/60 bg-[#06333a] px-5 py-4 text-white sm:px-6 lg:px-8">
+        <nav class="mx-auto flex max-w-6xl items-center justify-between gap-5" aria-label="Primary navigation">
+          <a href="#" class="inline-flex rounded shadow-sm">
+            <Image src={logo} alt="ACC Building Performance LLC" width={91} class="h-10 w-auto object-contain" loading="eager" />
+          </a>
 
-        <nav class="bg-acc-sky px-5 py-5 sm:px-6 lg:px-8" aria-label="Primary navigation">
-          <div class="mx-auto flex max-w-7xl items-center justify-between">
-            <a href="#" class="flex items-center">
-              <Image src={logo} alt="ACC Building Performance LLC" width={124} class="h-8 w-auto object-contain" loading="eager" />
+          <div class="hidden items-center gap-9 text-[0.68rem] font-bold text-white/55 md:flex">
+            {navItems.map(([label, id]) => (
+              <a href={`#${id}`} class="transition hover:text-white">{label}</a>
+            ))}
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a href="tel:+15042480186" class="hidden font-mono text-sm font-bold text-white/45 sm:inline">504-248-0186</a>
+            <a
+              href="#contact"
+              class="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#edae43] px-5 text-sm font-extrabold text-slate-950 shadow-sm transition hover:bg-[#f5bd5b]"
+            >
+              Get an Assessment
             </a>
-            <div class="hidden items-center gap-8 lg:flex">
-              {navItems.map(([label, id]) => (
-                <a href={`#${id}`} class="text-sm font-semibold text-acc-deep transition hover:text-acc-muted">{label}</a>
-              ))}
-            </div>
-            <a href="#contact" class="rounded border border-acc-deep px-4 py-2 text-sm font-semibold transition hover:bg-acc-deep hover:text-acc-mist">Get in Touch</a>
           </div>
         </nav>
       </header>
 
       <main>
-        <section class="relative bg-acc-sky px-5 pb-24 pt-12 sm:px-6 lg:px-8">
-          <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-            <div class="max-w-2xl">
-              <h1 class="max-w-2xl text-5xl font-bold leading-none tracking-tight text-acc-deep sm:text-6xl lg:text-7xl">
-                Experience a healthier more efficient home
+        <section class="relative bg-[#0b4850] px-5 pb-28 pt-24 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-32">
+          <div class="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_1.05fr]">
+            <div>
+              <p class="flex items-center gap-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:gap-4 sm:text-[0.72rem] sm:tracking-[0.34em]">
+                <span class="hidden h-px w-14 shrink-0 bg-[#86c8dc] sm:block"></span>
+                Building Science · HVAC Consulting · Louisiana
+              </p>
+              <h1 class="mt-10 max-w-xl text-5xl font-black leading-[0.96] tracking-tight text-white sm:text-[5.6rem] lg:text-[6.3rem]">
+                Homes That Perform.
+                <span class="block bg-gradient-to-b from-[#8bd4e5] to-[#6f86c8] bg-clip-text text-transparent">Air You Can Trust.</span>
               </h1>
-              <p class="mt-7 max-w-lg text-lg leading-8 text-acc-deep">
-                Your home’s air, moisture, and HVAC systems hold hidden value. ACC turns that uncertainty into diagnostics, design, verification, and healthier living.
+              <p class="mt-10 max-w-xl text-lg font-semibold leading-9 text-white/58">
+                Twenty-plus years of building science and HVAC expertise, applied to the construction deficiencies that make families sick.
+                Diagnostic, design, and verification services across the Gulf South.
               </p>
-              <div class="mt-8 flex flex-wrap items-center gap-4">
-                <a href="#why" class="inline-flex items-center gap-2 rounded bg-acc-gold px-5 py-3 text-sm font-bold text-acc-deep transition hover:bg-acc-taupe">
-                  Why us
-                  <ArrowRight class="h-4 w-4" />
+              <div class="mt-12 flex flex-wrap gap-5">
+                <a
+                  href="#contact"
+                  class="inline-flex min-h-14 items-center justify-center rounded-lg bg-[#edae43] px-8 text-base font-extrabold text-slate-950 shadow-sm transition hover:bg-[#f5bd5b]"
+                >
+                  Schedule an Assessment
                 </a>
-                <a href="tel:+15042480186" class="text-sm font-bold text-acc-deep">504-248-0186</a>
-              </div>
-              <div class="mt-16">
-                <p class="text-xs font-bold uppercase tracking-widest text-acc-muted">Trusted methods</p>
-                <div class="mt-5 flex flex-wrap gap-5 text-xs font-bold uppercase tracking-widest text-acc-deep">
-                  {trusted.map((item) => <span>{item}</span>)}
-                </div>
+                <a
+                  href="#about"
+                  class="inline-flex min-h-14 items-center justify-center rounded-lg border border-white/20 px-8 text-base font-extrabold text-white/70 transition hover:border-white/45 hover:text-white"
+                >
+                  Our Story
+                </a>
               </div>
             </div>
 
-            <div class="relative mx-auto h-80 w-80 sm:h-96 sm:w-96 lg:h-96 lg:w-96">
-              <div class="hero-drop absolute inset-0 overflow-hidden bg-acc-taupe shadow-2xl">
-                <div class="hero-drop-content relative h-full w-full">
-                  <div class="absolute inset-y-0 left-0 w-1/2 overflow-hidden bg-acc-ice">
-                    <Image src={scienceHouse} alt="Building science system diagram" width={720} class="h-full w-full object-cover opacity-75" loading="eager" data-scroll-scale-image />
-                  </div>
-                  <div class="absolute inset-y-0 right-0 w-1/2 bg-acc-taupe"></div>
-                  <div class="absolute inset-y-0 left-1/2 w-px bg-acc-deep"></div>
-                </div>
+            <div class="relative mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
+              <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
+                <img src={heroImage} alt="Modern high-performance home exterior at dusk" class="aspect-[1.02] w-full object-cover" loading="eager" />
               </div>
-              <div class="absolute right-4 top-1/2 rounded bg-acc-deep px-4 py-3 text-xs font-bold leading-5 text-acc-mist shadow-xl">
-                Hidden<br />cause
+              <div class="absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-slate-950 shadow-2xl sm:-bottom-9 sm:left-24 sm:translate-x-0">
+                <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
+                  <House class="h-9 w-9" />
+                </span>
+                <span>
+                  <span class="block text-base font-black leading-tight">Science-Based Diagnostics</span>
+                  <span class="mt-1 block text-sm font-bold leading-5 text-slate-500">Not a checklist - a real investigation</span>
+                </span>
               </div>
-              <div class="absolute -bottom-8 left-1/2 h-6 w-40 -translate-x-1/2 rounded-full bg-acc-deep opacity-20 blur-md"></div>
             </div>
           </div>
         </section>
 
-        <section id="why" class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
-          <div class="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:items-center">
-            <div class="max-w-xl">
-              <p class="text-xs font-bold uppercase tracking-widest text-acc-deep">How we do it</p>
-              <h2 class="mt-5 text-4xl font-bold leading-none tracking-tight text-acc-deep sm:text-5xl">Healthy homes with no guesswork.</h2>
-              <p class="mt-6 text-lg leading-8 text-acc-deep">
-                ACC combines building science diagnostics with HVAC design and verification. You get practical recommendations your builder or contractor can act on, with performance measured at the end.
-              </p>
-              <a href="#approach" class="mt-8 inline-flex items-center gap-2 rounded bg-acc-gold px-5 py-3 text-sm font-bold text-acc-deep hover:bg-acc-taupe">
-                Our approach
-                <ArrowRight class="h-4 w-4" />
-              </a>
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-xl">
-              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80" alt="Technician reviewing building equipment" loading="lazy" class="aspect-[4/5] w-full object-cover" data-scroll-scale-image />
-            </div>
-          </div>
-
-          <div id="approach" class="mx-auto mt-24 grid max-w-7xl gap-12 md:grid-cols-3">
-            {features.map((item) => (
-              <article>
-                <div class="glyph-rhythm mb-8 flex h-24 items-center gap-2 text-acc-deep">
-                  <span class="h-20 w-10 rounded-r-full border-y-8 border-r-8"></span>
-                  <span class="h-20 w-10 rounded-r-full border-y-8 border-r-8"></span>
-                  <span class="h-20 w-10 rounded-r-full border-y-8 border-r-8"></span>
-                </div>
-                <h3 class="text-xl font-bold leading-tight text-acc-deep">{item.title}</h3>
-                <p class="mt-3 max-w-sm text-sm leading-6 text-acc-deep">{item.copy}</p>
+        <section class="relative bg-[#06333a] px-5 pb-24 pt-12 text-white sm:px-6 lg:px-8">
+          <div class="absolute inset-x-[-8%] -bottom-12 h-32 rounded-[0_0_50%_50%] bg-[#06333a]"></div>
+          <div class="relative mx-auto grid max-w-6xl gap-8 md:grid-cols-4">
+            {stats.map(([number, label, Icon]) => (
+              <article class="border-white/10 md:border-l md:px-8 first:md:border-l-0">
+                <Icon class="mb-6 h-7 w-7 text-[#6ab8ce]" />
+                <p class="text-5xl font-black tracking-tight">{number}</p>
+                <p class="mt-2 max-w-[11rem] text-xs font-bold leading-5 text-white/35">{label}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="projects" class="bg-acc-mist pb-24">
-          <div class="flex gap-5 overflow-x-auto px-5 pb-8 sm:px-6 lg:px-8">
-            {cards.map((card) => (
-              <article class="relative h-96 w-80 shrink-0 overflow-hidden rounded-lg shadow-xl sm:w-96 lg:w-1/3">
-                <img src={card.image} alt={card.title} loading="lazy" class="h-full w-full object-cover" data-scroll-scale-image />
-                <div class="absolute inset-x-6 bottom-6 rounded bg-acc-deep p-6 text-acc-mist opacity-95">
-                  <h3 class="text-xl font-bold">{card.title}</h3>
-                  <p class="mt-3 text-sm leading-6 text-acc-pale">{card.stat}</p>
-                  <a href="#contact" class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-acc-mist">
-                    View service
-                    <ArrowRight class="h-4 w-4" />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div class="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-            <div class="flex gap-2">
-              <span class="h-1.5 w-1.5 rounded-full bg-acc-deep"></span>
-              <span class="h-1.5 w-1.5 rounded-full bg-acc-grayblue"></span>
-              <span class="h-1.5 w-1.5 rounded-full bg-acc-grayblue"></span>
-            </div>
-            <div class="flex gap-2">
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-acc-gold text-sm font-bold">‹</span>
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-acc-gold text-sm font-bold">›</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="bg-acc-sky px-5 py-24 sm:px-6 lg:px-8">
-          <div class="mx-auto max-w-7xl">
-            <div class="relative overflow-hidden rounded-xl shadow-xl">
-              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1600&q=80" alt="Technician working with mechanical equipment" loading="lazy" class="h-96 w-full object-cover lg:h-screen" data-scroll-scale-image />
-              <div class="absolute right-8 top-8 max-w-md rounded bg-acc-deep p-8 text-acc-mist opacity-95">
-                <p class="text-xl font-bold leading-8">"The best building performance work happens before small defects become health, comfort, and durability problems."</p>
-                <p class="mt-6 text-sm font-semibold text-acc-pale">ACC Building Performance</p>
+        <section id="about" class="relative bg-[#d7f3f7] px-5 pb-28 pt-28 sm:px-6 lg:px-8 lg:pt-36">
+          <div class="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[0.9fr_1fr]">
+            <div class="relative mx-auto w-full max-w-md lg:mx-0">
+              <Image
+                src={ajCallegan}
+                alt="AJ Callegan, founder of ACC Building Performance"
+                width={640}
+                class="aspect-square w-full rounded-2xl object-cover shadow-2xl shadow-[#06333a]/15"
+              />
+              <div class="absolute -bottom-6 right-5 max-w-[17rem] rounded-lg bg-[#0b4850] p-6 text-white shadow-2xl shadow-[#06333a]/25">
+                <p class="text-sm font-bold leading-6">“Mold toxicity was the root cause of my uncontrollable seizures - it changed everything about how I work.”</p>
+                <p class="mt-4 text-[0.62rem] font-black uppercase tracking-[0.24em] text-[#7ec8db]">- AJ Callegan, Founder</p>
               </div>
             </div>
-          <div class="mt-8 flex flex-wrap items-center justify-center gap-10 text-xs font-bold uppercase tracking-widest text-acc-muted">
-              <span>Manual J</span>
-              <span>Manual S</span>
-              <span>Manual D</span>
-              <span>Duct Testing</span>
-              <span>IAQ Monitoring</span>
-            </div>
-          </div>
-        </section>
 
-        <section id="solutions" class="bg-acc-sky px-5 py-16 sm:px-6 lg:px-8">
-          <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 class="max-w-md text-5xl font-bold leading-none tracking-tight text-acc-deep">Modular services that evolve with your home</h2>
-              <p class="mt-6 max-w-lg leading-8 text-acc-deep">
-                Start with diagnostics, add design support, and verify the result with measured testing. Each service can stand alone or work as part of a larger performance plan.
-              </p>
-              <a href="#contact" class="mt-8 inline-flex items-center gap-2 rounded bg-acc-gold px-5 py-3 text-sm font-bold text-acc-deep hover:bg-acc-taupe">
-                Explore services
+              <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#4f93a2]">The Story Behind ACC</p>
+              <h2 class="mt-5 max-w-xl text-5xl font-black leading-[1.02] tracking-tight text-[#063f46] sm:text-6xl">
+                A personal health crisis became a professional mission.
+              </h2>
+              <div class="mt-8 grid max-w-2xl gap-5 text-base font-semibold leading-8 text-[#164f59]/85">
+                <p>
+                  AJ Callegan grew up on the bayou of Lafitte, Louisiana. After more than two decades building and servicing HVAC systems across the Gulf South, a health crisis in 2019 forced him to sell his business - and confront something the industry rarely discusses.
+                </p>
+                <p>
+                  A diagnosis of epilepsy led to a longer investigation. The root cause: mold toxicity from years of exposure to mycotoxins in the HVAC systems and buildings he worked in. After treatment through functional medicine, AJ has been seizure-free for over three years.
+                </p>
+                <p>
+                  In 2022, he launched ACC Building Performance - not as a second act, but as a direct response to the construction deficiencies that nearly destroyed his health.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                class="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#063f46] px-7 text-sm font-extrabold text-white transition hover:bg-[#092f38]"
+              >
+                Start a Conversation
                 <ArrowRight class="h-4 w-4" />
               </a>
             </div>
-            <div class="relative min-h-96">
-              <div class="absolute bottom-0 left-0 h-52 w-52 rounded-full bg-acc-blue shadow-2xl"></div>
-              <div class="absolute bottom-16 left-40 h-40 w-40 rounded-full bg-acc-deep shadow-2xl"></div>
-              <div class="absolute bottom-28 left-72 h-32 w-32 rounded-full bg-acc-deep shadow-2xl"></div>
-              <div class="absolute bottom-12 right-4 h-12 w-32 rounded bg-acc-aqua shadow-lg"></div>
-              <div class="absolute bottom-28 right-24 h-10 w-28 rounded bg-acc-mist shadow-lg"></div>
-              <div class="absolute bottom-8 left-12 text-sm font-bold uppercase tracking-widest text-acc-pale">ACC</div>
-            </div>
           </div>
         </section>
 
-        <section class="bg-acc-sky px-5 py-16 sm:px-6 lg:px-8">
-          <div class="mx-auto grid max-w-7xl gap-10 rounded-xl bg-acc-deep p-8 text-acc-mist shadow-2xl sm:p-12 lg:grid-cols-2">
-            <div>
-              <h2 class="max-w-sm text-4xl font-bold leading-none">Where diagnostics meet proof</h2>
-              <p class="mt-6 max-w-sm text-sm leading-6 text-acc-pale">
-                These metrics reflect field experience, design scope, and diagnostic coverage applied to real homes across the Gulf South.
+        <section id="services" class="relative bg-white px-5 py-28 sm:px-6 lg:px-8">
+          <div class="absolute inset-x-[-6%] -top-10 h-20 rounded-[50%_50%_0_0] bg-white"></div>
+          <div class="mx-auto max-w-6xl">
+            <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+              <div>
+                <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">What We Do</p>
+                <h2 class="mt-4 max-w-2xl text-5xl font-black leading-none tracking-tight text-slate-950 sm:text-6xl">Three ways to work with us</h2>
+              </div>
+              <p class="max-w-md text-base font-semibold leading-7 text-slate-500 lg:justify-self-end">
+                For homeowners with a problem, builders who want verified results, or anyone who needs precision HVAC design.
               </p>
             </div>
-            <div class="grid gap-8">
-              {numbers.map(([number, label, Icon]) => (
-                <div class="flex items-center gap-6">
-                  <Icon class="h-14 w-14 text-acc-ice" />
-                  <div>
-                    <p class="text-4xl font-bold sm:text-5xl">{number}</p>
-                    <p class="mt-1 text-sm text-acc-pale">{label}</p>
+
+            <div class="mt-14 grid gap-6 lg:grid-cols-3">
+              {services.map((service) => (
+                <article class="flex overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <div class="flex w-full flex-col">
+                    <img src={service.image} alt="" class="h-44 w-full object-cover" loading="lazy" />
+                    <div class="flex flex-1 flex-col p-7">
+                      <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#62aebe]">{service.eyebrow}</p>
+                      <h3 class="mt-4 text-2xl font-black leading-tight text-slate-950">{service.title}</h3>
+                      <p class="mt-4 text-sm font-semibold leading-7 text-slate-500">{service.copy}</p>
+                      <ul class="mt-6 grid gap-3 text-sm font-bold leading-6 text-slate-700">
+                        {service.bullets.map((bullet) => (
+                          <li class="flex gap-3">
+                            <Check class="mt-1 h-4 w-4 shrink-0 text-[#62aebe]" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <a
+                        href="#contact"
+                        class="mt-10 inline-flex min-h-11 w-fit items-center gap-2 rounded-md bg-[#edae43] px-5 text-sm font-extrabold text-slate-950 transition hover:bg-[#f5bd5b]"
+                      >
+                        {service.action}
+                        <ArrowRight class="h-4 w-4" />
+                      </a>
+                    </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section class="bg-acc-sky px-5 py-20 sm:px-6 lg:px-8">
-          <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h2 class="max-w-md text-5xl font-bold leading-none tracking-tight text-acc-deep">Your trusted team for sustainable solutions</h2>
-              <p class="mt-6 max-w-lg leading-8 text-acc-deep">
-                We make invisible building issues visible, then help homeowners, builders, and HVAC contractors make decisions with confidence.
-              </p>
-              <a href="#contact" class="mt-8 inline-flex items-center gap-2 rounded bg-acc-gold px-5 py-3 text-sm font-bold text-acc-deep hover:bg-acc-taupe">
-                Get to know us
-                <ArrowRight class="h-4 w-4" />
-              </a>
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-xl">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80" alt="Professional consultant meeting with a team" loading="lazy" class="aspect-[7/5] w-full object-cover" data-scroll-scale-image />
+        <section id="projects" class="relative bg-[#0b4850] px-5 py-28 text-white sm:px-6 lg:px-8">
+          <div class="absolute inset-x-[-6%] -top-10 h-20 rounded-[0_0_50%_50%] bg-white"></div>
+          <div class="mx-auto max-w-6xl">
+            <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Areas of Practice</p>
+            <h2 class="mt-5 max-w-2xl text-5xl font-black leading-none tracking-tight sm:text-6xl">What we know, deeply.</h2>
+            <p class="mt-6 max-w-2xl text-base font-semibold leading-7 text-white/45">
+              Two decades of HVAC field experience combined with building science education and performance diagnostics - applied to every project.
+            </p>
+
+            <div class="mt-14 grid overflow-hidden rounded-xl border border-white/12 sm:grid-cols-2 lg:grid-cols-4">
+              {practiceAreas.map(([title, copy], index) => (
+                <article class:list={['min-h-32 border-b border-r border-white/12 p-7', index === practiceAreas.length - 1 && 'bg-white/10 lg:col-span-3']}>
+                  <h3 class="text-sm font-black leading-tight">{title}</h3>
+                  <p class="mt-2 text-xs font-semibold leading-5 text-white/42">{copy}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" class="bg-acc-sky px-5 pb-24 pt-16 sm:px-6 lg:px-8">
-          <div class="mx-auto grid max-w-7xl gap-12 border-t border-acc-deep pt-16 lg:grid-cols-4">
+        <section id="contact" class="bg-[#d7f3f7] px-5 py-24 sm:px-6 lg:px-8">
+          <div class="mx-auto grid max-w-6xl gap-10 rounded-2xl bg-white p-8 shadow-xl shadow-[#06333a]/10 lg:grid-cols-[0.8fr_1.2fr] lg:p-12">
             <div>
-              <h2 class="text-3xl font-bold leading-none text-acc-deep">Ready to turn your home into value?</h2>
-              <a href="tel:+15042480186" class="mt-6 inline-flex items-center gap-2 rounded bg-acc-gold px-5 py-3 text-sm font-bold text-acc-deep hover:bg-acc-taupe">
-                Call ACC
-                <Phone class="h-4 w-4" />
-              </a>
+              <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Contact</p>
+              <h2 class="mt-4 text-4xl font-black leading-tight text-[#063f46]">Ready to diagnose the home, not guess?</h2>
+              <div class="mt-8 grid gap-4 text-sm font-bold text-slate-600">
+                <p class="flex items-center gap-3"><MapPin class="h-5 w-5 text-[#62aebe]" /> Covington, Louisiana</p>
+                <a href="tel:+15042480186" class="flex items-center gap-3 hover:text-[#063f46]"><Phone class="h-5 w-5 text-[#62aebe]" /> 504-248-0186</a>
+                <p class="flex items-center gap-3"><ShieldCheck class="h-5 w-5 text-[#62aebe]" /> Building science, HVAC design, and verification</p>
+              </div>
             </div>
 
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" class="grid gap-4 lg:col-span-2">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" class="grid gap-4">
               <input type="hidden" name="form-name" value="contact" />
               <p class="hidden">
                 <label>Company <input name="company" /></label>
               </p>
               <div class="grid gap-4 sm:grid-cols-2">
-                <input name="name" required placeholder="Name" aria-label="Name" class="rounded border border-acc-deep bg-acc-mist px-4 py-3 outline-none focus:ring-2 focus:ring-acc-deep" />
-                <input type="email" name="email" required placeholder="Email" aria-label="Email" class="rounded border border-acc-deep bg-acc-mist px-4 py-3 outline-none focus:ring-2 focus:ring-acc-deep" />
+                <input name="name" required placeholder="Name" aria-label="Name" class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-base font-semibold outline-none focus:ring-2 focus:ring-[#62aebe]" />
+                <input type="email" name="email" required placeholder="Email" aria-label="Email" class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-base font-semibold outline-none focus:ring-2 focus:ring-[#62aebe]" />
               </div>
-              <textarea name="message" rows="4" required placeholder="Message" aria-label="Message" class="rounded border border-acc-deep bg-acc-mist px-4 py-3 outline-none focus:ring-2 focus:ring-acc-deep"></textarea>
-              <button type="submit" class="inline-flex w-fit items-center gap-2 rounded bg-acc-deep px-5 py-3 text-sm font-bold text-acc-mist hover:bg-acc-muted">
+              <textarea name="message" rows="5" required placeholder="What is happening in the home?" aria-label="Message" class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-base font-semibold outline-none focus:ring-2 focus:ring-[#62aebe]"></textarea>
+              <button type="submit" class="inline-flex min-h-12 w-fit items-center gap-2 rounded-md bg-[#063f46] px-7 text-sm font-extrabold text-white transition hover:bg-[#092f38]">
                 Send Message
                 <Mail class="h-4 w-4" />
               </button>
             </form>
-
-            <div class="grid gap-5 text-sm text-acc-deep">
-              <p class="flex items-center gap-2 font-semibold text-acc-deep"><MapPin class="h-4 w-4" /> Covington, Louisiana</p>
-              <p class="flex items-center gap-2 font-semibold text-acc-deep"><Phone class="h-4 w-4" /> 504-248-0186</p>
-              <p class="flex items-center gap-2 font-semibold text-acc-deep"><Gauge class="h-4 w-4" /> Mon - Fri, 9:00 am - 5:00 pm</p>
-            </div>
           </div>
         </section>
       </main>
 
-      <script>
-        const updateScrollScaleImages = () => {
-          const viewportHeight = window.innerHeight;
-
-          document.querySelectorAll('[data-scroll-scale-image]').forEach((image) => {
-            const frame = image.parentElement;
-            if (!frame) return;
-
-            const rect = frame.getBoundingClientRect();
-            if (rect.bottom < 0 || rect.top > viewportHeight) return;
-
-            const progress = Math.min(1, Math.max(0, (viewportHeight - rect.top) / (viewportHeight + rect.height)));
-            const scale = 1.04 + progress * 0.16;
-
-            image.style.transform = `scale(${scale})`;
-          });
-        };
-
-        const requestScrollScaleUpdate = () => {
-          requestAnimationFrame(updateScrollScaleImages);
-        };
-
-        updateScrollScaleImages();
-        window.addEventListener('scroll', requestScrollScaleUpdate, { passive: true });
-        window.addEventListener('resize', requestScrollScaleUpdate, { passive: true });
-      </script>
-
-      <footer class="bg-acc-sky px-5 py-10 sm:px-6 lg:px-8">
-        <div class="mx-auto grid max-w-7xl gap-10 border-t border-acc-deep pt-10 lg:grid-cols-4">
-          <div>
-            <Image src={logo} alt="ACC Building Performance LLC" width={120} class="h-8 w-auto object-contain" />
-            <p class="mt-8 text-xs text-acc-muted">Copyright 2026 ACC Building Performance LLC. All rights reserved.</p>
-          </div>
-          {footerLinks.map(([title, links]) => (
-            <div>
-              <p class="text-xs font-bold uppercase tracking-widest text-acc-deep">{title}</p>
-              <div class="mt-4 grid gap-3">
-                {links.map((link) => <a href="#" class="text-sm text-acc-deep hover:text-acc-muted">{link}</a>)}
-              </div>
-            </div>
-          ))}
+      <footer class="bg-[#06333a] px-5 py-10 text-white sm:px-6 lg:px-8">
+        <div class="mx-auto flex max-w-6xl flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <Image src={logo} alt="ACC Building Performance LLC" width={110} class="h-8 w-auto rounded bg-white px-2 py-1 object-contain" />
+          <p class="text-xs font-bold text-white/35">Copyright 2026 ACC Building Performance LLC. All rights reserved.</p>
         </div>
       </footer>
     </div>
