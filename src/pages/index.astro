@@ -44,9 +44,9 @@ const heroImage =
 
 const stats = [
   { value: 20, suffix: '+', label: 'Years in HVAC & construction', icon: Clock3 },
-  { value: 10, suffix: '', label: 'Building science specialty areas', icon: Home },
+  { value: 10, suffix: '', label: 'Building science specialties', icon: Home },
   { value: 4, suffix: '', label: 'ACCA Manuals - J, S, D & T', icon: Activity },
-  { value: 100, suffix: '%', label: 'Verified & documented results', icon: CheckCircle2 },
+  { value: 100, suffix: '%', label: 'Verified results', icon: CheckCircle2 },
 ];
 
 const services = [
@@ -71,14 +71,14 @@ const services = [
     action: 'Start a Project',
     bullets: [
       'Design & trade coordination meetings',
-      'Full ACCA Manual J, S, D & T HVAC design',
-      'Two blower door tests + duct leakage testing',
+      'Full ACCA Manual J, S, D & T HVAC',
+      'Blower door tests + duct leakage testing',
       'Complete documentation + ongoing support',
     ],
   },
   {
     eyebrow: '03 - Design & Testing',
-    title: 'HVAC Design Services',
+    title: 'Precision HVAC Design Services',
     copy: 'Precision engineering for high-performance HVAC systems. Load calculations, equipment selection, 3D ductwork design, and performance verification.',
     image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80',
     action: 'Get a Quote',
@@ -153,7 +153,7 @@ const practiceAreas = [
             <a href="tel:+15042480186" class="hidden font-mono text-sm font-bold text-white/50 sm:inline">504-248-0186</a>
             <a
               href="#contact"
-              class="inline-flex min-h-11 items-center justify-center rounded-lg bg-acc-gold px-5 text-sm font-extrabold text-acc-ink shadow-sm transition hover:bg-[#c98b00]"
+              class="inline-flex min-h-11 items-center justify-center rounded-lg btn-gold px-5 text-sm font-extrabold shadow-sm transition"
             >
               Get an Assessment
             </a>
@@ -173,13 +173,12 @@ const practiceAreas = [
                 <span class="block bg-gradient-to-b from-[#8bd4e5] to-[#6f86c8] bg-clip-text text-transparent">Air You Can Trust.</span>
               </h1>
               <p class="mt-10 max-w-xl text-lg font-semibold leading-7 text-white/58">
-                Twenty-plus years of building science and HVAC expertise, applied to the construction deficiencies that make families sick.
-                Diagnostic, design, and verification services across the Gulf South.
+                We apply twenty-plus years of building science and HVAC expertise to the construction deficiencies that make families sick, providing diagnostic, design, and verification services across the Gulf South.
               </p>
               <div class="mt-12 flex flex-wrap gap-5">
                 <a
                   href="#contact"
-                  class="inline-flex min-h-14 items-center justify-center rounded-lg bg-acc-gold px-8 text-base font-extrabold text-acc-ink shadow-sm transition hover:bg-[#c98b00]"
+                  class="inline-flex min-h-14 items-center justify-center rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition"
                 >
                   Schedule an Assessment
                 </a>
@@ -194,7 +193,14 @@ const practiceAreas = [
 
             <div class="relative mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
               <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
-                <img src={heroImage} alt="Modern high-performance home exterior at dusk" class="aspect-[1.02] w-full object-cover" loading="eager" />
+                <img
+                  src={heroImage}
+                  alt="Modern high-performance home exterior at dusk"
+                  class="aspect-[1.02] w-full object-cover"
+                  loading="eager"
+                  style="transform: scale(1.04);"
+                  data-scroll-scale-image
+                />
               </div>
               <div class="absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl sm:-bottom-9 sm:left-24 sm:translate-x-0">
                 <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
@@ -209,7 +215,7 @@ const practiceAreas = [
           </div>
         </section>
 
-        <section class="relative bg-[#06333a] px-5 pb-24 pt-10 text-white sm:px-6 lg:px-8">
+        <section class="relative bg-[#06333a] px-5 py-10 text-white sm:px-6 lg:px-8">
           <div class="absolute inset-x-[-8%] -bottom-12 h-32 rounded-[0_0_50%_50%] bg-[#06333a]"></div>
           <div class="relative mx-auto grid max-w-6xl gap-8 md:grid-cols-4">
             {stats.map(({ value, suffix, label, icon: Icon }) => (
@@ -222,7 +228,7 @@ const practiceAreas = [
                 >
                   0{suffix}
                 </p>
-                <p class="mt-2 max-w-[11rem] text-xs font-bold leading-5 text-white/35">{label}</p>
+                <p class="mt-2 max-w-[11rem] text-xs font-bold leading-5 text-white/75">{label}</p>
               </article>
             ))}
           </div>
@@ -231,12 +237,16 @@ const practiceAreas = [
         <section id="about" class="relative bg-acc-mist px-5 pb-28 pt-28 sm:px-6 lg:px-8 lg:pt-36">
           <div class="mx-auto grid max-w-6xl items-stretch gap-16 lg:grid-cols-[0.9fr_1fr]">
             <div class="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
-              <Image
-                src={ajCallegan}
-                alt="AJ Callegan, founder of ACC Building Performance"
-                width={760}
-                class="aspect-[4/5] h-auto w-full rounded-2xl object-cover object-bottom shadow-2xl shadow-[#06333a]/15 lg:h-full lg:min-h-[34rem] lg:aspect-auto"
-              />
+              <div class="h-full min-h-[34rem] overflow-hidden rounded-2xl shadow-2xl shadow-[#06333a]/15">
+                <Image
+                  src={ajCallegan}
+                  alt="AJ Callegan, founder of ACC Building Performance"
+                  width={760}
+                  class="aspect-[4/5] h-full w-full object-cover object-bottom lg:aspect-auto"
+                  style="transform: scale(1.04);"
+                  data-scroll-scale-image
+                />
+              </div>
               <div class="absolute -bottom-6 right-5 max-w-[17rem] rounded-lg bg-[#0b4850] p-6 text-white shadow-2xl shadow-[#06333a]/25">
                 <p class="text-sm font-bold leading-6">“Mold toxicity was the root cause of my uncontrollable seizures - it changed everything about how I work.”</p>
                 <p class="mt-4 text-[0.62rem] font-black uppercase tracking-[0.24em] text-[#7ec8db]">- AJ Callegan, Founder</p>
@@ -270,8 +280,8 @@ const practiceAreas = [
           </div>
         </section>
 
-        <section id="projects" class="relative bg-[#0b4850] px-5 py-28 text-white sm:px-6 lg:px-8">
-          <div class="absolute inset-x-[-6%] -top-10 h-20 rounded-[0_0_50%_50%] bg-acc-mist"></div>
+        <section id="projects" class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-28 text-white sm:px-6 lg:px-8">
+          <div class="hero-noise absolute inset-0 opacity-70"></div>
           <div class="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.06)_0,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_20px)] opacity-30"></div>
           <div class="relative mx-auto max-w-6xl">
             <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Areas of Practice</p>
@@ -303,23 +313,35 @@ const practiceAreas = [
               </h2>
             </div>
 
-            <div class="mt-14 grid items-stretch gap-7 lg:grid-cols-2">
-              <div class="overflow-hidden rounded-2xl bg-white shadow-2xl shadow-slate-950/10 ring-1 ring-slate-950/5">
-                <Image
+            <div class="mt-14 grid items-stretch gap-7 lg:grid-cols-[1.05fr_0.95fr]">
+              <div class="relative overflow-hidden rounded-3xl border bg-white shadow-2xl shadow-slate-950/10">
+                <div class="relative flex h-full min-h-[34rem] items-center justify-center rounded-2xl">
+                  <Image
                     src={scienceHouse}
                     alt="Building science diagram showing air, moisture, heat, and pressure interactions in a home"
                     width={980}
-                    class="h-full min-h-[34rem] w-full object-cover object-left-top"
+                    class="max-h-[32rem] w-full object-contain"
                     loading="lazy"
-                />
+                    style="transform: scale(1.04);"
+                    data-scroll-scale-image
+                  />
+                </div>
               </div>
 
-              <div class="grid gap-7 lg:grid-rows-3">
-                {designProjects.map((project) => (
-                    <article class="flex flex-col justify-center rounded-2xl border border-[#d8edf2] bg-[#eaf7fa] p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-950/5">
-                      <p class="text-[0.72rem] font-black uppercase tracking-[0.26em] text-[#7fc2d0]">{project.location}</p>
+              <div class="grid gap-5 lg:grid-rows-3">
+                {designProjects.map((project, index) => (
+                    <article class="group relative overflow-hidden rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7">
+                      <div class="absolute inset-y-0 left-0 w-1 bg-[#7fc2d0] opacity-70 transition group-hover:bg-acc-gold group-hover:opacity-100"></div>
+                      <div class="flex items-start gap-5">
+                        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#e8f3f4] text-sm font-black text-[#0b4850] ring-1 ring-[#cfe3e7]">
+                          0{index + 1}
+                        </span>
+                        <div>
+                          <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#62aebe]">{project.location}</p>
                       <h3 class="mt-5 text-xl font-black leading-tight text-acc-ink">{project.title}</h3>
-                      <p class="mt-3 text-base font-semibold leading-7 text-slate-500">{project.copy}</p>
+                          <p class="mt-3 text-sm font-semibold leading-6 text-slate-600">{project.copy}</p>
+                        </div>
+                      </div>
                     </article>
                 ))}
               </div>
@@ -377,7 +399,12 @@ const practiceAreas = [
               {services.map((service) => (
                 <article class="flex overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
                   <div class="flex w-full flex-col">
-                    <img src={service.image} alt="" class="h-44 w-full object-cover" loading="lazy" />
+                    <img
+                      src={service.image}
+                      alt=""
+                      class="h-44 w-full object-cover"
+                      loading="lazy"
+                    />
                     <div class="flex flex-1 flex-col p-7">
                       <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#62aebe]">{service.eyebrow}</p>
                       <h3 class="mt-4 text-2xl font-black leading-tight text-acc-ink">{service.title}</h3>
@@ -392,7 +419,7 @@ const practiceAreas = [
                       </ul>
                       <a
                         href="#contact"
-                        class="mt-10 inline-flex min-h-11 w-fit items-center gap-2 rounded-md bg-acc-gold px-5 text-sm font-extrabold text-acc-ink transition hover:bg-[#c98b00]"
+                        class="mt-10 inline-flex min-h-11 w-fit items-center gap-2 rounded-md btn-gold px-5 text-sm font-extrabold transition"
                       >
                         {service.action}
                         <ArrowRight class="h-4 w-4" />
@@ -405,7 +432,7 @@ const practiceAreas = [
           </div>
         </section>
 
-        <section id="contact" class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
+        <section id="contact" class="bg-acc-mist px-5 pt-12 pb-24 sm:px-6 lg:px-8">
           <div class="mx-auto grid max-w-6xl gap-10 rounded-2xl bg-white p-8 shadow-xl shadow-[#06333a]/10 lg:grid-cols-[0.8fr_1.2fr] lg:p-12">
             <div>
               <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Contact</p>
@@ -438,6 +465,27 @@ const practiceAreas = [
 
       <script>
         const animatedCounters = document.querySelectorAll('[data-count-to]');
+
+        const updateScrollScaleImages = () => {
+          const viewportHeight = window.innerHeight;
+
+          document.querySelectorAll('[data-scroll-scale-image]').forEach((image) => {
+            const frame = image.parentElement;
+            if (!frame) return;
+
+            const rect = frame.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > viewportHeight) return;
+
+            const progress = Math.min(1, Math.max(0, (viewportHeight - rect.top) / (viewportHeight + rect.height)));
+            const scale = 1.04 + progress * 0.16;
+
+            image.style.transform = `scale(${scale})`;
+          });
+        };
+
+        const requestScrollScaleUpdate = () => {
+          requestAnimationFrame(updateScrollScaleImages);
+        };
 
         const animateCounter = (counter) => {
           const target = Number(counter.dataset.countTo || 0);
@@ -473,6 +521,9 @@ const practiceAreas = [
         );
 
         animatedCounters.forEach((counter) => counterObserver.observe(counter));
+        updateScrollScaleImages();
+        window.addEventListener('scroll', requestScrollScaleUpdate, { passive: true });
+        window.addEventListener('resize', requestScrollScaleUpdate, { passive: true });
       </script>
 
       <footer>
