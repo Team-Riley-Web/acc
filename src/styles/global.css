@@ -15,6 +15,7 @@
 @layer base {
   html {
     font-size: 1.125rem;
+    scroll-padding-top: 5.5rem;
   }
 
   @media screen and (max-width: 1920px) {
@@ -65,12 +66,99 @@
     opacity: 0.2;
     pointer-events: none;
     position: absolute;
+    z-index: 1;
+  }
+
+  .hero-airflow::after {
+    animation: hero-airflow 22s ease-in-out infinite alternate;
+    background:
+      radial-gradient(ellipse at 18% 36%, rgba(1, 32, 43, 0.78) 0%, rgba(2, 41, 60, 0.38) 32%, transparent 64%),
+      radial-gradient(ellipse at 78% 22%, rgba(14, 89, 100, 0.58) 0%, rgba(6, 63, 70, 0.26) 36%, transparent 68%),
+      radial-gradient(ellipse at 62% 84%, rgba(1, 35, 51, 0.82) 0%, rgba(5, 52, 61, 0.3) 34%, transparent 70%);
+    content: "";
+    inset: -22%;
+    pointer-events: none;
+    position: absolute;
+    transform: translate3d(-3%, -2%, 0) scale(1.04);
     z-index: 0;
+  }
+
+  @keyframes hero-airflow {
+    0% {
+      transform: translate3d(-3%, -2%, 0) scale(1.04) rotate(-1deg);
+    }
+
+    50% {
+      transform: translate3d(3%, 2%, 0) scale(1.1) rotate(1deg);
+    }
+
+    100% {
+      transform: translate3d(-1%, 4%, 0) scale(1.07) rotate(-0.5deg);
+    }
+  }
+
+  .footer-airflow-layer {
+    animation: footer-airflow 26s ease-in-out infinite alternate;
+    background:
+      radial-gradient(ellipse at 18% 26%, rgba(15, 96, 104, 0.62) 0%, rgba(6, 63, 70, 0.24) 34%, transparent 66%),
+      radial-gradient(ellipse at 78% 38%, rgba(2, 31, 48, 0.88) 0%, rgba(1, 41, 60, 0.42) 36%, transparent 70%),
+      radial-gradient(ellipse at 54% 86%, rgba(9, 79, 87, 0.5) 0%, rgba(3, 49, 61, 0.24) 36%, transparent 68%);
+    pointer-events: none;
+    transform: translate3d(-3%, -1%, 0) scale(1.04);
+  }
+
+  @keyframes footer-airflow {
+    0% {
+      transform: translate3d(-3%, -1%, 0) scale(1.04) rotate(-1deg);
+    }
+
+    50% {
+      transform: translate3d(4%, 3%, 0) scale(1.1) rotate(1deg);
+    }
+
+    100% {
+      transform: translate3d(-1%, 5%, 0) scale(1.07) rotate(-0.5deg);
+    }
   }
 
   [data-scroll-scale-image] {
     transform-origin: center;
     transition: transform 120ms linear;
     will-change: transform;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 800ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+      transform 900ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-airflow::after {
+      animation: none;
+    }
+
+    .footer-airflow-layer {
+      animation: none;
+    }
+
+    [data-scroll-scale-image] {
+      transition: none;
+    }
+
+    .scroll-reveal,
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 }
