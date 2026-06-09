@@ -47,13 +47,13 @@ const { title, description } = Astro.props;
               </div>
               <a href="/about" class="transition hover:text-white">About</a>
               <a href="/contact" class="transition hover:text-white">Contact</a>
-              <a href="/v1" class="transition hover:text-white">V1</a>
-              <a href="/v2" class="transition hover:text-white">V2</a>
+              <!--<a href="/v1" class="transition hover:text-white">V1</a>-->
+              <!--<a href="/v2" class="transition hover:text-white">V2</a>-->
             </div>
-            <a href="tel:+15042480186" class="hidden items-center gap-2 font-mono text-sm font-bold text-white/50 sm:flex">
-              <Phone class="h-4 w-4" />
-              504-248-0186
-            </a>
+            <!--<a href="tel:+15042480186" class="hidden items-center gap-2 font-mono text-sm font-bold text-white/50 sm:flex">-->
+            <!--  <Phone class="h-4 w-4" />-->
+            <!--  504-248-0186-->
+            <!--</a>-->
             <a href="/contact" class="inline-flex min-h-11 items-center justify-center rounded-lg btn-gold px-5 text-sm font-extrabold shadow-sm transition">
               Book Your Assessment
             </a>
@@ -68,8 +68,8 @@ const { title, description } = Astro.props;
                 ))}
                 <a href="/about" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">About</a>
                 <a href="/contact" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">Contact</a>
-                <a href="/v1" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">V1</a>
-                <a href="/v2" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">V2</a>
+                <!--<a href="/v1" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">V1</a>-->
+                <!--<a href="/v2" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">V2</a>-->
               </div>
             </details>
           </div>
@@ -88,29 +88,30 @@ const { title, description } = Astro.props;
           <div class="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.2fr_1fr_1fr_1.2fr]">
             <div>
               <Image src={logo} alt="ACC Building Performance" width={260} quality={100} class="h-12 w-auto" />
-              <p class="mt-6 max-w-xs text-base font-semibold leading-7 text-white/63">Care is more than our name.</p>
+              <!--<p class="mt-6 max-w-xs text-base font-semibold leading-7 text-white/63">Care is more than our name.</p>-->
               <a href="/contact" class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 text-sm font-black text-[#02293c] shadow-xl shadow-[#173d45]/10 transition hover:-translate-y-0.5 hover:bg-[#f7f7f2]">
                 Book Your Assessment
                 <ArrowRight class="h-4 w-4" />
               </a>
             </div>
+            <div></div>
             <div>
               <h2 class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Services</h2>
               <div class="mt-6 grid gap-3 text-sm font-bold text-white/55">
                 {servicesNav.map((item) => <a href={item.href} class="hover:text-white">{item.label}</a>)}
               </div>
             </div>
-            <div>
-              <h2 class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Navigate</h2>
-              <div class="mt-6 grid gap-3 text-sm font-bold text-white/55">
-                <a href="/" class="hover:text-white">Home</a>
-                <a href="/about" class="hover:text-white">About</a>
-                <a href="/contact" class="hover:text-white">Contact</a>
-                <a href="/contact" class="hover:text-white">Book Your Assessment</a>
-                <a href="/v1" class="hover:text-white">Homepage V1</a>
-                <a href="/v2" class="hover:text-white">Homepage V2</a>
-              </div>
-            </div>
+            <!--<div>-->
+            <!--  <h2 class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Navigate</h2>-->
+            <!--  <div class="mt-6 grid gap-3 text-sm font-bold text-white/55">-->
+            <!--    <a href="/" class="hover:text-white">Home</a>-->
+            <!--    <a href="/about" class="hover:text-white">About</a>-->
+            <!--    <a href="/contact" class="hover:text-white">Contact</a>-->
+            <!--    <a href="/contact" class="hover:text-white">Book Your Assessment</a>-->
+            <!--    &lt;!&ndash;<a href="/v1" class="hover:text-white">Homepage V1</a>&ndash;&gt;-->
+            <!--    &lt;!&ndash;<a href="/v2" class="hover:text-white">Homepage V2</a>&ndash;&gt;-->
+            <!--  </div>-->
+            <!--</div>-->
             <div>
               <h2 class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Contact</h2>
               <div class="mt-6 grid gap-3 text-sm font-bold leading-6 text-white/55">

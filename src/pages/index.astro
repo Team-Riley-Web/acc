@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import { Activity,
+import {
+  Activity,
   ArrowRight,
   Building2,
   Check,
@@ -23,7 +24,7 @@ import { Activity,
   ThermometerSun,
   Waves,
   Utensils,
-  Wind
+  Wind, Search, ClipboardList
 } from '@lucide/astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ajCallegan from '../assets/images/aj-callegan.jpg';
@@ -104,12 +105,13 @@ const practiceAreas = [
   <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-28 pt-24 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-32">
     <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_1.05fr]">
       <div>
-        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">Building Science · HVAC Consulting · Louisiana</p>
+        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">Building Science · HVAC Consulting</p>
         <h1 class="mt-10 max-w-xl text-5xl font-black leading-[0.96] tracking-tight text-white sm:text-[5.6rem] lg:text-[6.3rem]">
           Home
           <span class="block bg-gradient-to-b from-[#8bd4e5] to-[#6f86c8] bg-clip-text text-transparent">Air You Can Trust.</span>
         </h1>
-        <p class="mt-10 max-w-xl text-lg font-semibold leading-7 text-white/58">We apply twenty-plus years of building science and HVAC expertise to the construction deficiencies that make families sick, providing diagnostic, design, and verification services across the Gulf South.</p>
+        <p class="mt-10 max-w-xl text-lg font-semibold leading-7 text-white/58">
+          ACC Building Performance is a building science specialist serving the Gulf South. We find the root cause of what is making your home, and your family, sick.</p>
         <div class="mt-12 flex flex-wrap gap-5">
           <a href="/contact" class="inline-flex min-h-14 items-center justify-center rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">Schedule an Assessment</a>
           <a href="/about" class="inline-flex min-h-14 items-center justify-center rounded-lg border border-white/20 px-8 text-base font-extrabold text-white/70 transition hover:border-white/45 hover:text-white">Our Story</a>
@@ -121,10 +123,10 @@ const practiceAreas = [
         </div>
         <div class="absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl sm:-bottom-9 sm:left-24 sm:translate-x-0">
           <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
-            <House class="h-9 w-9" />
+            <Search class="h-9 w-9" />
           </span>
           <span>
-            <span class="block text-base font-black leading-tight text-[#02293c]">Science-Based Diagnostics</span>
+            <span class="block text-base font-black leading-tight text-[#02293c]">Root-Cause Diagnostics</span>
             <span class="mt-1 block text-sm font-bold leading-5 text-slate-600">Not a checklist - a real investigation</span>
           </span>
         </div>
@@ -156,41 +158,96 @@ const practiceAreas = [
         <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#4f93a2]">The Story Behind ACC</p>
         <h2 class="mt-5 max-w-xl text-5xl font-black leading-[1.02] tracking-tight text-acc-ink sm:text-6xl">A personal health crisis became a professional mission.</h2>
         <div class="mt-8 grid max-w-2xl gap-5 text-base font-semibold leading-7 text-[#164f59]/85">
-          <p>AJ Callegan grew up on the bayou of Lafitte, Louisiana. After more than two decades building and servicing HVAC systems across the Gulf South, a health crisis forced him to confront something the industry rarely discusses.</p>
+          <!--<p>AJ Callegan grew up on the bayou of Lafitte, Louisiana. After more than two decades building and servicing HVAC systems across the Gulf South, a health crisis forced him to confront something the industry rarely discusses.</p>-->
+          <p>
+            AJ founded ACC Building Performance because he saw the same story playing out over and over: families suffering in homes that had been inspected, remediated, and serviced by a dozen different contractors, and still sick.
+          </p>
           <p>In 2022, he launched ACC Building Performance as a direct response to the construction deficiencies that nearly destroyed his health.</p>
         </div>
+        <a href="/about" class="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#02293c] px-7 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#092f38]">
+          Learn More About AJ
+          <ArrowRight class="h-4 w-4" />
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-28 text-white sm:px-6 lg:px-8">
-    <div class="hero-noise absolute inset-0 opacity-70"></div>
-    <div class="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.06)_0,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_20px)] opacity-30"></div>
-    <div class="relative mx-auto max-w-6xl">
-      <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Areas of Practice</p>
-      <h2 class="mt-5 max-w-2xl text-5xl font-black leading-none tracking-tight sm:text-6xl">What we know, deeply.</h2>
-      <p class="mt-6 max-w-2xl text-base font-semibold leading-7 text-white/85">
-        Two decades of HVAC field experience combined with building science education and performance diagnostics - applied to every project.
-      </p>
+  <section class="relative bg-[#06333a] px-5 py-10 text-white sm:px-6 lg:px-8">
+    <div class="absolute inset-x-[-8%] -bottom-12 h-32 rounded-[0_0_50%_50%] bg-[#06333a]"></div>
+    <div class="relative mx-auto flex max-w-6xl flex-wrap justify-center gap-x-16 gap-y-4 text-sm font-black text-white/78">
+      <span>✓ Building Science Certified</span>
+      <span>✓ Trusted by Functional Medicine Doctors</span>
+      <span>✓ Root-Cause Methodology</span>
+    </div>
+  </section>
 
-      <div class="mt-14 grid overflow-hidden rounded-xl border border-white/12 sm:grid-cols-2 lg:grid-cols-4">
-        {practiceAreas.map(({ title, copy, icon: Icon }) => (
-            <article class="group min-h-36 border-b border-r border-white/12 bg-white/[0.025] p-7 transition hover:bg-white/[0.07]">
-              <div class="mb-8 flex h-10 w-10 items-center justify-center rounded-lg border border-white/12 bg-white/[0.06] text-[#6ab8ce] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition group-hover:border-[#6ab8ce]/45 group-hover:bg-[#6ab8ce]/10">
+  <section id="how-we-work" class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-28 text-white sm:px-6 lg:px-8">
+    <div class="hero-noise absolute inset-0 opacity-70"></div>
+    <div class="relative mx-auto max-w-6xl">
+      <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">What We Do</p>
+      <h2 class="mt-5 max-w-2xl text-5xl font-black leading-none tracking-tight sm:text-6xl">Building Science.<br>Not Guesswork.</h2>
+      <div class="mt-8 grid max-w-3xl gap-5 text-base font-semibold leading-7 text-white/75">
+        <p>Building science is the discipline of evaluating a home as an integrated system: the envelope, the mechanical systems, the moisture dynamics, and how they interact. We conduct comprehensive assessments that trace the problem back to its source, then documents what was found, why it matters, and what needs to happen next.</p>
+      </div>
+      <div class="mt-14 grid overflow-hidden rounded-xl border border-white/12 md:grid-cols-3">
+        {[
+          [Search, 'Root-Cause Investigation', "We don't describe symptoms. We find the building deficiency that created them."],
+          [ClipboardList, 'Documented & Actionable', 'Every assessment produces a written report you can hand to your doctor, contractor, and insurance company.'],
+          [Home, 'Whole-Home Perspective', 'We evaluate the envelope, mechanical systems, moisture management, and their interactions.'],
+        ].map(([Icon, title, copy]) => (
+            <article class="group min-h-52 border-b border-r border-white/12 bg-white/[0.025] p-7 transition hover:bg-white/[0.07]">
+              <div class="mb-8 flex h-10 w-10 items-center justify-center rounded-lg border border-white/12 bg-white/[0.06] text-[#6ab8ce] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                 <Icon class="h-5 w-5" />
               </div>
-              <h3 class="text-sm font-black leading-tight">{title}</h3>
-              <p class="mt-2 text-xs font-semibold leading-5 text-white/42">{copy}</p>
+              <h3 class="text-xl font-black leading-tight">{title}</h3>
+              <p class="mt-3 text-sm font-semibold leading-6 text-white/50">{copy}</p>
             </article>
         ))}
       </div>
+
+      <!--<div class="mt-14 grid overflow-hidden rounded-xl border border-white/12 sm:grid-cols-2 lg:grid-cols-4">-->
+      <!--  {practiceAreas.map(({ title, copy, icon: Icon }) => (-->
+      <!--      <article class="group min-h-36 border-b border-r border-white/12 bg-white/[0.025] p-7 transition hover:bg-white/[0.07]">-->
+      <!--        <div class="mb-8 flex h-10 w-10 items-center justify-center rounded-lg border border-white/12 bg-white/[0.06] text-[#6ab8ce] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition group-hover:border-[#6ab8ce]/45 group-hover:bg-[#6ab8ce]/10">-->
+      <!--          <Icon class="h-5 w-5" />-->
+      <!--        </div>-->
+      <!--        <h3 class="text-sm font-black leading-tight">{title}</h3>-->
+      <!--        <p class="mt-2 text-xs font-semibold leading-5 text-white/42">{copy}</p>-->
+      <!--      </article>-->
+      <!--  ))}-->
+      <!--</div>-->
     </div>
   </section>
+
+  <!--<section id="projects" class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-28 text-white sm:px-6 lg:px-8">-->
+  <!--  <div class="hero-noise absolute inset-0 opacity-70"></div>-->
+  <!--  <div class="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.06)_0,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_20px)] opacity-30"></div>-->
+  <!--  <div class="relative mx-auto max-w-6xl">-->
+  <!--    <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Areas of Practice</p>-->
+  <!--    <h2 class="mt-5 max-w-2xl text-5xl font-black leading-none tracking-tight sm:text-6xl">What we know, deeply.</h2>-->
+  <!--    <p class="mt-6 max-w-2xl text-base font-semibold leading-7 text-white/85">-->
+  <!--      Two decades of HVAC field experience combined with building science education and performance diagnostics - applied to every project.-->
+  <!--    </p>-->
+
+  <!--    <div class="mt-14 grid overflow-hidden rounded-xl border border-white/12 sm:grid-cols-2 lg:grid-cols-4">-->
+  <!--      {practiceAreas.map(({ title, copy, icon: Icon }) => (-->
+  <!--          <article class="group min-h-36 border-b border-r border-white/12 bg-white/[0.025] p-7 transition hover:bg-white/[0.07]">-->
+  <!--            <div class="mb-8 flex h-10 w-10 items-center justify-center rounded-lg border border-white/12 bg-white/[0.06] text-[#6ab8ce] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition group-hover:border-[#6ab8ce]/45 group-hover:bg-[#6ab8ce]/10">-->
+  <!--              <Icon class="h-5 w-5" />-->
+  <!--            </div>-->
+  <!--            <h3 class="text-sm font-black leading-tight">{title}</h3>-->
+  <!--            <p class="mt-2 text-xs font-semibold leading-5 text-white/42">{copy}</p>-->
+  <!--          </article>-->
+  <!--      ))}-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</section>-->
 
   <section class="relative bg-acc-mist px-5 py-16 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-6xl">
       <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">What We Do</p>
-      <h2 class="mt-4 max-w-2xl text-5xl font-black leading-none tracking-tight text-acc-ink sm:text-6xl">Ways to work with us</h2>
+      <h2 class="mt-4 max-w-2xl text-5xl font-black leading-none tracking-tight text-acc-ink sm:text-6xl">Who We Help</h2>
+      <p class="mt-6 max-w-3xl text-base font-semibold leading-7 text-[#164f59]/85">Whether your family is sick in a home you've lived in for years, or you're building a new home and want to get it right from the start, ACC Building Performance has a service built for your situation.</p>
       <div class="mt-14 grid gap-6 lg:grid-cols-3">
         {services.map((service) => (
             <article class="flex overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
@@ -305,7 +362,7 @@ const practiceAreas = [
     <div class="mx-auto grid max-w-6xl gap-10 rounded-2xl bg-white p-8 shadow-xl shadow-[#06333a]/10 lg:grid-cols-[0.8fr_1.2fr] lg:p-12">
       <div>
         <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Contact</p>
-        <h2 class="mt-4 text-4xl font-black leading-tight text-acc-ink">Ready to diagnose the home, not guess?</h2>
+        <h2 class="mt-4 text-4xl font-black leading-tight text-acc-ink">Ready to diagnose your home, not guess?</h2>
         <div class="mt-8 grid gap-4 text-sm font-bold text-slate-600">
           <p class="flex items-center gap-3"><MapPin class="h-5 w-5 text-[#62aebe]" /> Covington, Louisiana</p>
           <a href="tel:+15042480186" class="flex items-center gap-3 hover:text-acc-ink"><Phone class="h-5 w-5 text-[#62aebe]" /> 504-248-0186</a>
