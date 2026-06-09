@@ -1,5 +1,333 @@
 ---
-import HomeV2 from '../components/HomeV2.astro';
+import { Image } from 'astro:assets';
+import { Activity,
+  ArrowRight,
+  Building2,
+  Check,
+  CheckCircle2,
+  Clock3,
+  Droplets,
+  Fan,
+  Gauge,
+  Home,
+  House,
+  Layers3,
+  Mail,
+  MapPin,
+  Microscope,
+  PanelTop,
+  Phone,
+  Radar,
+  Ruler,
+  ShieldCheck,
+  ThermometerSun,
+  Waves,
+  Utensils,
+  Wind
+} from '@lucide/astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ajCallegan from '../assets/images/aj-callegan.jpg';
+import scienceHouse from '../assets/images/building-science-house.jpg';
+import marignyRendering from '../assets/images/marigny-rendering.png';
+
+const heroImage = 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1500&q=85';
+
+const stats = [
+  { value: '20+', label: 'Years in HVAC & construction', icon: Clock3 },
+  { value: '10', label: 'Building science specialties', icon: Home },
+  { value: '4', label: 'ACCA Manuals - J, S, D & T', icon: Activity },
+  { value: '100%', label: 'Verified results', icon: CheckCircle2 },
+];
+
+const services = [
+  {
+    eyebrow: '01 - For Existing Homes',
+    title: 'Home Performance Assessment',
+    copy: 'A science-based diagnostic that uncovers hidden factors affecting your home’s health, comfort, and durability. Not a checklist - a real investigation.',
+    image: marignyRendering.src,
+    bullets: ['Thermal imaging & moisture mapping', 'Static & zonal pressure diagnostics', 'IAQ monitoring snapshot', 'On-site assessment + comprehensive report'],
+  },
+  {
+    eyebrow: '02 - For Custom Builders',
+    title: 'Healthy Home Consulting Package',
+    copy: 'Expert design and oversight from pre-construction through final sign-off. For builders who want more than code compliance.',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80',
+    bullets: ['Design & trade coordination', 'Full ACCA Manual J, S, D & T HVAC', 'Blower door and duct leakage testing', 'Documentation and ongoing support'],
+  },
+  {
+    eyebrow: '03 - Design & Testing',
+    title: 'Precision HVAC Design Services',
+    copy: 'Precision engineering for high-performance HVAC systems. Load calculations, equipment selection, ductwork design, and verification.',
+    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80',
+    bullets: ['ACCA Manual J load calculations', 'Manual S equipment selection', 'Manual D ductwork design', 'Blower door and duct leakage testing'],
+  },
+];
+
+const designProjects = [
+  {
+    location: 'Baton Rouge, LA',
+    title: 'Three-System Custom Home',
+    copy: 'Sprawling home with three HVAC systems, hard pipe trunk lines with short flexible drops, and integrated dehumidification.',
+  },
+  {
+    location: 'Metairie, LA',
+    title: 'Two-Story Hard-Duct Install',
+    copy: 'Two-story home with all-hard duct piping, integrated ventilating dehumidification, and MERV16 filtration throughout.',
+  },
+  {
+    location: 'Covington, LA',
+    title: 'Contractor Design Coordination',
+    copy: 'System design for a local HVAC contractor - comfort, humidity control, and efficiency dialed in from the start.',
+  },
+];
+
+const practiceAreas = [
+  { title: 'Building Science Principles', copy: 'House-as-a-system thinking', icon: House },
+  { title: 'HVAC+D Design', copy: 'Heating, cooling & distribution', icon: Fan },
+  { title: 'High-Performance Construction', copy: 'Verified builds beyond code', icon: Building2 },
+  { title: 'ACCA Manuals J, S, D & T', copy: 'Precision load & equipment design', icon: Ruler },
+  { title: 'Dehumidification & Ventilation', copy: 'Whole-home moisture strategy', icon: Wind },
+  { title: 'Filtration & IAQ', copy: 'Indoor air quality assessment', icon: Layers3 },
+  { title: 'Mold Investigation', copy: 'Source ID & remediation guidance', icon: Microscope },
+  { title: 'Blower Door Testing', copy: 'Envelope airtightness verification', icon: Gauge },
+  { title: 'Duct Leakage Testing', copy: 'Total & to-outside measurements', icon: Radar },
+  { title: 'Attic & Crawlspace Encapsulation', copy: 'Conditioned or sealed assemblies', icon: ThermometerSun },
+  { title: 'Window & Envelope Review', copy: 'Thermal bridges, solar gain & leakage paths', icon: PanelTop },
+  { title: 'Humidity Control Strategy', copy: 'Latent load control for Gulf South homes', icon: Waves },
+];
 ---
 
-<HomeV2 />
+<SiteLayout
+    title="Homepage V1 | ACC Building Performance"
+    description="Original homepage direction for ACC Building Performance with the prior visual design and messaging."
+>
+  <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-28 pt-24 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-32">
+    <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_1.05fr]">
+      <div>
+        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">Building Science · HVAC Consulting · Louisiana</p>
+        <h1 class="mt-10 max-w-xl text-5xl font-black leading-[0.96] tracking-tight text-white sm:text-[5.6rem] lg:text-[6.3rem]">
+          Home
+          <span class="block bg-gradient-to-b from-[#8bd4e5] to-[#6f86c8] bg-clip-text text-transparent">Air You Can Trust.</span>
+        </h1>
+        <p class="mt-10 max-w-xl text-lg font-semibold leading-7 text-white/58">We apply twenty-plus years of building science and HVAC expertise to the construction deficiencies that make families sick, providing diagnostic, design, and verification services across the Gulf South.</p>
+        <div class="mt-12 flex flex-wrap gap-5">
+          <a href="/contact" class="inline-flex min-h-14 items-center justify-center rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">Schedule an Assessment</a>
+          <a href="/about" class="inline-flex min-h-14 items-center justify-center rounded-lg border border-white/20 px-8 text-base font-extrabold text-white/70 transition hover:border-white/45 hover:text-white">Our Story</a>
+        </div>
+      </div>
+      <div class="relative mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
+        <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
+          <img src={heroImage} alt="Modern high-performance home exterior at dusk" class="aspect-[1.02] w-full object-cover" loading="eager" />
+        </div>
+        <div class="absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl sm:-bottom-9 sm:left-24 sm:translate-x-0">
+          <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
+            <House class="h-9 w-9" />
+          </span>
+          <span>
+            <span class="block text-base font-black leading-tight text-[#02293c]">Science-Based Diagnostics</span>
+            <span class="mt-1 block text-sm font-bold leading-5 text-slate-600">Not a checklist - a real investigation</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-[#06333a] px-5 py-10 text-white sm:px-6 lg:px-8">
+    <div class="absolute inset-x-[-8%] -bottom-12 h-32 rounded-[0_0_50%_50%] bg-[#06333a]"></div>
+    <div class="relative mx-auto grid max-w-6xl gap-8 md:grid-cols-4">
+      {stats.map(({ value, label, icon: Icon }) => (
+          <article class="border-white/10 md:border-l md:px-8 first:md:border-l-0">
+            <Icon class="mb-6 h-7 w-7 text-[#6ab8ce]" />
+            <p class="text-5xl font-black tracking-tight">{value}</p>
+            <p class="mt-2 max-w-[11rem] text-xs font-bold leading-5 text-white/75">{label}</p>
+          </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="relative bg-acc-mist px-5 pb-28 pt-28 sm:px-6 lg:px-8 lg:pt-36">
+    <div class="mx-auto grid max-w-6xl items-stretch gap-16 lg:grid-cols-[0.9fr_1fr]">
+      <div class="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+        <div class="h-full min-h-[34rem] overflow-hidden rounded-2xl shadow-2xl shadow-[#06333a]/15">
+          <Image src={ajCallegan} alt="AJ Callegan, founder of ACC Building Performance" width={760} class="aspect-[4/5] h-full w-full object-cover object-bottom lg:aspect-auto" />
+        </div>
+      </div>
+      <div>
+        <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#4f93a2]">The Story Behind ACC</p>
+        <h2 class="mt-5 max-w-xl text-5xl font-black leading-[1.02] tracking-tight text-acc-ink sm:text-6xl">A personal health crisis became a professional mission.</h2>
+        <div class="mt-8 grid max-w-2xl gap-5 text-base font-semibold leading-7 text-[#164f59]/85">
+          <p>AJ Callegan grew up on the bayou of Lafitte, Louisiana. After more than two decades building and servicing HVAC systems across the Gulf South, a health crisis forced him to confront something the industry rarely discusses.</p>
+          <p>In 2022, he launched ACC Building Performance as a direct response to the construction deficiencies that nearly destroyed his health.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-28 text-white sm:px-6 lg:px-8">
+    <div class="hero-noise absolute inset-0 opacity-70"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.06)_0,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_20px)] opacity-30"></div>
+    <div class="relative mx-auto max-w-6xl">
+      <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Areas of Practice</p>
+      <h2 class="mt-5 max-w-2xl text-5xl font-black leading-none tracking-tight sm:text-6xl">What we know, deeply.</h2>
+      <p class="mt-6 max-w-2xl text-base font-semibold leading-7 text-white/85">
+        Two decades of HVAC field experience combined with building science education and performance diagnostics - applied to every project.
+      </p>
+
+      <div class="mt-14 grid overflow-hidden rounded-xl border border-white/12 sm:grid-cols-2 lg:grid-cols-4">
+        {practiceAreas.map(({ title, copy, icon: Icon }) => (
+            <article class="group min-h-36 border-b border-r border-white/12 bg-white/[0.025] p-7 transition hover:bg-white/[0.07]">
+              <div class="mb-8 flex h-10 w-10 items-center justify-center rounded-lg border border-white/12 bg-white/[0.06] text-[#6ab8ce] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition group-hover:border-[#6ab8ce]/45 group-hover:bg-[#6ab8ce]/10">
+                <Icon class="h-5 w-5" />
+              </div>
+              <h3 class="text-sm font-black leading-tight">{title}</h3>
+              <p class="mt-2 text-xs font-semibold leading-5 text-white/42">{copy}</p>
+            </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-acc-mist px-5 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">What We Do</p>
+      <h2 class="mt-4 max-w-2xl text-5xl font-black leading-none tracking-tight text-acc-ink sm:text-6xl">Ways to work with us</h2>
+      <div class="mt-14 grid gap-6 lg:grid-cols-3">
+        {services.map((service) => (
+            <article class="flex overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+              <div class="flex w-full flex-col">
+                <img src={service.image} alt="" class="h-44 w-full object-cover" loading="lazy" />
+                <div class="flex flex-1 flex-col p-7">
+                  <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#62aebe]">{service.eyebrow}</p>
+                  <h3 class="mt-4 text-2xl font-black leading-tight text-acc-ink">{service.title}</h3>
+                  <p class="mt-4 text-sm font-semibold leading-6 text-slate-500">{service.copy}</p>
+                  <ul class="mt-6 grid gap-3 text-sm font-bold leading-6 text-slate-700">
+                    {service.bullets.map((bullet) => (
+                        <li class="flex gap-3"><Check class="mt-1 h-4 w-4 shrink-0 text-[#62aebe]" /><span>{bullet}</span></li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!--<section class="bg-acc-mist px-5 py-28 sm:px-6 lg:px-8">-->
+  <!--  <div class="mx-auto max-w-6xl">-->
+  <!--    <div>-->
+  <!--      <p class="text-[0.72rem] font-black uppercase tracking-[0.3em] text-[#7fc2d0]">3D HVAC Design</p>-->
+  <!--      <h2 class="mt-5 text-4xl font-black leading-[1.02] tracking-tight text-acc-ink sm:text-5xl">-->
+  <!--        Clear plans for complex homes.-->
+  <!--      </h2>-->
+  <!--    </div>-->
+
+  <!--    <div class="mt-14 grid items-stretch gap-7 lg:grid-cols-[1.05fr_0.95fr]">-->
+  <!--      <div class="relative overflow-hidden rounded-3xl border bg-white shadow-2xl shadow-slate-950/10">-->
+  <!--        <div class="relative flex h-full min-h-[34rem] items-center justify-center rounded-2xl">-->
+  <!--          <Image-->
+  <!--              src={scienceHouse}-->
+  <!--              alt="Building science diagram showing air, moisture, heat, and pressure interactions in a home"-->
+  <!--              width={980}-->
+  <!--              class="max-h-[32rem] w-full object-contain"-->
+  <!--              loading="lazy"-->
+  <!--              style="transform: scale(1.04);"-->
+  <!--              data-scroll-scale-image-->
+  <!--          />-->
+  <!--        </div>-->
+  <!--      </div>-->
+
+  <!--      <div class="grid gap-5 lg:grid-rows-3">-->
+  <!--        {designProjects.map((project, index) => (-->
+  <!--            <article class="group relative overflow-hidden rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7">-->
+  <!--              <div class="absolute inset-y-0 left-0 w-1 bg-[#7fc2d0] opacity-70 transition group-hover:bg-acc-gold group-hover:opacity-100"></div>-->
+  <!--              <div class="flex items-start gap-5">-->
+  <!--                      <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#e8f3f4] text-sm font-black text-[#0b4850] ring-1 ring-[#cfe3e7]">-->
+  <!--                        0{index + 1}-->
+  <!--                      </span>-->
+  <!--                <div>-->
+  <!--                  <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#62aebe]">{project.location}</p>-->
+  <!--                  <h3 class="mt-5 text-xl font-black leading-tight text-acc-ink">{project.title}</h3>-->
+  <!--                  <p class="mt-3 text-sm font-semibold leading-6 text-slate-600">{project.copy}</p>-->
+  <!--                </div>-->
+  <!--              </div>-->
+  <!--            </article>-->
+  <!--        ))}-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</section>-->
+
+  <section class="bg-acc-mist px-5 pb-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:px-16 lg:py-20">
+      <div class="grid gap-14 lg:grid-cols-[0.8fr_1.1fr] lg:items-center">
+        <div>
+          <h2 class="max-w-sm text-5xl font-black leading-[1.02] tracking-tight sm:text-5xl">
+            Where breath becomes the baseline.
+          </h2>
+          <p class="mt-7 max-w-md text-base font-semibold leading-7 text-white/70">
+            The rule of 3 is simple: food buys weeks, water buys days, air buys minutes. That makes indoor air quality a first-order home performance issue, not an afterthought.
+          </p>
+          <a href="/contact" class="mt-9 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">
+            Schedule an Assessment
+            <ArrowRight class="h-5 w-5" />
+          </a>
+        </div>
+
+        <div class="grid gap-10">
+          <article class="grid gap-6 sm:grid-cols-[7rem_1fr] sm:items-center">
+            <Utensils class="h-20 w-20 text-[#8fc8d5]" stroke-width={1.5} />
+            <div>
+              <p class="text-5xl font-black tracking-tight sm:text-7xl">3 weeks</p>
+              <p class="mt-2 text-lg font-black text-white/55">without food</p>
+            </div>
+          </article>
+          <article class="grid gap-6 sm:grid-cols-[7rem_1fr] sm:items-center">
+            <Droplets class="h-20 w-20 text-[#8fc8d5]" stroke-width={1.5} />
+            <div>
+              <p class="text-5xl font-black tracking-tight sm:text-7xl">3 days</p>
+              <p class="mt-2 text-lg font-black text-white/55">without water</p>
+            </div>
+          </article>
+          <article class="grid gap-6 sm:grid-cols-[7rem_1fr] sm:items-center">
+            <Wind class="h-20 w-20 text-[#8fc8d5]" stroke-width={1.5} />
+            <div>
+              <p class="text-5xl font-black tracking-tight sm:text-7xl">3 minutes</p>
+              <p class="mt-2 text-lg font-black text-white/55">without air</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="bg-acc-mist px-5 pt-12 pb-24 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-6xl gap-10 rounded-2xl bg-white p-8 shadow-xl shadow-[#06333a]/10 lg:grid-cols-[0.8fr_1.2fr] lg:p-12">
+      <div>
+        <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Contact</p>
+        <h2 class="mt-4 text-4xl font-black leading-tight text-acc-ink">Ready to diagnose the home, not guess?</h2>
+        <div class="mt-8 grid gap-4 text-sm font-bold text-slate-600">
+          <p class="flex items-center gap-3"><MapPin class="h-5 w-5 text-[#62aebe]" /> Covington, Louisiana</p>
+          <a href="tel:+15042480186" class="flex items-center gap-3 hover:text-acc-ink"><Phone class="h-5 w-5 text-[#62aebe]" /> 504-248-0186</a>
+          <p class="flex items-center gap-3"><ShieldCheck class="h-5 w-5 text-[#62aebe]" /> Building science, HVAC design, and verification</p>
+        </div>
+      </div>
+
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" class="grid gap-4">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden">
+          <label>Company <input name="company" /></label>
+        </p>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <input name="name" required placeholder="Name" aria-label="Name" class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-base font-semibold outline-none focus:ring-2 focus:ring-[#62aebe]" />
+          <input type="email" name="email" required placeholder="Email" aria-label="Email" class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-base font-semibold outline-none focus:ring-2 focus:ring-[#62aebe]" />
+        </div>
+        <textarea name="message" rows="5" required placeholder="What is happening in the home?" aria-label="Message" class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-base font-semibold outline-none focus:ring-2 focus:ring-[#62aebe]"></textarea>
+        <button type="submit" class="inline-flex min-h-12 w-fit items-center gap-2 rounded-md bg-acc-ink px-7 text-sm font-extrabold text-white transition hover:bg-[#092f38]">
+          Send Message
+          <Mail class="h-4 w-4" />
+        </button>
+      </form>
+    </div>
+  </section>
+</SiteLayout>
