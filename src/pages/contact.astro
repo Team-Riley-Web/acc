@@ -1,0 +1,110 @@
+---
+import { ArrowRight, CheckCircle2, Phone } from '@lucide/astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Contact ACC Building Performance | Book Your Assessment"
+  description="Contact ACC Building Performance to book a building science assessment, compliance test, HVAC design, or healthy home consultation in Louisiana, Mississippi, Alabama, and the Gulf South."
+>
+  <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 py-24 text-white sm:px-6 lg:px-8 lg:py-32">
+    <div class="relative z-10 mx-auto max-w-6xl">
+      <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">Contact</p>
+      <h1 class="mt-8 max-w-4xl text-5xl font-black leading-[0.98] tracking-tight sm:text-7xl">Let's Find the Answer Your Home Has Been Waiting For.</h1>
+      <p class="mt-8 max-w-3xl text-lg font-semibold leading-8 text-white/63">Fill out the form below and AJ will follow up with you personally. No automated systems. No call centers. A real conversation with the person who will actually do the work.</p>
+    </div>
+  </section>
+
+  <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-6xl items-start gap-10 lg:grid-cols-[1fr_0.55fr]">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" class="rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-2xl shadow-[#06333a]/10 sm:p-9">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden"><label>Company <input name="company" /></label></p>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="grid gap-2 text-sm font-black text-[#254858]">First Name *<input name="first_name" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Last Name *<input name="last_name" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Email Address *<input type="email" name="email" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Phone Number *<input type="tel" name="phone" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">City / State *<input name="city_state" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">
+            What type of home do you have?
+            <select name="home_type" class="form-field">
+              <option>Single-family home</option>
+              <option>New construction</option>
+              <option>Renovation project</option>
+              <option>I'm a contractor</option>
+            </select>
+          </label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">
+            What are you experiencing?
+            <select name="situation_type" class="form-field">
+              <option>Unexplained illness</option>
+              <option>Mold or moisture concerns</option>
+              <option>HVAC performance issues</option>
+              <option>Planning a new build</option>
+              <option>Need compliance testing</option>
+              <option>HVAC design services</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">
+            Tell us about your situation in your own words:
+            <textarea name="message" rows="8" class="form-field resize-y"></textarea>
+          </label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">
+            How did you hear about us?
+            <select name="referral_source" class="form-field">
+              <option>Doctor referral</option>
+              <option>Friend or family</option>
+              <option>Google</option>
+              <option>Social media</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit" class="mt-7 inline-flex min-h-14 items-center gap-2 rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">
+          Send My Message
+          <ArrowRight class="h-5 w-5" />
+        </button>
+        <p class="mt-5 text-sm font-bold leading-6 text-[#5c7178]">After you submit, AJ will follow up by phone or email within one business day. If your situation is urgent, you are also welcome to call or text directly.</p>
+        <a href="tel:+15042480186" class="mt-4 inline-flex items-center gap-2 text-base font-black text-[#0b6b78]"><Phone class="h-5 w-5" />504-248-0186</a>
+      </form>
+
+      <aside class="grid gap-6">
+        <section class="rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm">
+          <h2 class="text-2xl font-black text-[#063f46]">What Happens Next</h2>
+          <div class="mt-6 grid gap-4">
+            {[
+              'You submit the form.',
+              'AJ reviews your information and reaches out personally, typically within one business day.',
+              'You have a real conversation about your home, your situation, and whether an assessment is the right next step.',
+              'If you move forward, we send you an intake form and get your assessment scheduled.',
+            ].map((step) => (
+              <p class="flex gap-3 text-sm font-bold leading-6 text-[#365563]">
+                <CheckCircle2 class="mt-0.5 h-5 w-5 shrink-0 text-[#0b6b78]" />
+                <span>{step}</span>
+              </p>
+            ))}
+          </div>
+          <p class="mt-6 text-sm font-semibold leading-6 text-[#5c7178]">There's no pressure. No sales pitch. Just a straight conversation with someone who genuinely wants to help you figure out what's going on.</p>
+        </section>
+
+        <section class="rounded-2xl bg-[#06333a] p-7 text-white shadow-2xl shadow-[#06333a]/20 ring-1 ring-white/10">
+          <h2 class="text-2xl font-black">A Note From AJ</h2>
+          <div class="mt-5 grid gap-4 text-sm font-semibold leading-6 text-white/75">
+            <p>When you reach out to ACC Building Performance, you're not entering a sales funnel. You're starting a conversation with me directly.</p>
+            <p>I know you've probably tried other things. I know you may have spent money that didn't produce results. I know you might be skeptical about whether this is going to be any different.</p>
+            <p>What I can tell you is this: if something is wrong with your home, I will find it. I will document it clearly. And I will tell you exactly what it means and what needs to happen about it, honestly, directly, and without any agenda other than getting you the right answer.</p>
+            <p class="font-black text-white">AJ, ACC Building Performance</p>
+          </div>
+        </section>
+
+        <section class="rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm">
+          <h2 class="text-2xl font-black text-[#063f46]">Serving These Areas</h2>
+          <p class="mt-4 text-base font-bold leading-7 text-[#365563]">Louisiana | Mississippi | Alabama | Gulf South Region</p>
+          <p class="mt-3 text-sm font-semibold leading-6 text-[#5c7178]">Don't see your area listed? Reach out anyway. We may still be able to help or refer you to a qualified resource.</p>
+        </section>
+      </aside>
+    </div>
+  </section>
+</SiteLayout>

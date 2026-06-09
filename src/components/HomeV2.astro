@@ -1,0 +1,188 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowRight, Check, ClipboardList, Home, Search, ShieldCheck } from '@lucide/astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ajCallegan from '../assets/images/aj-callegan.jpg';
+import marignyRendering from '../assets/images/marigny-rendering.png';
+import scienceHouse from '../assets/images/building-science-house.jpg';
+import { serviceCards } from '../content/site';
+---
+
+<SiteLayout
+  title="ACC Building Performance | Root-Cause Building Science Assessments"
+  description="ACC Building Performance finds the root cause of mold, moisture, and indoor air quality problems in Gulf South homes. Building science assessments that find what others miss."
+>
+  <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-28 pt-24 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-32">
+    <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_1.05fr]">
+      <div>
+        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">Building Science · Healthy Homes · Gulf South</p>
+        <h1 class="mt-10 max-w-2xl text-5xl font-black leading-[0.96] tracking-tight text-white sm:text-[5.2rem] lg:text-[5.9rem]">
+          Your Home Should Be Healing Your Family.
+          <span class="block bg-gradient-to-b from-[#8bd4e5] to-[#6f86c8] bg-clip-text text-transparent">Not Hurting Them.</span>
+        </h1>
+        <p class="mt-10 max-w-xl text-lg font-semibold leading-7 text-white/70">If your family has been sick and no one can tell you why, the answer might not be in your bloodwork. It might be in your walls.</p>
+        <p class="mt-6 max-w-xl text-base font-semibold leading-7 text-white/55">ACC Building Performance is a building science specialist serving Louisiana, Mississippi, and the Gulf South. We don't treat mold. We don't guess. We find the root cause of what is making your home, and your family, sick.</p>
+        <div class="mt-12 flex flex-wrap gap-5">
+          <a href="/contact" class="inline-flex min-h-14 items-center justify-center rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">Book Your Assessment</a>
+          <a href="#how-we-work" class="inline-flex min-h-14 items-center justify-center rounded-lg border border-white/20 px-8 text-base font-extrabold text-white/70 transition hover:border-white/45 hover:text-white">Learn How We Work</a>
+        </div>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
+        <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
+          <Image src={ajCallegan} alt="AJ on site conducting a professional assessment" width={820} class="aspect-[1.02] w-full object-cover object-[50%_18%]" loading="eager" />
+        </div>
+        <div class="absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl sm:-bottom-9 sm:left-24 sm:translate-x-0">
+          <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
+            <Search class="h-9 w-9" />
+          </span>
+          <span>
+            <span class="block text-base font-black leading-tight text-[#02293c]">Root-Cause Diagnostics</span>
+            <span class="mt-1 block text-sm font-bold leading-5 text-slate-600">Not a checklist. A real investigation.</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-[#06333a] px-5 py-10 text-white sm:px-6 lg:px-8">
+    <div class="absolute inset-x-[-8%] -bottom-12 h-32 rounded-[0_0_50%_50%] bg-[#06333a]"></div>
+    <div class="relative mx-auto flex max-w-6xl flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-black text-white/78">
+      <span>✓ Building Science Certified</span>
+      <span>✓ Trusted by Functional Medicine Doctors</span>
+      <span>✓ Root-Cause Methodology</span>
+      <span>✓ Serving Louisiana & Mississippi</span>
+    </div>
+  </section>
+
+  <section class="relative bg-acc-mist px-5 pb-28 pt-28 sm:px-6 lg:px-8 lg:pt-36">
+    <div class="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[0.85fr_1fr]">
+      <div>
+        <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#4f93a2]">The Problem</p>
+        <h2 class="mt-5 text-5xl font-black leading-[1.02] tracking-tight text-acc-ink sm:text-6xl">You've Already Tried Everything. And Your Family Is Still Sick.</h2>
+      </div>
+      <div>
+        <div class="grid gap-5 text-base font-semibold leading-7 text-[#164f59]/85">
+          <p>You hired the remediator. You called the HVAC company. You had the inspection. Maybe you've seen three doctors and been told your labs look fine.</p>
+          <p>And yet you wake up every morning in the same house, feeling the same way. Foggy. Exhausted. Worried about your kids.</p>
+          <p>Every one of those professionals was trained to treat symptoms. Not one of them was trained to look at your home as a system that can fail, and when it does, make everyone inside it sick.</p>
+          <p>That's the gap ACC Building Performance was built to fill.</p>
+        </div>
+        <blockquote class="mt-8 rounded-lg bg-[#0b4850] p-7 text-xl font-black leading-8 text-white shadow-2xl shadow-[#06333a]/25">
+          “Mold is a symptom. The building deficiency that created it is the problem. Until someone finds that deficiency, nothing stays fixed.”
+          <span class="mt-4 block text-sm font-bold text-white/55">AJ, ACC Building Performance</span>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-we-work" class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-28 text-white sm:px-6 lg:px-8">
+    <div class="hero-noise absolute inset-0 opacity-70"></div>
+    <div class="relative mx-auto max-w-6xl">
+      <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">What We Do</p>
+      <h2 class="mt-5 max-w-2xl text-5xl font-black leading-none tracking-tight sm:text-6xl">Building Science. Not Guesswork.</h2>
+      <div class="mt-8 grid max-w-3xl gap-5 text-base font-semibold leading-7 text-white/75">
+        <p>Building science is the discipline of evaluating a home as an integrated system: the envelope, the mechanical systems, the moisture dynamics, and how they interact.</p>
+        <p>AJ conducts comprehensive assessments that trace the problem back to its source, then documents what was found, why it matters, and what needs to happen next.</p>
+      </div>
+      <div class="mt-14 grid overflow-hidden rounded-xl border border-white/12 md:grid-cols-3">
+        {[
+          [Search, 'Root-Cause Investigation', "We don't describe symptoms. We find the building deficiency that created them."],
+          [ClipboardList, 'Documented & Actionable', 'Every assessment produces a written report you can hand to your doctor, contractor, and insurance company.'],
+          [Home, 'Whole-Home Perspective', 'We evaluate the envelope, mechanical systems, moisture management, and their interactions.'],
+        ].map(([Icon, title, copy]) => (
+          <article class="group min-h-52 border-b border-r border-white/12 bg-white/[0.025] p-7 transition hover:bg-white/[0.07]">
+            <div class="mb-8 flex h-10 w-10 items-center justify-center rounded-lg border border-white/12 bg-white/[0.06] text-[#6ab8ce] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <Icon class="h-5 w-5" />
+            </div>
+            <h3 class="text-xl font-black leading-tight">{title}</h3>
+            <p class="mt-3 text-sm font-semibold leading-6 text-white/50">{copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-acc-mist px-5 py-28 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Services Overview</p>
+      <h2 class="mt-4 max-w-2xl text-5xl font-black leading-none tracking-tight text-acc-ink sm:text-6xl">Who We Help</h2>
+      <p class="mt-6 max-w-3xl text-base font-semibold leading-7 text-[#164f59]/85">Whether your family is sick in a home you've lived in for years, or you're building a new home and want to get it right from the start, ACC Building Performance has a service built for your situation.</p>
+      <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {serviceCards.map((service) => (
+          <article class="group relative flex min-h-72 flex-col overflow-hidden rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7">
+            <div class="absolute inset-y-0 left-0 w-1 bg-[#7fc2d0] opacity-70 transition group-hover:bg-acc-gold group-hover:opacity-100"></div>
+            <h3 class="text-2xl font-black leading-tight text-acc-ink">{service.title}</h3>
+            <p class="mt-4 text-sm font-semibold leading-6 text-slate-600">{service.copy}</p>
+            <p class="mt-4 text-sm font-black leading-6 text-[#164f59]">{service.note}</p>
+            <a href={service.href} class="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-black text-[#0b4850]">
+              Learn More
+              <ArrowRight class="h-4 w-4" />
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-acc-mist px-5 pb-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:px-16 lg:py-20">
+      <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Social Proof</p>
+          <h2 class="mt-5 text-5xl font-black leading-[1.02] tracking-tight">Trusted by Families Who Had Tried Everything Else</h2>
+          <p class="mt-7 text-base font-semibold leading-7 text-white/70">Most clients come after they have exhausted every other option. What they find here is a specialist who looks for what others miss, documents what he finds, and tells the truth about what it means.</p>
+        </div>
+        <div class="grid gap-5">
+          {[
+            'After three contractors and two years of being sick, AJ finally found the answer. Our home, and our family, is healthy again.',
+            "I had already paid for a remediation that didn't work. AJ found the actual source within the first hour of his assessment. I wish I had called him first.",
+            'My functional medicine doctor referred me to AJ. The report he delivered gave her exactly what she needed to complete my treatment protocol. It was the missing piece.',
+          ].map((quote) => (
+            <blockquote class="rounded-2xl border border-white/12 bg-white/[0.04] p-6 text-base font-black leading-7 text-white/75">“{quote}”</blockquote>
+          ))}
+          <p class="text-xs font-bold text-white/35">Replace placeholder testimonials with real client quotes as collected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-acc-mist px-5 pb-28 pt-12 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[0.9fr_1fr]">
+      <div class="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+        <div class="overflow-hidden rounded-2xl shadow-2xl shadow-[#06333a]/15">
+          <Image src={marignyRendering} alt="Healthy home rendering by ACC Building Performance" width={760} class="aspect-[4/5] h-full w-full object-cover" />
+        </div>
+      </div>
+      <div>
+        <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#4f93a2]">About AJ</p>
+        <h2 class="mt-5 max-w-xl text-5xl font-black leading-[1.02] tracking-tight text-acc-ink sm:text-6xl">Meet AJ, Building Scientist, Truth-Teller, Advocate for Healthy Homes</h2>
+        <div class="mt-8 grid max-w-2xl gap-5 text-base font-semibold leading-7 text-[#164f59]/85">
+          <p>AJ founded ACC Building Performance because he saw the same story playing out over and over: families suffering in homes that had been inspected, remediated, and serviced by a dozen different contractors, and still sick.</p>
+          <p>Every assessment he conducts is a root-cause investigation, thorough, documented, and delivered with direct, honest communication.</p>
+        </div>
+        <a href="/about" class="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#02293c] px-7 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#092f38]">
+          Learn More About AJ
+          <ArrowRight class="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-acc-mist px-5 pb-24 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:grid-cols-[1fr_0.78fr] lg:px-16 lg:py-20">
+      <div>
+        <h2 class="max-w-3xl text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl">If Your Gut Is Telling You Your Home Is the Problem, Trust It.</h2>
+        <p class="mt-7 max-w-2xl text-base font-semibold leading-7 text-white/70">You've been dismissed before. You've spent money on solutions that didn't hold. The root cause of what's making your family sick is findable, documentable, and fixable once someone looks at your home the right way.</p>
+        <a href="/contact" class="mt-9 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">
+          Book Your Assessment
+          <ArrowRight class="h-5 w-5" />
+        </a>
+        <p class="mt-4 text-sm font-bold text-white/45">Fill out our contact form and AJ will follow up directly.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-4 shadow-2xl shadow-black/20">
+        <Image src={scienceHouse} alt="Building science diagram showing home performance factors" width={720} class="w-full object-contain" />
+      </div>
+    </div>
+  </section>
+</SiteLayout>

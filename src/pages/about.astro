@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowRight, Check } from '@lucide/astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ajCallegan from '../assets/images/aj-callegan.jpg';
+---
+
+<SiteLayout
+  title="About AJ & ACC Building Performance"
+  description="AJ founded ACC Building Performance to give Gulf South families the honest, documented answers that contractors and doctors have consistently failed to provide."
+>
+  <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 py-24 text-white sm:px-6 lg:px-8 lg:py-32">
+    <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_0.9fr]">
+      <div>
+        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">About AJ & ACC</p>
+        <h1 class="mt-8 max-w-4xl text-5xl font-black leading-[0.98] tracking-tight sm:text-7xl">We Started ACC Building Performance Because Sick Homes Are Creating Sick Families.</h1>
+        <p class="mt-8 max-w-2xl text-lg font-semibold leading-8 text-white/63">And most of those families have no idea that's what's happening to them.</p>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
+        <Image src={ajCallegan} alt="AJ Callegan, founder of ACC Building Performance" width={760} class="aspect-[1.02] w-full object-cover object-bottom" />
+      </div>
+    </div>
+  </section>
+
+  {[
+    {
+      eyebrow: 'The Story',
+      headline: 'How This Work Began',
+      body: [
+        'AJ has spent his career studying how buildings work, and what happens when they do not. He has seen the same story play out across the Gulf South, in home after home: a family suffering from unexplained illness, cycling through contractors and doctors, spending thousands of dollars on solutions that never hold, being told in one form or another that there is nothing wrong.',
+        "There is always something wrong. It's just that most of the professionals who come through those homes aren't trained to find it.",
+        'Building science is the discipline of looking at a home as an integrated system: the envelope, the mechanical systems, the moisture dynamics, and how they interact. When AJ began applying building science methodology to residential health assessments, he started finding the answers that had been missed by every prior contractor.',
+        "That's what ACC Building Performance was built to do. Not to sell services. Not to generate work. To find the truth about what's happening inside the homes where families live, and to give those families the honest, documented answers they deserve.",
+      ],
+    },
+    {
+      eyebrow: 'What Drives This Work',
+      headline: 'This Is Personal',
+      body: [
+        'AJ is involved in the nonprofit community that serves mold illness patients across the Gulf South, providing education and advocacy for individuals who are fighting to understand what is happening to their health and to find qualified professionals who take their situation seriously.',
+        'That community is where he sees up close what chronic mold illness does to families: the financial devastation, the medical gaslighting, the marriages strained by stress and skepticism, and the children who are sick and cannot explain why.',
+        'That is the community ACC Building Performance serves. Every assessment AJ conducts is an act of advocacy as much as a technical service: a commitment to finding the truth and delivering it with the honesty and directness families in this situation have almost never received.',
+      ],
+    },
+    {
+      eyebrow: 'Credentials & Expertise',
+      headline: 'The Training Behind the Methodology',
+      body: [
+        "AJ's expertise spans building science, mechanical systems design, construction management, and indoor air quality assessment.",
+        'AJ maintains active referral relationships with functional medicine doctors, naturopaths, and integrative health practitioners across the Gulf South. These physicians refer complex, chronically ill patients to ACC because AJ provides the environmental documentation their treatment protocols require.',
+      ],
+      bullets: [
+        'Building science certification and training in building performance methodology',
+        'Manual J/S/D HVAC design and load calculation',
+        'Certified blower door and duct leakage testing',
+        'Licensed General Contractor',
+        'Extensive field experience in residential assessment, construction oversight, and performance verification across Louisiana, Mississippi, and the Gulf South',
+      ],
+    },
+    {
+      eyebrow: 'What You Can Expect',
+      headline: "What It's Like to Work With AJ",
+      body: [
+        "AJ is direct. He won't minimize what he finds, and he won't soften findings to make them easier to hear. If your home has a serious problem, he'll tell you, and he'll explain exactly what it means and what needs to happen about it.",
+        'He is also deeply human about this work. He understands that the people who call him are often exhausted, financially strained, and emotionally raw. Every phone call, assessment, and report is delivered with the same commitment: to give you the truth, in plain language, in a way that actually helps you move forward.',
+        "No runaround. No generic recommendations. No upsells on things you don't need. Just the honest answer your home, and your family, deserves.",
+      ],
+      quote: "The answer is almost always there. It's just that the right person hasn't looked for it yet.",
+    },
+  ].map((section, index) => (
+    <section class:list={[
+      'relative px-5 py-24 sm:px-6 lg:px-8',
+      index % 2 === 0 ? 'bg-acc-mist' : 'bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] text-white',
+    ]}>
+      {index % 2 === 1 && <div class="hero-noise absolute inset-0 opacity-70"></div>}
+      <div class="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.42fr_1fr]">
+        <div>
+          <p class:list={[
+            'text-[0.68rem] font-black uppercase tracking-[0.3em]',
+            index % 2 === 0 ? 'text-[#4f93a2]' : 'text-[#65b6ca]',
+          ]}>{section.eyebrow}</p>
+          <h2 class:list={[
+            'mt-5 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl',
+            index % 2 === 0 ? 'text-acc-ink' : 'text-white',
+          ]}>{section.headline}</h2>
+        </div>
+        <div>
+          <div class:list={[
+            'grid gap-5 text-base font-semibold leading-7',
+            index % 2 === 0 ? 'text-[#164f59]/85' : 'text-white/75',
+          ]}>
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+          {section.bullets && (
+            <ul class="mt-8 grid gap-4">
+              {section.bullets.map((bullet) => (
+                <li class:list={[
+                  'flex gap-3 rounded-xl p-5 text-sm font-bold leading-6 shadow-sm',
+                  index % 2 === 0 ? 'border border-[#d5ded9] bg-white text-slate-700' : 'border border-white/12 bg-white/[0.04] text-white/76',
+                ]}>
+                  <Check class="mt-1 h-4 w-4 shrink-0 text-[#62aebe]" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {section.quote && (
+            <blockquote class:list={[
+              'mt-8 rounded-lg p-7 text-xl font-black leading-8 shadow-2xl',
+              index % 2 === 0 ? 'bg-[#0b4850] text-white shadow-[#06333a]/25' : 'bg-white text-[#02293c] shadow-black/15',
+            ]}>“{section.quote}”</blockquote>
+          )}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:px-16 lg:py-20">
+      <h2 class="max-w-3xl text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl">Ready to get real answers?</h2>
+      <a href="/contact" class="mt-8 inline-flex min-h-14 items-center gap-2 rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">
+        Book Your Assessment
+        <ArrowRight class="h-5 w-5" />
+      </a>
+    </div>
+  </section>
+</SiteLayout>

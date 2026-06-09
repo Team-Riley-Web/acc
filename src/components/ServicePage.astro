@@ -1,0 +1,174 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowRight, Check, ClipboardList } from '@lucide/astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ajCallegan from '../assets/images/aj-callegan.jpg';
+import scienceHouse from '../assets/images/building-science-house.jpg';
+
+interface Props {
+  page: {
+    title: string;
+    description: string;
+    headline: string;
+    subheadline: string;
+    cta: string;
+    sections: any[];
+    finalHeadline: string;
+    finalBody: string;
+  };
+}
+
+const { page } = Astro.props;
+---
+
+<SiteLayout title={page.title} description={page.description}>
+  <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-24 pt-20 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-28">
+    <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_0.92fr]">
+      <div>
+        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">
+          ACC Building Performance
+        </p>
+        <h1 class="mt-8 max-w-3xl text-5xl font-black leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">{page.headline}</h1>
+        <p class="mt-8 max-w-2xl text-lg font-semibold leading-8 text-white/63">{page.subheadline}</p>
+        <a href="/contact" class="mt-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">
+          {page.cta}
+          <ArrowRight class="h-5 w-5" />
+        </a>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
+        <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
+          <Image src={ajCallegan} alt="AJ on site conducting a building science assessment" width={760} class="aspect-[1.02] w-full object-cover object-[50%_18%]" loading="eager" />
+        </div>
+        <div class="absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl sm:-bottom-9 sm:left-24 sm:translate-x-0">
+          <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
+            <ClipboardList class="h-9 w-9" />
+          </span>
+          <span>
+            <span class="block text-base font-black leading-tight text-[#02293c]">Documented Findings</span>
+            <span class="mt-1 block text-sm font-bold leading-5 text-slate-600">Clear next steps, not guesswork</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {page.sections.map((section, index) => (
+    <section class:list={[
+      'px-5 py-24 sm:px-6 lg:px-8',
+      index % 2 === 0 ? 'bg-acc-mist' : 'relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] text-white',
+    ]}>
+      {index % 2 === 1 && <div class="hero-noise absolute inset-0 opacity-70"></div>}
+      <div class="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.42fr_1fr]">
+        <div>
+          <p class:list={[
+            'text-[0.68rem] font-black uppercase tracking-[0.3em]',
+            index % 2 === 0 ? 'text-[#4f93a2]' : 'text-[#65b6ca]',
+          ]}>{section.eyebrow}</p>
+          <h2 class:list={[
+            'mt-5 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl',
+            index % 2 === 0 ? 'text-acc-ink' : 'text-white',
+          ]}>{section.headline}</h2>
+        </div>
+
+        <div>
+          {section.body && (
+            <div class:list={[
+              'grid gap-5 text-base font-semibold leading-7',
+              index % 2 === 0 ? 'text-[#164f59]/85' : 'text-white/75',
+            ]}>
+              {section.body.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+          )}
+
+          {section.bullets && (
+            <ul class="mt-8 grid gap-4">
+              {section.bullets.map((bullet) => (
+                <li class:list={[
+                  'flex gap-3 rounded-xl p-5 text-sm font-bold leading-6 shadow-sm',
+                  index % 2 === 0 ? 'border border-[#d5ded9] bg-white text-slate-700' : 'border border-white/12 bg-white/[0.04] text-white/76',
+                ]}>
+                  <Check class="mt-1 h-4 w-4 shrink-0 text-[#62aebe]" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {section.items && (
+            <div class="mt-8 grid gap-5">
+              {section.items.map((item) => (
+                <article class:list={[
+                  'group relative overflow-hidden rounded-2xl p-7 shadow-sm transition hover:-translate-y-0.5',
+                  index % 2 === 0
+                    ? 'border border-[#d5ded9] bg-white hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7'
+                    : 'border border-white/12 bg-white/[0.035] hover:bg-white/[0.07]',
+                ]}>
+                  <div class="absolute inset-y-0 left-0 w-1 bg-[#7fc2d0] opacity-70 transition group-hover:bg-acc-gold group-hover:opacity-100"></div>
+                  <h3 class:list={[
+                    'text-xl font-black leading-tight',
+                    index % 2 === 0 ? 'text-acc-ink' : 'text-white',
+                  ]}>{item.title}</h3>
+                  <p class:list={[
+                    'mt-3 text-sm font-semibold leading-6',
+                    index % 2 === 0 ? 'text-slate-600' : 'text-white/58',
+                  ]}>{item.copy}</p>
+                </article>
+              ))}
+            </div>
+          )}
+
+          {section.steps && (
+            <div class="mt-8 grid gap-5">
+              {section.steps.map(([title, copy], stepIndex) => (
+                <article class:list={[
+                  'grid gap-5 rounded-2xl p-7 shadow-sm sm:grid-cols-[3.5rem_1fr]',
+                  index % 2 === 0 ? 'border border-[#d5ded9] bg-white' : 'border border-white/12 bg-white/[0.04]',
+                ]}>
+                  <span class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#e8f3f4] text-sm font-black text-[#0b4850] ring-1 ring-[#cfe3e7]">0{stepIndex + 1}</span>
+                  <div>
+                    <h3 class:list={[
+                      'text-xl font-black leading-tight',
+                      index % 2 === 0 ? 'text-acc-ink' : 'text-white',
+                    ]}>{title}</h3>
+                    <p class:list={[
+                      'mt-3 text-sm font-semibold leading-6',
+                      index % 2 === 0 ? 'text-slate-600' : 'text-white/58',
+                    ]}>{copy}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+
+          {section.quote && (
+            <blockquote class:list={[
+              'mt-8 rounded-lg p-7 text-xl font-black leading-8 shadow-2xl',
+              index % 2 === 0 ? 'bg-[#0b4850] text-white shadow-[#06333a]/25' : 'bg-white text-[#02293c] shadow-black/15',
+            ]}>
+              “{section.quote}”
+            </blockquote>
+          )}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:grid-cols-[0.82fr_1fr] lg:px-16 lg:py-20">
+      <div class="overflow-hidden rounded-2xl bg-white p-4 shadow-2xl shadow-black/20">
+        <Image src={scienceHouse} alt="Building science diagram of air, moisture, heat, and pressure interactions in a home" width={900} class="aspect-[4/3] w-full object-contain" />
+      </div>
+      <div>
+        <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Next Step</p>
+        <h2 class="mt-5 max-w-3xl text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl">{page.finalHeadline}</h2>
+        <p class="mt-7 max-w-2xl text-base font-semibold leading-7 text-white/70">{page.finalBody}</p>
+        <a href="/contact" class="mt-9 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">
+          {page.cta}
+          <ArrowRight class="h-5 w-5" />
+        </a>
+        <p class="mt-4 text-sm font-bold text-white/45">Contact us at accbp.com/contact. AJ follows up personally.</p>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
