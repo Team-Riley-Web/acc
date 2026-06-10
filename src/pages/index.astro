@@ -11,6 +11,7 @@ import {
     Home,
     Mail,
     MapPin,
+    Phone,
     Search,
     ShieldCheck,
     Utensils,
@@ -63,18 +64,18 @@ const services = [
 >
     <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-28 pt-36 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-36">
         <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_1.05fr]">
-            <div>
+            <div class="text-center lg:text-left">
                 <p class="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-[#86c8dc] sm:tracking-[0.28em]">Building Science · HVAC Consulting</p>
-                <h1 class="mt-4 max-w-xl text-5xl font-extrabold leading-[1.05] tracking-normal text-white sm:mt-9 sm:text-[5.1rem] lg:text-[5.75rem]">
+                <h1 class="mt-4 mx-auto max-w-xl text-5xl font-extrabold leading-[1.05] tracking-normal text-white sm:mt-9 sm:text-[5.1rem] lg:mx-0 lg:text-[5.75rem]">
                     Home
                     <span class="block bg-gradient-to-b from-[#9edcea] to-[#8ca0de] bg-clip-text text-transparent">Air You Can Trust.</span>
                 </h1>
-                <p class="reveal-body mt-9 max-w-xl text-lg font-medium leading-8 text-white/70">
+                <p class="reveal-body mt-4 mx-auto max-w-xl text-lg font-medium leading-8 text-white/70 sm:mt-9 lg:mx-0">
                     ACC Building Performance is a building science specialist serving the Gulf South. We find the root cause of what is making your home, and your family, sick.
                 </p>
-                <div class="reveal-body mt-12 flex flex-wrap gap-5">
+                <div class="reveal-body mt-12 flex flex-wrap justify-center gap-5 lg:justify-start">
                     <a href="/contact" class="btn-primary">Schedule an Assessment</a>
-                    <a href="/about" class="btn-secondary-dark">Our Story</a>
+                    <a href="/about" class="hidden md:inline-flex btn-secondary-dark">Our Story</a>
                 </div>
             </div>
 
@@ -82,7 +83,7 @@ const services = [
                 <div class="reveal-body overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
                     <img src={heroImage} alt="Modern high-performance home exterior at dusk" class="aspect-[1.02] w-full object-cover" loading="eager" />
                 </div>
-                <div class="reveal-body absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl lg:-bottom-9 lg:left-24 lg:translate-x-0">
+                <div class="reveal-body absolute inset-x-0 -bottom-[3.25rem] mx-auto flex w-[86%] max-w-sm items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl lg:inset-x-auto lg:left-24 lg:mx-0 lg:-bottom-9">
           <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
             <Search class="h-9 w-9" />
           </span>
@@ -97,25 +98,32 @@ const services = [
 
     <section class="relative bg-[#06333a] px-5 py-10 text-white sm:px-6 lg:px-8">
         <div class="absolute inset-x-[-8%] -bottom-12 h-32 rounded-[0_0_50%_50%] bg-[#06333a]"></div>
-        <div class="relative mx-auto grid max-w-6xl gap-8 md:grid-cols-4">
+        <div class="stats-carousel relative mx-auto flex max-w-6xl gap-4 overflow-x-hidden md:grid md:grid-cols-4 md:gap-8 md:overflow-visible">
             {stats.map(({ value, label, icon: Icon }) => (
-                    <article class="reveal-body border-white/10 md:border-l md:px-8 first:md:border-l-0">
-                        <Icon class="mb-6 h-7 w-7 text-[#6ab8ce]" />
-                        <p class="text-5xl font-black tracking-tight">{value}</p>
-                        <p class="mt-2 max-w-[11rem] text-xs font-bold leading-5 text-white/75">{label}</p>
+                    <article class="reveal-body flex min-w-[78%] shrink-0 items-center gap-2 md:block md:min-w-0 md:shrink md:border-l md:px-8 first:md:border-l-0">
+                        <Icon class="h-6 w-6 shrink-0 text-[#6ab8ce] md:mb-6 md:h-7 md:w-7" />
+                        <p class="shrink-0 text-base font-black tracking-tight md:text-5xl">{value}</p>
+                        <p class="text-base font-bold leading-5 text-white/75 md:mt-2 md:max-w-[11rem] md:text-xs">{label}</p>
+                    </article>
+            ))}
+            {stats.map(({ value, label, icon: Icon }) => (
+                    <article aria-hidden="true" class="flex min-w-[78%] shrink-0 items-center gap-2 md:hidden">
+                        <Icon class="h-6 w-6 shrink-0 text-[#6ab8ce]" />
+                        <p class="shrink-0 text-base font-black tracking-tight">{value}</p>
+                        <p class="text-base font-bold leading-5 text-white/75">{label}</p>
                     </article>
             ))}
         </div>
     </section>
 
-    <section class="relative bg-acc-mist px-5 pb-28 pt-28 sm:px-6 lg:px-8 lg:pt-36">
+    <section class="relative bg-acc-mist px-5 py-16 sm:px-6 lg:px-8 lg:pt-36">
         <div class="mx-auto grid max-w-6xl items-stretch gap-16 lg:grid-cols-[0.9fr_1fr]">
-            <div class="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
-                <div class="reveal-body h-full min-h-[34rem] overflow-hidden rounded-2xl shadow-2xl shadow-[#06333a]/15">
+            <div class="relative order-2 mx-auto w-full max-w-lg lg:order-1 lg:mx-0 lg:max-w-none">
+                <div class="reveal-body h-full max-h-[20rem] min-h-0 overflow-hidden rounded-2xl shadow-2xl shadow-[#06333a]/15 lg:max-h-none lg:min-h-[34rem]">
                     <Image src={ajCallegan} alt="AJ Callegan, founder of ACC Building Performance" width={760} class="aspect-[4/5] h-full w-full object-cover object-bottom lg:aspect-auto" />
                 </div>
             </div>
-            <div>
+            <div class="order-1 lg:order-2">
                 <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#4f93a2]">The Story Behind ACC</p>
                 <h2 class="mt-5 max-w-xl text-5xl font-black leading-[1.02] tracking-tight text-acc-ink sm:text-6xl">A personal health crisis became a professional mission.</h2>
                 <div class="reveal-body mt-8 grid max-w-2xl gap-5 text-base font-semibold leading-7 text-[#164f59]/85">
@@ -139,7 +147,7 @@ const services = [
         </div>
     </section>
 
-    <section id="how-we-work" class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-28 text-white sm:px-6 lg:px-8">
+    <section id="how-we-work" class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-16 lg:py-28 text-white sm:px-6 lg:px-8">
         <div class="hero-noise absolute inset-0 opacity-70"></div>
         <div class="relative mx-auto max-w-6xl">
             <!--<p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">What We Do</p>-->
@@ -204,7 +212,7 @@ const services = [
         <div class="mx-auto max-w-7xl rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:px-20 lg:py-24">
             <div class="grid gap-14 lg:grid-cols-2 lg:items-center">
                 <div>
-                    <h2 class="max-w-sm text-6xl font-black leading-[1.02] tracking-tight sm:text-6xl">Where breath becomes the baseline.</h2>
+                    <h2 class="max-w-sm text-4xl font-black leading-[1.02] tracking-tight md:text-6xl">Where breath becomes the baseline.</h2>
                     <p class="reveal-body mt-7 max-w-md text-base font-semibold leading-7 text-white/70">
                         The rule of 3 is simple: food buys weeks, water buys days, air buys minutes. That makes indoor air quality a first-order home performance issue, not an afterthought.
                     </p>
@@ -220,10 +228,10 @@ const services = [
                         [Droplets, '3 days', 'without water'],
                         [Wind, '3 minutes', 'without air'],
                     ].map(([Icon, value, label]) => (
-                            <article class="reveal-body grid gap-6 sm:grid-cols-[7rem_1fr] sm:items-center">
-                                <Icon class="h-20 w-20 text-[#8fc8d5]" stroke-width={1.5} />
-                                <div>
-                                    <p class="text-5xl font-black tracking-tight sm:text-7xl">{value}</p>
+                            <article class="reveal-body flex items-center gap-5 sm:gap-6">
+                                <Icon class="h-16 w-16 shrink-0 text-[#8fc8d5] sm:h-20 sm:w-20" stroke-width={1.5} />
+                                <div class="min-w-0">
+                                    <p class="font-black tracking-tight text-[clamp(2.25rem,11vw,4.5rem)] leading-none">{value}</p>
                                     <p class="mt-2 text-lg font-black text-white/55">{label}</p>
                                 </div>
                             </article>
@@ -233,14 +241,14 @@ const services = [
         </div>
     </section>
 
-    <section id="contact" class="bg-acc-mist px-5 pb-24 pt-12 sm:px-6 lg:px-8">
+    <section id="contact" class="bg-acc-mist px-5 md:pb-24 md:pt-12 sm:px-6 lg:px-8">
         <div class="mx-auto grid max-w-6xl gap-10 rounded-2xl bg-white p-8 shadow-xl shadow-[#06333a]/10 lg:grid-cols-[0.8fr_1.2fr] lg:p-12">
             <div>
                 <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Contact</p>
                 <h2 class="mt-4 text-4xl font-black leading-tight text-acc-ink">Ready to diagnose your home, not guess?</h2>
                 <div class="reveal-body mt-8 grid gap-4 text-sm font-bold text-slate-600">
                     <p class="flex items-center gap-3"><MapPin class="h-5 w-5 text-[#62aebe]" /> Covington, Louisiana</p>
-                    <a href="tel:+15042480186" class="flex items-center gap-3 hover:text-acc-ink">504-248-0186</a>
+                    <a href="tel:+15042480186" class="flex items-center gap-3 hover:text-acc-ink"><Phone class="h-5 w-5 text-[#62aebe]" /> 504-248-0186</a>
                     <p class="flex items-center gap-3"><ShieldCheck class="h-5 w-5 text-[#62aebe]" /> Building science, HVAC design, and verification</p>
                 </div>
             </div>
@@ -255,11 +263,58 @@ const services = [
                     <input type="email" name="email" required placeholder="Email" aria-label="Email" class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-base font-semibold outline-none focus:ring-2 focus:ring-[#62aebe]" />
                 </div>
                 <textarea name="message" rows="5" required placeholder="What is happening in the home?" aria-label="Message" class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-4 text-base font-semibold outline-none focus:ring-2 focus:ring-[#62aebe]"></textarea>
-                <button type="submit" class="inline-flex min-h-12 w-fit items-center gap-2 rounded-full bg-acc-ink px-7 text-sm font-extrabold text-white transition hover:bg-[#092f38]">
+                <button type="submit" class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-acc-ink px-7 text-sm font-extrabold text-white transition hover:bg-[#092f38] sm:w-fit sm:justify-start">
                     Send Message
                     <Mail class="h-4 w-4" />
                 </button>
             </form>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.querySelector('.stats-carousel');
+            if (!carousel) return;
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+            const SPEED = 0.15; // pixels per frame
+
+            let raf = null;
+            let pos = 0;
+            let loopWidth = 0;
+
+            // Distance after which the duplicated set lines up with the original — a seamless wrap point.
+            const measure = () => {
+                const items = carousel.children;
+                const half = items.length / 2;
+                loopWidth = half > 0 ? items[half].offsetLeft - items[0].offsetLeft : 0;
+            };
+
+            const tick = () => {
+                if (loopWidth > 0) {
+                    pos += SPEED;
+                    if (pos >= loopWidth) pos -= loopWidth;
+                    carousel.scrollLeft = pos;
+                }
+                raf = requestAnimationFrame(tick);
+            };
+
+            const start = () => {
+                if (raf || prefersReducedMotion || !isMobile()) return;
+                measure();
+                pos = carousel.scrollLeft;
+                raf = requestAnimationFrame(tick);
+            };
+
+            const stop = () => {
+                if (!raf) return;
+                cancelAnimationFrame(raf);
+                raf = null;
+            };
+
+            window.addEventListener('resize', () => { stop(); isMobile() ? start() : (carousel.scrollLeft = 0); });
+            start();
+        });
+    </script>
 </SiteLayout>

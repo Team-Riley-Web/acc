@@ -57,6 +57,7 @@
     justify-content: center;
     min-height: 3.5rem;
     padding: 0 2rem;
+    white-space: nowrap;
     transition:
       background-color 180ms ease,
       transform 180ms ease;
@@ -157,6 +158,19 @@
     background-color: #ffffff;
     border-color: #d5ded9;
     color: #02293c;
+  }
+
+  .site-header.is-scrolled .mobile-menu-panel {
+    top: 4.5rem;
+    max-height: calc(100vh - 4.5rem);
+  }
+
+  details[open] .menu-icon-open {
+    display: none;
+  }
+
+  details[open] .menu-icon-close {
+    display: block;
   }
 
   .form-field {

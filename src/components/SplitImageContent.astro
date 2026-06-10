@@ -30,7 +30,7 @@ const hasGallery = galleryImages.length > 1;
 ---
 
 <section class:list={[
-  isFull ? 'py-0' : 'px-5 py-20 sm:px-6 lg:px-8 lg:py-24',
+  isFull ? 'py-0' : 'px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24',
   isLight ? 'bg-acc-mist' : 'relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] text-white',
 ]}>
   {!isLight && <div class="hero-noise absolute inset-0 opacity-70"></div>}
@@ -44,10 +44,10 @@ const hasGallery = galleryImages.length > 1;
       : ['bg-[#06333a]', isFull ? '' : 'border border-white/10 shadow-black/20'],
   ]}>
     <div class:list={[
-      'min-h-[22rem] overflow-hidden',
+      'order-2 min-h-[22rem] overflow-hidden lg:order-1',
       isFull ? 'lg:min-h-[42rem]' : 'lg:min-h-[34rem]',
       isSticky && 'lg:sticky lg:top-0 lg:h-screen lg:self-start',
-      !isFull && 'rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none',
+      !isFull && 'rounded-b-3xl lg:rounded-l-3xl lg:rounded-br-none lg:rounded-tl-3xl',
     ]}>
       {hasGallery ? (
         <div class="group relative h-full min-h-[22rem]" data-image-gallery>
@@ -102,7 +102,7 @@ const hasGallery = galleryImages.length > 1;
     </div>
 
     <div class:list={[
-      'flex min-h-[22rem] px-7 py-10 sm:px-10',
+      'order-1 flex min-h-[22rem] px-7 py-10 sm:px-10 lg:order-2',
       isSticky ? 'items-start' : 'items-center',
       isFull ? 'lg:min-h-[42rem] lg:px-20 lg:py-20 xl:px-24' : 'lg:min-h-[34rem] lg:px-14 lg:py-16',
     ]}>

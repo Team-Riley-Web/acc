@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { ArrowRight, ChevronDown, Clock3, Facebook, Heart, Instagram, Linkedin, MapPin, Menu, Phone, Share2, Youtube } from '@lucide/astro';
+import { ArrowRight, ChevronDown, Clock3, Facebook, Heart, Instagram, Linkedin, MapPin, Menu, Phone, Share2, X, Youtube } from '@lucide/astro';
 import logo from '../assets/images/logo.png';
 import { servicesNav } from '../content/site';
 import '../styles/global.css';
@@ -24,7 +24,7 @@ const { title, description } = Astro.props;
   <body class="bg-[#063f46] font-sans text-acc-ink">
     <div class="min-h-screen overflow-x-clip">
       <header class="site-header fixed inset-x-0 top-0 z-50 px-5 py-6 sm:px-6 lg:px-8">
-        <nav class="site-nav mx-auto grid w-full max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-5 border border-transparent bg-transparent px-0 py-0 text-white transition" aria-label="Primary navigation">
+        <nav class="site-nav mx-auto grid w-full max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-3 border border-transparent sm:gap-5 bg-transparent px-0 py-0 text-white transition" aria-label="Primary navigation">
           <a href="/" class="inline-flex rounded">
             <Image src={logo} alt="ACC Building Performance" width={260} quality={100} class="site-logo h-12 w-auto object-contain" loading="eager" />
           </a>
@@ -68,9 +68,10 @@ const { title, description } = Astro.props;
             </a>
             <details class="relative lg:hidden">
               <summary class="site-menu-button flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur">
-                <Menu class="h-5 w-5" />
+                <Menu class="menu-icon-open h-5 w-5" />
+                <X class="menu-icon-close hidden h-5 w-5" />
               </summary>
-              <div class="fixed left-0 right-0 top-24 max-h-[calc(100vh-6rem)] overflow-y-auto border-y border-[#d5ded9] bg-white p-4 text-[#02293c] shadow-2xl shadow-black/20">
+              <div class="mobile-menu-panel fixed left-0 right-0 top-24 max-h-[calc(100vh-6rem)] overflow-y-auto border-y border-[#d5ded9] bg-white p-4 text-[#02293c] shadow-2xl shadow-black/20">
                 <a href="/" class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-[#edf4f4] hover:text-[#0b4850]">Home</a>
                 <div class="mobile-nav-group">
                   <div class="flex items-center gap-2">
@@ -79,9 +80,9 @@ const { title, description } = Astro.props;
                       <ChevronDown class="h-5 w-5 transition" />
                     </button>
                   </div>
-                  <div id="services-menu" class="mobile-nav-submenu hidden px-3 pb-2">
+                  <div id="services-menu" class="mobile-nav-submenu mt-1 hidden rounded-xl bg-[#e3efef] p-1">
                     {servicesNav.map((item) => (
-                      <a href={item.href} class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/82 hover:bg-[#edf4f4] hover:text-[#0b4850]">{item.label}</a>
+                      <a href={item.href} class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-white hover:text-[#0b4850]">{item.label}</a>
                     ))}
                   </div>
                 </div>
@@ -94,9 +95,9 @@ const { title, description } = Astro.props;
                       <ChevronDown class="h-5 w-5 transition" />
                     </button>
                   </div>
-                  <div id="resources-menu" class="mobile-nav-submenu hidden px-3 pb-2">
-                    <a href="/resources" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/82 hover:bg-[#edf4f4] hover:text-[#0b4850]">Videos</a>
-                    <a href="/resources/products" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/82 hover:bg-[#edf4f4] hover:text-[#0b4850]">Products</a>
+                  <div id="resources-menu" class="mobile-nav-submenu mt-1 hidden rounded-xl bg-[#e3efef] p-1">
+                    <a href="/resources" class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-white hover:text-[#0b4850]">Videos</a>
+                    <a href="/resources/products" class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-white hover:text-[#0b4850]">Products</a>
                   </div>
                 </div>
                 <a href="/contact" class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-[#edf4f4] hover:text-[#0b4850]">Contact</a>
@@ -162,8 +163,8 @@ const { title, description } = Astro.props;
         });
       </script>
 
-      <footer class="bg-acc-mist px-5 py-8 sm:px-6 lg:px-8">
-        <section class="relative overflow-hidden rounded-[2rem] bg-[#06333a] px-6 py-12 text-white shadow-2xl shadow-[#02293c]/15 sm:px-8 lg:px-12 lg:py-16">
+      <footer class="bg-acc-mist px-0 py-0 sm:px-6 sm:py-8 lg:px-8">
+        <section class="relative overflow-hidden rounded-none bg-[#06333a] px-6 py-12 text-white shadow-2xl shadow-[#02293c]/15 sm:rounded-[2rem] sm:px-8 lg:px-12 lg:py-16">
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(134,200,220,0.18),transparent_30rem),linear-gradient(135deg,#06333a_0%,#0b4850_58%,#02293c_100%)]"></div>
           <div class="hero-noise absolute inset-0 opacity-45"></div>
           <div class="relative z-10 mx-auto max-w-6xl">
@@ -198,10 +199,9 @@ const { title, description } = Astro.props;
               </div>
             </div>
 
-            <div class="mt-12 grid gap-8 border-t border-white/10 pt-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div class="grid gap-8 pt-8 lg:mt-12 lg:border-t lg:border-white/10 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <div class="mt-4 flex flex-wrap gap-3">
-                  <a href="/contact" class="inline-flex h-11 items-center justify-center rounded-full border border-white/12 px-5 text-sm font-black text-white/70 transition hover:border-white/35 hover:text-white">Contact</a>
+                <div class="mt-4 flex flex-wrap justify-center gap-3 lg:justify-start">
                   <a href="#" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="Facebook">
                     <Facebook class="h-4 w-4" />
                   </a>
@@ -217,7 +217,7 @@ const { title, description } = Astro.props;
                 </div>
               </div>
 
-              <nav class="flex flex-wrap gap-x-7 gap-y-3 text-sm font-black text-white/62 lg:justify-end" aria-label="Footer navigation">
+              <nav class="hidden flex-wrap gap-x-7 gap-y-3 text-sm font-black text-white/62 lg:flex lg:justify-end" aria-label="Footer navigation">
                 <a href="/" class="hover:text-white">Home</a>
                 <a href="/about" class="hover:text-white">About</a>
                 <a href="/home-wellness-assessment" class="hover:text-white">Services</a>
@@ -227,11 +227,11 @@ const { title, description } = Astro.props;
               </nav>
             </div>
 
-            <div class="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs font-bold text-white/38 sm:flex-row sm:items-center sm:justify-between">
+            <div class="mt-8 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center text-xs font-bold text-white/38 sm:flex-row sm:items-center sm:justify-between sm:text-left">
               <p>Copyright © ACC Building Performance 2026</p>
-              <p class="inline-flex flex-wrap items-center gap-1.5">
+              <p class="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:gap-1.5">
                 <span class="text-[#8fc8d5]">Colossians 3:23</span>
-                <span>•</span>
+                <span class="hidden sm:inline">•</span>
                 <a href="https://teamrileyweb.com/" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1.5 text-white/62 transition hover:text-white">
                   <span>Crafted with</span>
                   <Heart class="h-3.5 w-3.5 fill-[#8fc8d5] text-[#8fc8d5]" />

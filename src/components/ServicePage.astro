@@ -198,12 +198,12 @@ const getSplitImage = (index) => pageImages.split[index] ?? finalImage;
 <SiteLayout title={page.title} description={page.description}>
   <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-24 pt-36 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-32">
     <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_0.92fr]">
-      <div>
+      <div class="text-center lg:text-left">
         <p class="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-[#86c8dc] sm:tracking-[0.28em]">
           ACC Building Performance
         </p>
         <h1 class="mt-4 max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-normal text-white sm:mt-8 sm:text-6xl lg:text-7xl">{page.headline}</h1>
-        <p class="reveal-body mt-8 max-w-2xl text-lg font-medium leading-8 text-white/70">{page.subheadline}</p>
+        <p class="reveal-body mt-4 max-w-2xl text-lg font-medium leading-8 text-white/70 sm:mt-8">{page.subheadline}</p>
         <a href="/contact" class="btn-primary reveal-body mt-10">
           {page.cta}
           <ArrowRight class="h-5 w-5" />
@@ -214,7 +214,7 @@ const getSplitImage = (index) => pageImages.split[index] ?? finalImage;
         <div class="reveal-body overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
           <Image src={heroImage.src} alt={heroImage.alt} width={760} class="aspect-[1.02] w-full object-cover" loading="eager" />
         </div>
-        <div class="reveal-body absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl lg:-bottom-9 lg:left-24 lg:translate-x-0">
+        <div class="reveal-body absolute inset-x-0 -bottom-[3.25rem] mx-auto flex w-[86%] max-w-sm items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl lg:inset-x-auto lg:left-24 lg:mx-0 lg:-bottom-9">
           <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
             <HeroBadgeIcon class="h-9 w-9" />
           </span>
@@ -237,7 +237,7 @@ const getSplitImage = (index) => pageImages.split[index] ?? finalImage;
     )
   ))}
 
-  <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
+  <section class="bg-acc-mist px-5 py-16 sm:px-6 sm:py-24 lg:px-8">
     <div class="mx-auto grid max-w-6xl items-center gap-10 rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:grid-cols-[0.82fr_1fr] lg:px-16 lg:py-20">
       <div class="reveal-body overflow-hidden rounded-2xl bg-white p-1 shadow-2xl shadow-black/20">
         <Image src={finalImage.src} alt={finalImage.alt} width={900} class="aspect-[4/3] w-full rounded-xl object-cover" />
