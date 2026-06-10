@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         acc: {
-          mist: '#eeefe8',
+          mist: '#f8fdfe',
           sky: '#97CAD8',
           blue: '#73A9BB',
           grayblue: '#AFC9CF',

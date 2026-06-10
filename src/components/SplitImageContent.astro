@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import { Check } from '@lucide/astro';
+
+interface Props {
+  section: {
+    eyebrow: string;
+    headline: string;
+    body?: string[];
+    bullets?: string[];
+    quote?: string;
+  };
+  index: number;
+  image: {
+    src: any;
+    alt: string;
+  };
+  variant?: 'contained' | 'full';
+}
+
+const { section, index, image, variant = 'contained' } = Astro.props;
+const isLight = index % 2 === 0;
+const isFull = variant === 'full';
+---
+
+<section class:list={[
+  isFull ? 'py-0' : 'px-5 py-20 sm:px-6 lg:px-8 lg:py-24',
+  isLight ? 'bg-acc-mist' : 'relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] text-white',
+]}>
+  {!isLight && <div class="hero-noise absolute inset-0 opacity-70"></div>}
+  <div class:list={[
+    'relative grid overflow-hidden lg:grid-cols-2',
+    isFull ? 'w-full' : 'mx-auto max-w-6xl rounded-3xl shadow-2xl',
+    isLight
+      ? ['bg-white', isFull ? '' : 'border border-[#d5ded9] shadow-slate-950/8']
+      : ['bg-[#06333a]', isFull ? '' : 'border border-white/10 shadow-black/20'],
+  ]}>
+    <div class:list={[
+      'min-h-[22rem]',
+      isFull ? 'lg:min-h-[42rem]' : 'lg:min-h-[34rem]',
+    ]}>
+      <Image src={image.src} alt={image.alt} width={isFull ? 1400 : 980} class="h-full w-full object-cover" />
+    </div>
+
+    <div class:list={[
+      'flex min-h-[22rem] items-center px-7 py-10 sm:px-10',
+      isFull ? 'lg:min-h-[42rem] lg:px-20 lg:py-20 xl:px-24' : 'lg:min-h-[34rem] lg:px-14 lg:py-16',
+    ]}>
+      <div class:list={[isFull ? 'max-w-2xl' : '']}>
+        <p class:list={[
+          'text-[0.68rem] font-black uppercase tracking-[0.3em]',
+          isLight ? 'text-[#4f93a2]' : 'text-[#65b6ca]',
+        ]}>{section.eyebrow}</p>
+        <h2 class:list={[
+          'mt-5 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl',
+          isLight ? 'text-acc-ink' : 'text-white',
+        ]}>{section.headline}</h2>
+        {section.body && (
+          <div class:list={[
+            'reveal-body mt-7 grid gap-5 text-base font-semibold leading-7',
+            isLight ? 'text-[#164f59]/85' : 'text-white/72',
+          ]}>
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        )}
+        {section.bullets && (
+          <ul class="reveal-body mt-8 grid gap-3">
+            {section.bullets.map((bullet) => (
+              <li class:list={[
+                'flex gap-3 rounded-xl p-4 text-sm font-bold leading-6',
+                isLight ? 'bg-[#eef6f6] text-[#164f59]' : 'bg-white/[0.06] text-white/78',
+              ]}>
+                <Check class="mt-1 h-4 w-4 shrink-0 text-[#62aebe]" />
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+        {section.quote && (
+          <blockquote class:list={[
+            'reveal-body mt-8 rounded-lg p-6 text-lg font-black leading-8 shadow-xl',
+            isLight ? 'bg-[#0b4850] text-white shadow-[#06333a]/20' : 'bg-white text-[#02293c] shadow-black/15',
+          ]}>
+            “{section.quote}”
+          </blockquote>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

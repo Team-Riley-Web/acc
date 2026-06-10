@@ -1,12 +1,24 @@
 ---
 import { Image } from 'astro:assets';
-import { ArrowRight, ClipboardList } from '@lucide/astro';
+import { ArrowRight, ClipboardCheck, Gauge, Hammer, HeartPulse, Home, Wind } from '@lucide/astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ServiceContentSection from './ServiceContentSection.astro';
+import ServiceFeatureGridSection from './ServiceFeatureGridSection.astro';
+import SplitImageContent from './SplitImageContent.astro';
 import ajCallegan from '../assets/images/aj-callegan.jpg';
-import scienceHouse from '../assets/images/building-science-house.jpg';
+import assessmentImage from '../assets/images/imgi_241_premium_photo-1661957645816-099827ce621f.jpeg';
+import atticDuctImage from '../assets/images/imgi_298_premium_photo-1661964387248-55856fa89031.jpeg';
+import hvacImage from '../assets/images/pexels-jose-andres-pacheco-cortes-3641213-6471913.jpg';
+import consultingImage from '../assets/images/imgi_256_premium_photo-1682148117399-5dbf32ccb622.jpeg';
+import constructionImage from '../assets/images/imgi_327_premium_photo-1683121688597-9f8e71d9d307.jpeg';
+import sprayFoamImage from '../assets/images/imgi_284_premium_photo-1682148134234-772b74827e56.jpeg';
+import framingImage from '../assets/images/imgi_226_premium_photo-1677782977189-d2ba571a679c.jpeg';
+import finishWorkImage from '../assets/images/imgi_403_premium_photo-1682088630940-f9b84477b2f7.jpeg';
+import constructionDetailImage from '../assets/images/imgi_41_photo-1768321917437-1f1f6ae2ad28.jpg';
+import marignyRendering from '../assets/images/marigny-rendering.png';
 
 interface Props {
+  slug: string;
   page: {
     title: string;
     description: string;
@@ -19,57 +31,200 @@ interface Props {
   };
 }
 
-const { page } = Astro.props;
+const { page, slug } = Astro.props;
+const serviceImageSets = {
+  'home-wellness-assessment': {
+    hero: {
+      src: assessmentImage,
+      alt: 'Building professional inspecting insulation and moisture conditions inside a home',
+    },
+    split: {
+      3: {
+        src: atticDuctImage,
+        alt: 'Building professional inspecting ducts and attic conditions inside a home',
+      },
+    },
+    final: {
+      src: ajCallegan,
+      alt: 'AJ on site conducting a building science assessment',
+    },
+  },
+  'compliance-testing': {
+    hero: {
+      src: atticDuctImage,
+      alt: 'Building professional inspecting ducts and attic conditions for performance testing',
+    },
+    split: {
+      0: {
+        src: constructionDetailImage,
+        alt: 'Close detail of construction materials and performance testing conditions',
+      },
+      2: {
+        src: finishWorkImage,
+        alt: 'Residential construction work being checked for performance details',
+      },
+    },
+    final: {
+      src: assessmentImage,
+      alt: 'Building professional inspecting insulation and moisture conditions inside a home',
+    },
+  },
+  'hvac-design': {
+    hero: {
+      src: hvacImage,
+      alt: 'HVAC technician checking system pressures during mechanical diagnostics',
+    },
+    split: {
+      0: {
+        src: atticDuctImage,
+        alt: 'Attic ductwork being inspected for building performance issues',
+      },
+    },
+    final: {
+      src: finishWorkImage,
+      alt: 'Residential construction work being completed with attention to performance details',
+    },
+  },
+  'healthy-home-consulting': {
+    hero: {
+      src: consultingImage,
+      alt: 'New construction interior with spray foam insulation and exposed framing',
+    },
+    split: {
+      0: {
+        src: sprayFoamImage,
+        alt: 'Healthy home construction interior with insulation and exposed framing',
+      },
+    },
+    final: {
+      src: constructionDetailImage,
+      alt: 'Close detail of construction materials and building envelope work',
+    },
+  },
+  'new-construction': {
+    hero: {
+      src: constructionImage,
+      alt: 'New custom home framing under construction',
+    },
+    split: {
+      0: {
+        src: consultingImage,
+        alt: 'High-performance home interior with spray foam insulation and framing',
+      },
+      2: {
+        src: marignyRendering,
+        alt: 'Architectural rendering for a custom home construction project',
+      },
+    },
+    final: {
+      src: framingImage,
+      alt: 'Residential framing and stair construction in progress',
+    },
+  },
+};
+const fallbackImageSet = {
+  hero: { src: ajCallegan, alt: 'AJ on site conducting a building science assessment' },
+  split: {},
+  final: { src: constructionDetailImage, alt: 'Close detail of construction materials and building envelope work' },
+};
+const pageImages = serviceImageSets[slug] ?? fallbackImageSet;
+const heroImage = pageImages.hero;
+const finalImage = pageImages.final;
+const heroBadges = {
+  'home-wellness-assessment': {
+    icon: HeartPulse,
+    title: 'Root-Cause Answers',
+    subtitle: 'Find what is affecting your family',
+  },
+  'compliance-testing': {
+    icon: Gauge,
+    title: 'Certified Testing',
+    subtitle: 'Blower door and duct leakage reports',
+  },
+  'hvac-design': {
+    icon: Wind,
+    title: 'Right-Sized Systems',
+    subtitle: 'Manual J, S, and D design work',
+  },
+  'healthy-home-consulting': {
+    icon: Home,
+    title: 'Healthy From Day One',
+    subtitle: 'Guidance from plans to final testing',
+  },
+  'new-construction': {
+    icon: Hammer,
+    title: 'Built to Perform',
+    subtitle: 'Custom homes with verified numbers',
+  },
+};
+const heroBadge = heroBadges[slug] ?? {
+  icon: ClipboardCheck,
+  title: 'Documented Findings',
+  subtitle: 'Clear next steps, not guesswork',
+};
+const HeroBadgeIcon = heroBadge.icon;
+const isSplitImageSection = (section) => section.body && !section.bullets && !section.items && !section.steps && !section.quote;
+const shouldUseSplit = (section) => section.layout === 'split-full' || isSplitImageSection(section);
+const getSplitVariant = (section, index) => (section.layout === 'split-full' || (slug === 'new-construction' && index === 0) ? 'full' : 'contained');
+const getSplitImage = (index) => pageImages.split[index] ?? finalImage;
 ---
 
 <SiteLayout title={page.title} description={page.description}>
-  <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-24 pt-20 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-28">
+  <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-24 pt-20 text-white sm:px-6 lg:px-8 lg:pb-32 lg:pt-32">
     <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_0.92fr]">
       <div>
-        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">
+        <p class="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-[#86c8dc] sm:tracking-[0.28em]">
           ACC Building Performance
         </p>
-        <h1 class="mt-8 max-w-3xl text-5xl font-black leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">{page.headline}</h1>
-        <p class="mt-8 max-w-2xl text-lg font-semibold leading-8 text-white/63">{page.subheadline}</p>
-        <a href="/contact" class="mt-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">
+        <h1 class="mt-8 max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-normal text-white sm:text-6xl lg:text-7xl">{page.headline}</h1>
+        <p class="reveal-body mt-8 max-w-2xl text-lg font-medium leading-8 text-white/70">{page.subheadline}</p>
+        <a href="/contact" class="btn-primary reveal-body mt-10">
           {page.cta}
           <ArrowRight class="h-5 w-5" />
         </a>
       </div>
 
       <div class="relative mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
-        <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
-          <Image src={ajCallegan} alt="AJ on site conducting a building science assessment" width={760} class="aspect-[1.02] w-full object-cover object-[50%_18%]" loading="eager" />
+        <div class="reveal-body overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
+          <Image src={heroImage.src} alt={heroImage.alt} width={760} class="aspect-[1.02] w-full object-cover" loading="eager" />
         </div>
-        <div class="absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl sm:-bottom-9 sm:left-24 sm:translate-x-0">
+        <div class="reveal-body absolute -bottom-5 left-1/2 flex w-[86%] max-w-sm -translate-x-1/2 items-center gap-5 rounded-2xl bg-white p-5 text-[#02293c] shadow-2xl sm:-bottom-9 sm:left-24 sm:translate-x-0">
           <span class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#9fd5e1] to-[#6b81bf] text-white">
-            <ClipboardList class="h-9 w-9" />
+            <HeroBadgeIcon class="h-9 w-9" />
           </span>
           <span>
-            <span class="block text-base font-black leading-tight text-[#02293c]">Documented Findings</span>
-            <span class="mt-1 block text-sm font-bold leading-5 text-slate-600">Clear next steps, not guesswork</span>
+            <span class="block text-base font-black leading-tight text-[#02293c]">{heroBadge.title}</span>
+            <span class="mt-1 block text-sm font-bold leading-5 text-slate-600">{heroBadge.subtitle}</span>
           </span>
         </div>
       </div>
     </div>
   </section>
 
-  {page.sections.map((section, index) => <ServiceContentSection section={section} index={index} />)}
+  {page.sections.map((section, index) => (
+    section.layout === 'feature-grid' ? (
+      <ServiceFeatureGridSection section={section} index={index} />
+    ) : shouldUseSplit(section) ? (
+      <SplitImageContent section={section} index={index} image={getSplitImage(index)} variant={getSplitVariant(section, index)} />
+    ) : (
+      <ServiceContentSection section={section} index={index} />
+    )
+  ))}
 
   <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto grid max-w-6xl items-center gap-10 rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:grid-cols-[0.82fr_1fr] lg:px-16 lg:py-20">
-      <div class="overflow-hidden rounded-2xl bg-white p-4 shadow-2xl shadow-black/20">
-        <Image src={scienceHouse} alt="Building science diagram of air, moisture, heat, and pressure interactions in a home" width={900} class="aspect-[4/3] w-full object-contain" />
+      <div class="reveal-body overflow-hidden rounded-2xl bg-white p-4 shadow-2xl shadow-black/20">
+        <Image src={finalImage.src} alt={finalImage.alt} width={900} class="aspect-[4/3] w-full rounded-xl object-cover" />
       </div>
       <div>
         <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Next Step</p>
         <h2 class="mt-5 max-w-3xl text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl">{page.finalHeadline}</h2>
-        <p class="mt-7 max-w-2xl text-base font-semibold leading-7 text-white/70">{page.finalBody}</p>
-        <a href="/contact" class="mt-9 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg btn-gold px-8 text-base font-extrabold shadow-sm transition">
+        <p class="reveal-body mt-7 max-w-2xl text-base font-semibold leading-7 text-white/70">{page.finalBody}</p>
+        <a href="/contact" class="btn-primary reveal-body mt-9">
           {page.cta}
           <ArrowRight class="h-5 w-5" />
         </a>
-        <p class="mt-4 text-sm font-bold text-white/45">Contact us at accbp.com/contact. AJ follows up personally.</p>
+        <p class="reveal-body mt-4 text-sm font-bold text-white/45">Contact us at accbp.com/contact. AJ follows up personally.</p>
       </div>
     </div>
   </section>

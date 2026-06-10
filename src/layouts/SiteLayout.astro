@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { ArrowRight, ChevronDown, Menu, Phone } from '@lucide/astro';
+import { ArrowRight, ChevronDown, Clock3, Facebook, Instagram, Linkedin, MapPin, Menu, Phone, Share2, Youtube } from '@lucide/astro';
 import logo from '../assets/images/logo.png';
 import { servicesNav } from '../content/site';
 import '../styles/global.css';
@@ -23,53 +23,48 @@ const { title, description } = Astro.props;
   </head>
   <body class="bg-[#063f46] font-sans text-acc-ink">
     <div class="min-h-screen overflow-x-clip">
-      <header class="sticky top-0 z-30 border-t border-[#e8a83e]/60 bg-[#06333a]/95 px-5 py-4 text-white shadow-lg shadow-[#02293c]/10 backdrop-blur-md sm:px-6 lg:px-8">
-        <nav class="mx-auto flex max-w-6xl items-center justify-between gap-5" aria-label="Primary navigation">
-          <a href="/" class="inline-flex rounded shadow-sm">
-            <Image src={logo} alt="ACC Building Performance" width={260} quality={100} class="h-10 w-auto object-contain" loading="eager" />
+      <header class="site-header fixed inset-x-0 top-0 z-50 px-5 py-6 sm:px-6 lg:px-8">
+        <nav class="site-nav mx-auto grid w-full max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-5 border border-transparent bg-transparent px-0 py-0 text-white transition" aria-label="Primary navigation">
+          <a href="/" class="inline-flex rounded">
+            <Image src={logo} alt="ACC Building Performance" width={260} quality={100} class="site-logo h-12 w-auto object-contain" loading="eager" />
           </a>
 
-          <div class="ml-auto flex items-center justify-end gap-6">
-            <div class="hidden items-center gap-7 text-sm font-bold uppercase tracking-[0.12em] text-white/50 lg:flex">
-              <a href="/" class="transition hover:text-white">Home</a>
+          <div class="site-nav-links hidden items-center justify-center gap-8 font-extrabold lg:flex">
+              <!--<a href="/" class="transition">Home</a>-->
               <div class="group relative py-3">
-                <button class="flex items-center gap-1 uppercase tracking-[0.12em] transition hover:text-white" type="button">
+                <button class="uppercase flex items-center gap-1 font-extrabold transition" type="button">
                   Services
                   <ChevronDown class="h-4 w-4" />
                 </button>
-                <div class="invisible absolute left-0 top-full w-72 translate-y-2 rounded-xl border border-white/10 bg-[#06333a] p-2 opacity-0 shadow-2xl shadow-black/25 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <div class="invisible absolute left-0 top-full w-72 translate-y-2 rounded-2xl border border-[#d5ded9] bg-white p-2 opacity-0 shadow-2xl shadow-black/15 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   {servicesNav.map((item) => (
-                    <a href={item.href} class="block rounded-lg px-4 py-3 text-xs font-black uppercase tracking-[0.1em] text-white/62 hover:bg-white/[0.07] hover:text-white">
+                    <a href={item.href} class="service-dropdown-link block rounded-xl px-4 py-3 text-sm font-extrabold hover:bg-[#edf4f4]">
                       {item.label}
                     </a>
                   ))}
                 </div>
               </div>
-              <a href="/about" class="transition hover:text-white">About</a>
-              <a href="/contact" class="transition hover:text-white">Contact</a>
-              <!--<a href="/v1" class="transition hover:text-white">V1</a>-->
-              <!--<a href="/v2" class="transition hover:text-white">V2</a>-->
-            </div>
-            <!--<a href="tel:+15042480186" class="hidden items-center gap-2 font-mono text-sm font-bold text-white/50 sm:flex">-->
-            <!--  <Phone class="h-4 w-4" />-->
-            <!--  504-248-0186-->
-            <!--</a>-->
-            <a href="/contact" class="inline-flex min-h-11 items-center justify-center rounded-lg btn-gold px-5 text-sm font-extrabold shadow-sm transition">
+              <a href="/about" class="uppercase transition">About</a>
+              <a href="/blog" class="uppercase transition">Blog</a>
+              <a href="/contact" class="uppercase transition">Contact</a>
+          </div>
+
+          <div class="ml-auto flex items-center justify-end gap-3">
+            <a href="/contact" class="uppercase site-nav-cta btn-primary min-h-12 px-6 text-sm">
               Book Your Assessment
             </a>
             <details class="relative lg:hidden">
-              <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-lg border border-white/15 bg-white/[0.05] text-white">
+              <summary class="site-menu-button flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur">
                 <Menu class="h-5 w-5" />
               </summary>
-              <div class="absolute right-0 top-14 w-72 rounded-xl border border-white/10 bg-[#06333a] p-3 shadow-2xl shadow-black/25">
-                <a href="/" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">Home</a>
+              <div class="absolute right-0 top-14 w-72 rounded-2xl border border-[#d5ded9] bg-white p-3 shadow-2xl shadow-black/20">
+                <a href="/" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Home</a>
                 {servicesNav.map((item) => (
-                  <a href={item.href} class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">{item.label}</a>
+                  <a href={item.href} class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">{item.label}</a>
                 ))}
-                <a href="/about" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">About</a>
-                <a href="/contact" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">Contact</a>
-                <!--<a href="/v1" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">V1</a>-->
-                <!--<a href="/v2" class="block rounded-lg px-4 py-3 text-sm font-black text-white/70 hover:bg-white/[0.07] hover:text-white">V2</a>-->
+                <a href="/about" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">About</a>
+                <a href="/blog" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Blog</a>
+                <a href="/contact" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Contact</a>
               </div>
             </details>
           </div>
@@ -80,48 +75,121 @@ const { title, description } = Astro.props;
         <slot />
       </main>
 
-      <footer>
-        <section class="footer-airflow relative overflow-hidden bg-[#02293c] px-5 py-28 text-white sm:px-6 lg:px-8 lg:py-36">
-          <div class="absolute inset-0 bg-[linear-gradient(120deg,#01293c_0%,#063f46_48%,#02293c_100%)]"></div>
-          <div class="footer-airflow-layer absolute inset-[-22%]"></div>
-          <div class="hero-noise absolute inset-0 opacity-55"></div>
-          <div class="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.2fr_1fr_1fr_1.2fr]">
-            <div>
-              <Image src={logo} alt="ACC Building Performance" width={260} quality={100} class="h-12 w-auto" />
-              <!--<p class="mt-6 max-w-xs text-base font-semibold leading-7 text-white/63">Care is more than our name.</p>-->
-              <a href="/contact" class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 text-sm font-black text-[#02293c] shadow-xl shadow-[#173d45]/10 transition hover:-translate-y-0.5 hover:bg-[#f7f7f2]">
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const siteHeader = document.querySelector('.site-header');
+          const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const revealTargets = document.querySelectorAll('.reveal-body');
+
+          const updateHeaderState = () => {
+            if (!siteHeader) return;
+            siteHeader.classList.toggle('is-scrolled', window.scrollY > 12);
+          };
+
+          updateHeaderState();
+          window.addEventListener('scroll', updateHeaderState, { passive: true });
+
+          revealTargets.forEach((element, index) => {
+            element.classList.add('body-reveal');
+            element.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 55}ms`);
+          });
+
+          if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+            revealTargets.forEach((element) => element.classList.add('is-visible'));
+            return;
+          }
+
+          const observer = new IntersectionObserver(
+            (entries, revealObserver) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+              });
+            },
+            { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+          );
+
+          revealTargets.forEach((element) => observer.observe(element));
+        });
+      </script>
+
+      <footer class="bg-acc-mist px-5 py-8 sm:px-6 lg:px-8">
+        <section class="relative overflow-hidden rounded-[2rem] bg-[#06333a] px-6 py-12 text-white shadow-2xl shadow-[#02293c]/15 sm:px-8 lg:px-12 lg:py-16">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(134,200,220,0.18),transparent_30rem),linear-gradient(135deg,#06333a_0%,#0b4850_58%,#02293c_100%)]"></div>
+          <div class="hero-noise absolute inset-0 opacity-45"></div>
+          <div class="relative z-10 mx-auto max-w-6xl">
+            <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <div>
+                <Image src={logo} alt="ACC Building Performance" width={260} quality={100} class="h-12 w-auto" />
+                <p class="mt-8 text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Contact Us</p>
+                <h2 class="mt-4 max-w-xl text-4xl font-black leading-[1.04] tracking-tight sm:text-5xl">
+                  Ready for answers about your home?
+                </h2>
+              </div>
+              <p class="max-w-2xl text-base font-semibold leading-7 text-white/64 lg:justify-self-end">
+                ACC Building Performance serves Louisiana, Mississippi, Alabama, and the surrounding Gulf South with building science assessments, testing, and healthy home consulting.
+              </p>
+            </div>
+
+            <div class="mt-12 grid gap-4 md:grid-cols-3">
+              <a href="/contact" class="group rounded-2xl border border-white/12 bg-white/[0.045] p-6 transition hover:-translate-y-0.5 hover:bg-white/[0.08]">
+                <MapPin class="h-7 w-7 text-[#8fc8d5]" />
+                <h3 class="mt-5 text-xl font-black">Service Area</h3>
+                <p class="mt-3 text-sm font-bold leading-6 text-white/58">Louisiana, Mississippi, Alabama & Gulf South Region</p>
+              </a>
+              <a href="tel:+15042480186" class="group rounded-2xl border border-white/12 bg-white/[0.045] p-6 transition hover:-translate-y-0.5 hover:bg-white/[0.08]">
+                <Phone class="h-7 w-7 text-[#8fc8d5]" />
+                <h3 class="mt-5 text-xl font-black">504-248-0186</h3>
+                <p class="mt-3 text-sm font-bold leading-6 text-white/58">Call or text to start the conversation.</p>
+              </a>
+              <div class="rounded-2xl border border-white/12 bg-white/[0.045] p-6">
+                <Clock3 class="h-7 w-7 text-[#8fc8d5]" />
+                <h3 class="mt-5 text-xl font-black">Working Hours</h3>
+                <p class="mt-3 text-sm font-bold leading-6 text-white/58">Monday-Friday: 8:30am-4:30pm</p>
+              </div>
+            </div>
+
+            <div class="mt-12 grid gap-8 border-t border-white/10 pt-8 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <p class="flex items-center gap-2 text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">
+                  <Share2 class="h-4 w-4" />
+                  Share with us
+                </p>
+                <div class="mt-4 flex flex-wrap gap-3">
+                  <a href="/contact" class="inline-flex h-11 items-center justify-center rounded-full border border-white/12 px-5 text-sm font-black text-white/70 transition hover:border-white/35 hover:text-white">Contact</a>
+                  <a href="#" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="Facebook">
+                    <Facebook class="h-4 w-4" />
+                  </a>
+                  <a href="#" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="YouTube">
+                    <Youtube class="h-4 w-4" />
+                  </a>
+                  <a href="#" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="Instagram">
+                    <Instagram class="h-4 w-4" />
+                  </a>
+                  <a href="#" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="LinkedIn">
+                    <Linkedin class="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+
+              <nav class="flex flex-wrap gap-x-7 gap-y-3 text-sm font-black text-white/62 lg:justify-end" aria-label="Footer navigation">
+                <a href="/" class="hover:text-white">Home</a>
+                <a href="/about" class="hover:text-white">About</a>
+                <a href="/home-wellness-assessment" class="hover:text-white">Services</a>
+                <a href="/blog" class="hover:text-white">Blog</a>
+                <a href="/contact" class="hover:text-white">Contact</a>
+              </nav>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs font-bold text-white/38 sm:flex-row sm:items-center sm:justify-between">
+              <p>Copyright © ACC Building Performance 2026. All rights reserved.</p>
+              <a href="/contact" class="inline-flex items-center gap-2 text-white/55 transition hover:text-white">
                 Book Your Assessment
-                <ArrowRight class="h-4 w-4" />
+                <ArrowRight class="h-3.5 w-3.5" />
               </a>
             </div>
-            <div></div>
-            <div>
-              <h2 class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Services</h2>
-              <div class="mt-6 grid gap-3 text-sm font-bold text-white/55">
-                {servicesNav.map((item) => <a href={item.href} class="hover:text-white">{item.label}</a>)}
-              </div>
-            </div>
-            <!--<div>-->
-            <!--  <h2 class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Navigate</h2>-->
-            <!--  <div class="mt-6 grid gap-3 text-sm font-bold text-white/55">-->
-            <!--    <a href="/" class="hover:text-white">Home</a>-->
-            <!--    <a href="/about" class="hover:text-white">About</a>-->
-            <!--    <a href="/contact" class="hover:text-white">Contact</a>-->
-            <!--    <a href="/contact" class="hover:text-white">Book Your Assessment</a>-->
-            <!--    &lt;!&ndash;<a href="/v1" class="hover:text-white">Homepage V1</a>&ndash;&gt;-->
-            <!--    &lt;!&ndash;<a href="/v2" class="hover:text-white">Homepage V2</a>&ndash;&gt;-->
-            <!--  </div>-->
-            <!--</div>-->
-            <div>
-              <h2 class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">Contact</h2>
-              <div class="mt-6 grid gap-3 text-sm font-bold leading-6 text-white/55">
-                <a href="/contact" class="hover:text-white">accbp.com/contact</a>
-                <a href="tel:+15042480186" class="hover:text-white">504-248-0186</a>
-                <p>Serving Louisiana, Mississippi & surrounding Gulf South</p>
-              </div>
-            </div>
           </div>
-          <p class="relative z-10 mt-20 text-center text-xs font-bold text-white/35">Copyright 2026 ACC Building Performance LLC. All rights reserved.</p>
         </section>
       </footer>
     </div>

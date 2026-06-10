@@ -1,0 +1,57 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const page = {
+    title: 'HVAC Design Services - Manual J, S & D | ACC Building Performance',
+    description:
+      'Manual J load calculations, Manual S equipment selection, and Manual D duct design for healthier, right-sized Gulf South homes.',
+    headline: 'HVAC Design Done Right.',
+    subheadline:
+      'Manual J load calculations, Manual S equipment selection, and Manual D duct system design for contractors, builders, and homeowners who understand that equipment sizing is not a guess.',
+    cta: 'Request HVAC Design',
+    sections: [
+      {
+        eyebrow: 'The Problem',
+        headline: 'The Most Expensive Mistake in Residential Construction',
+        body: [
+          'In residential construction across the Gulf South, HVAC systems are routinely sized by rule of thumb: square footage, gut feel, or whatever the last contractor used on a similar house. It is an industry-wide habit that produces systems that are almost always too large.',
+          'An oversized HVAC system short-cycles. It cools the space quickly but never runs long enough to manage humidity. The result is a home that feels cold but clammy, and over time develops the chronic moisture accumulation that creates mold and air quality problems.',
+          "Proper HVAC design requires a Manual J load calculation: a room-by-room analysis of your home's heat gain and heat loss based on its actual construction, orientation, glazing, insulation levels, and internal loads.",
+        ],
+      },
+      {
+        eyebrow: "What's Included",
+        headline: 'The Complete Mechanical Design Package',
+        items: [
+          {
+            title: 'Manual J - Heating & Cooling Load Calculation',
+            copy: "A room-by-room analysis of your home's thermal load based on actual construction parameters, envelope performance, window area and orientation, insulation levels, internal gains, occupancy, and local climate data.",
+          },
+          {
+            title: 'Manual S - Equipment Selection',
+            copy: "Using the Manual J load data, AJ selects the specific equipment that matches your home's actual requirements, considering sensible and latent heat ratios, part-load performance, and local climate conditions.",
+          },
+          {
+            title: 'Manual D - Duct System Design',
+            copy: 'Design of the duct distribution system to ensure conditioned air reaches every room in the right quantity, at the right velocity, with the right static pressure.',
+          },
+        ],
+      },
+      {
+        eyebrow: 'Who This Serves',
+        headline: 'When You Need Professional HVAC Design',
+        bullets: [
+          'General contractors who want verified mechanical design documentation as part of their standard project workflow',
+          'Homeowners building new who want independent verification before equipment is purchased and installed',
+          'Architects and designers who need mechanical design handled by a qualified professional',
+          'Renovation project owners replacing HVAC equipment in an existing home',
+        ],
+      },
+    ],
+    finalHeadline: "Don't Let the HVAC Contractor Guess With Your Family's Health.",
+    finalBody:
+      'In the Gulf South, where humidity is the enemy and the margin for mechanical error is small, equipment sizing matters. A correctly designed system manages moisture, controls air quality, and keeps your family healthy.',
+  };
+---
+
+<ServicePage page={page} slug="hvac-design" />

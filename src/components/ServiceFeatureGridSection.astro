@@ -1,0 +1,65 @@
+---
+interface Props {
+  section: {
+    eyebrow: string;
+    headline: string;
+    body?: string[];
+    items: {
+      title: string;
+      copy: string;
+    }[];
+  };
+  index: number;
+}
+
+const { section, index } = Astro.props;
+const isLight = index % 2 === 0;
+---
+
+<section class:list={[
+  'px-5 py-24 sm:px-6 lg:px-8',
+  isLight ? 'bg-acc-mist' : 'relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] text-white',
+]}>
+  {!isLight && <div class="hero-noise absolute inset-0 opacity-70"></div>}
+  <div class="relative mx-auto max-w-6xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class:list={[
+        'text-[0.68rem] font-black uppercase tracking-[0.3em]',
+        isLight ? 'text-[#4f93a2]' : 'text-[#65b6ca]',
+      ]}>{section.eyebrow}</p>
+      <h2 class:list={[
+        'mt-5 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl',
+        isLight ? 'text-acc-ink' : 'text-white',
+      ]}>{section.headline}</h2>
+      {section.body && (
+        <div class:list={[
+          'reveal-body mx-auto mt-6 grid max-w-2xl gap-4 text-base font-semibold leading-7',
+          isLight ? 'text-[#164f59]/82' : 'text-white/72',
+        ]}>
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      )}
+    </div>
+
+    <div class="mt-12 grid gap-5 lg:grid-cols-3">
+      {section.items.map((item) => (
+        <article class:list={[
+          'reveal-body flex min-h-[18rem] flex-col rounded-2xl p-7 shadow-sm transition hover:-translate-y-0.5',
+          isLight
+            ? 'border border-[#d5ded9] bg-white hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7'
+            : 'border border-white/12 bg-white/[0.04] hover:bg-white/[0.07]',
+        ]}>
+          <span class="mb-8 h-1.5 w-14 rounded-full bg-[#7fc2d0]"></span>
+          <h3 class:list={[
+            'text-2xl font-black leading-tight',
+            isLight ? 'text-acc-ink' : 'text-white',
+          ]}>{item.title}</h3>
+          <p class:list={[
+            'mt-5 text-sm font-semibold leading-6',
+            isLight ? 'text-slate-600' : 'text-white/62',
+          ]}>{item.copy}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

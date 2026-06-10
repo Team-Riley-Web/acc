@@ -27,7 +27,7 @@ const isLight = index % 2 === 0;
       ]}>{section.headline}</h2>
     </div>
 
-    <div>
+    <div class="reveal-body">
       {section.body && (
         <div class:list={[
           'grid gap-5 text-base font-semibold leading-7',
@@ -55,7 +55,7 @@ const isLight = index % 2 === 0;
         <div class="mt-8 grid gap-5">
           {section.items.map((item) => (
             <article class:list={[
-              'group relative overflow-hidden rounded-2xl p-7 shadow-sm transition hover:-translate-y-0.5',
+              'reveal-body group relative overflow-hidden rounded-2xl p-7 shadow-sm transition hover:-translate-y-0.5',
               isLight
                 ? 'border border-[#d5ded9] bg-white hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7'
                 : 'border border-white/12 bg-white/[0.035] hover:bg-white/[0.07]',
@@ -78,7 +78,7 @@ const isLight = index % 2 === 0;
         <div class="mt-8 grid gap-5">
           {section.steps.map(([title, copy], stepIndex) => (
             <article class:list={[
-              'grid gap-5 rounded-2xl p-7 shadow-sm sm:grid-cols-[3.5rem_1fr]',
+              'reveal-body grid gap-5 rounded-2xl p-7 shadow-sm sm:grid-cols-[3.5rem_1fr]',
               isLight ? 'border border-[#d5ded9] bg-white' : 'border border-white/12 bg-white/[0.04]',
             ]}>
               <span class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#e8f3f4] text-sm font-black text-[#0b4850] ring-1 ring-[#cfe3e7]">0{stepIndex + 1}</span>

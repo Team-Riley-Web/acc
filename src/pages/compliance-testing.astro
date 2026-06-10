@@ -1,0 +1,69 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+
+const page = {
+    title: 'Compliance Testing - Blower Door & Duct Leakage | ACC Building Performance',
+    description:
+      'Certified blower door testing, duct leakage testing, and energy code compliance documentation for residential contractors in Louisiana and Mississippi.',
+    headline: 'Compliance Performance Testing.',
+    subheadline:
+      'Blower door testing, duct leakage testing, and energy code compliance documentation, delivered by a credentialed building science specialist who shows up on time and gives you the paperwork you actually need.',
+    cta: 'Schedule Your Testing',
+    sections: [
+      {
+        layout: 'split-full',
+        eyebrow: 'Who This Is For',
+        headline: 'Built for Contractors Who Need It Done Right the First Time',
+        body: [
+          "If you're a licensed general contractor, HVAC installer, or mechanical contractor working on new construction or major renovation projects, you already know the compliance testing requirements are non-negotiable.",
+          'ACC Building Performance provides certified blower door and duct leakage testing services for residential contractors in Louisiana, Mississippi, and the surrounding Gulf South.',
+        ],
+        bullets: [
+          'You need certified blower door testing for energy code compliance on new construction',
+          'You need duct leakage testing documentation for HVAC permit or utility rebate programs',
+          'You want a testing partner with verified building science credentials',
+          "You've had testing partners fail to show up or deliver inadequate documentation before",
+          'You want to differentiate your business as a high-performance contractor in your market',
+        ],
+      },
+      {
+        layout: 'feature-grid',
+        eyebrow: 'Services Included',
+        headline: 'What We Provide',
+        body: [
+          'Certified testing should give you more than a number. We verify the building and duct system performance, then deliver clean documentation your inspector, utility program, or project owner can use.',
+        ],
+        items: [
+          {
+            title: 'Blower Door Testing',
+            copy: "Measurement of your building envelope's air leakage rate using calibrated depressurization equipment and a digital manometer. Results are documented against applicable energy code thresholds.",
+          },
+          {
+            title: 'Duct Leakage Testing',
+            copy: 'Measurement of air leakage in your duct distribution system to verify that conditioned air is reaching the spaces it was designed to serve.',
+          },
+          {
+            title: 'Energy Code Compliance Documentation',
+            copy: "Full written compliance report suitable for submission to your building inspector, utility program administrator, or project owner. We know what the documentation needs to contain so you don't have to chase paperwork.",
+          },
+        ],
+      },
+      {
+        layout: 'split-full',
+        eyebrow: 'Why ACC',
+        headline: 'What Makes a Building Science Specialist Different From a General Tester',
+        body: [
+          'A lot of people own blower door equipment. Very few have the building science training to interpret what the results actually mean, or to identify the underlying construction issues that are causing a building to fail.',
+          "When AJ conducts testing on your project, you're not just getting a number and a piece of paper. You're getting a building science assessment of how your project performed, and if there is a problem, you find out before it becomes a callback.",
+        ],
+        quote:
+          "AJ's testing found two issues before drywall that would have been nightmare callbacks. Working with him made my job easier, not harder.",
+      },
+    ],
+    finalHeadline: 'Your Project Timeline Is Our Priority.',
+    finalBody:
+      "We show up when we say we will, run the tests efficiently, and deliver your documentation in a format that works. If you're planning a project that requires blower door or duct leakage testing, let's talk now.",
+  };
+---
+
+<ServicePage page={page} slug="compliance-testing" />
