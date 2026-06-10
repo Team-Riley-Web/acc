@@ -153,12 +153,6 @@
     color: #0b4850;
   }
 
-  .site-header.is-scrolled .site-nav-cta {
-    min-height: 2.75rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
   .site-header.is-scrolled .site-menu-button {
     background-color: #ffffff;
     border-color: #d5ded9;

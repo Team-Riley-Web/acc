@@ -60,23 +60,46 @@ const { title, description } = Astro.props;
           </div>
 
           <div class="ml-auto flex items-center justify-end gap-3">
-            <a href="/contact" class="uppercase site-nav-cta btn-primary min-h-12 px-6 text-sm">
+            <a href="/contact" class="uppercase site-nav-cta btn-primary hidden min-h-12 px-6 text-sm lg:inline-flex">
               Book Your Assessment
+            </a>
+            <a href="tel:+15042480186" class="site-nav-cta btn-primary h-12 w-12 min-h-12 rounded-full p-0 text-sm lg:hidden" aria-label="Call ACC Building Performance">
+              <Phone class="h-5 w-5" />
             </a>
             <details class="relative lg:hidden">
               <summary class="site-menu-button flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur">
                 <Menu class="h-5 w-5" />
               </summary>
-              <div class="absolute right-0 top-14 w-72 rounded-2xl border border-[#d5ded9] bg-white p-3 shadow-2xl shadow-black/20">
-                <a href="/" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Home</a>
-                {servicesNav.map((item) => (
-                  <a href={item.href} class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">{item.label}</a>
-                ))}
-                <a href="/about" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">About</a>
-                <a href="/blog" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Blog</a>
-                <a href="/resources" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Resource Videos</a>
-                <a href="/resources/products" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Product Recommendations</a>
-                <a href="/contact" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Contact</a>
+              <div class="fixed left-0 right-0 top-24 max-h-[calc(100vh-6rem)] overflow-y-auto border-y border-[#d5ded9] bg-white p-4 text-[#02293c] shadow-2xl shadow-black/20">
+                <a href="/" class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-[#edf4f4] hover:text-[#0b4850]">Home</a>
+                <div class="mobile-nav-group">
+                  <div class="flex items-center gap-2">
+                    <a href="/home-wellness-assessment" class="block flex-1 rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-[#edf4f4] hover:text-[#0b4850]">Services</a>
+                    <button type="button" class="mobile-nav-toggle flex h-11 w-11 items-center justify-center rounded-full bg-[#eef6f6] text-[#0b4850]" aria-expanded="false" aria-label="Toggle services menu" data-mobile-toggle="services-menu">
+                      <ChevronDown class="h-5 w-5 transition" />
+                    </button>
+                  </div>
+                  <div id="services-menu" class="mobile-nav-submenu hidden px-3 pb-2">
+                    {servicesNav.map((item) => (
+                      <a href={item.href} class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/82 hover:bg-[#edf4f4] hover:text-[#0b4850]">{item.label}</a>
+                    ))}
+                  </div>
+                </div>
+                <a href="/about" class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-[#edf4f4] hover:text-[#0b4850]">About</a>
+                <a href="/blog" class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-[#edf4f4] hover:text-[#0b4850]">Blog</a>
+                <div class="mobile-nav-group">
+                  <div class="flex items-center gap-2">
+                    <a href="/resources" class="block flex-1 rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-[#edf4f4] hover:text-[#0b4850]">Resources</a>
+                    <button type="button" class="mobile-nav-toggle flex h-11 w-11 items-center justify-center rounded-full bg-[#eef6f6] text-[#0b4850]" aria-expanded="false" aria-label="Toggle resources menu" data-mobile-toggle="resources-menu">
+                      <ChevronDown class="h-5 w-5 transition" />
+                    </button>
+                  </div>
+                  <div id="resources-menu" class="mobile-nav-submenu hidden px-3 pb-2">
+                    <a href="/resources" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/82 hover:bg-[#edf4f4] hover:text-[#0b4850]">Videos</a>
+                    <a href="/resources/products" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/82 hover:bg-[#edf4f4] hover:text-[#0b4850]">Products</a>
+                  </div>
+                </div>
+                <a href="/contact" class="block rounded-xl px-4 py-3.5 text-base font-black text-[#315561] hover:bg-[#edf4f4] hover:text-[#0b4850]">Contact</a>
               </div>
             </details>
           </div>
@@ -92,6 +115,7 @@ const { title, description } = Astro.props;
           const siteHeader = document.querySelector('.site-header');
           const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
           const revealTargets = document.querySelectorAll('.reveal-body');
+          const mobileNavToggles = document.querySelectorAll('[data-mobile-toggle]');
 
           const updateHeaderState = () => {
             if (!siteHeader) return;
@@ -100,6 +124,18 @@ const { title, description } = Astro.props;
 
           updateHeaderState();
           window.addEventListener('scroll', updateHeaderState, { passive: true });
+
+          mobileNavToggles.forEach((toggle) => {
+            toggle.addEventListener('click', () => {
+              const submenu = document.getElementById(toggle.getAttribute('data-mobile-toggle'));
+              const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+              if (!submenu) return;
+
+              toggle.setAttribute('aria-expanded', String(!isOpen));
+              submenu.classList.toggle('hidden', isOpen);
+              toggle.querySelector('svg')?.classList.toggle('rotate-180', !isOpen);
+            });
+          });
 
           revealTargets.forEach((element, index) => {
             element.classList.add('body-reveal');
