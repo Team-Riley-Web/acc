@@ -1,0 +1,27 @@
+---
+interface Props {
+  active: 'videos' | 'products';
+}
+
+const { active } = Astro.props;
+const tabs = [
+  { key: 'videos', label: 'Videos', href: '/resources' },
+  { key: 'products', label: 'Products', href: '/resources/products' },
+] as const;
+---
+
+<nav class="mx-auto mb-12 flex max-w-6xl flex-wrap gap-3" aria-label="Resources navigation">
+  {tabs.map((tab) => (
+    <a
+      href={tab.href}
+      class:list={[
+        'inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-black transition',
+        active === tab.key
+          ? 'bg-[#0b4850] text-white shadow-sm'
+          : 'border border-[#cfe3e7] bg-white text-[#0b4850] hover:border-[#9fcbd0] hover:bg-[#eef6f6]',
+      ]}
+    >
+      {tab.label}
+    </a>
+  ))}
+</nav>

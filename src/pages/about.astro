@@ -2,8 +2,12 @@
 import { Image } from 'astro:assets';
 import { ArrowRight, Check } from '@lucide/astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
+import SplitImageContent from '../components/SplitImageContent.astro';
 import ajCallegan from '../assets/images/aj-callegan.jpg';
-import buildingDetailImage from '../assets/images/imgi_41_photo-1768321917437-1f1f6ae2ad28.jpg';
+import aboutImage from '../assets/images/fb2.jpg';
+import coupleImage from '../assets/images/beckyandaj.jpg';
+
+const closingQuote = "The answer is almost always there. It's just that the right person hasn't looked for it yet.";
 ---
 
 <SiteLayout
@@ -13,19 +17,13 @@ import buildingDetailImage from '../assets/images/imgi_41_photo-1768321917437-1f
   <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 py-24 text-white sm:px-6 lg:px-8 lg:py-32">
     <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_0.9fr]">
       <div>
-        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">About AJ & ACC</p>
-        <h1 class="mt-8 max-w-4xl text-5xl font-black leading-[0.98] tracking-tight sm:text-7xl">Why Sick Homes Need Answers.</h1>
-        <p class="mt-8 max-w-2xl text-lg font-semibold leading-8 text-white/63">And most of those families have no idea that's what's happening to them.</p>
+        <p class="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#86c8dc] sm:text-[0.72rem] sm:tracking-[0.34em]">About ACC</p>
+        <h1 class="mt-8 max-w-4xl text-5xl font-black leading-[0.98] tracking-tight sm:text-7xl">Advocate for Healthy Homes</h1>
+        <p class="mt-8 max-w-2xl text-lg font-semibold leading-8 text-white/63">We started ACC Building Performance performance because sick homes are creating sick families and most of those families have no idea that's what's happening to them.</p>
       </div>
       <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
         <Image src={ajCallegan} alt="AJ Callegan, founder of ACC Building Performance" width={760} class="aspect-[1.02] w-full object-cover object-bottom" />
       </div>
-    </div>
-  </section>
-
-  <section class="bg-acc-mist px-5 py-16 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-6xl overflow-hidden rounded-3xl shadow-2xl shadow-[#06333a]/15">
-      <Image src={buildingDetailImage} alt="Close inspection of insulated wall and ceiling assemblies" width={1100} class="h-[22rem] w-full object-cover sm:h-[30rem]" />
     </div>
   </section>
 
@@ -44,9 +42,9 @@ import buildingDetailImage from '../assets/images/imgi_41_photo-1768321917437-1f
       eyebrow: 'What Drives This Work',
       headline: 'This Is Personal',
       body: [
-        'AJ is involved in the nonprofit community that serves mold illness patients across the Gulf South, providing education and advocacy for individuals who are fighting to understand what is happening to their health and to find qualified professionals who take their situation seriously.',
-        'That community is where he sees up close what chronic mold illness does to families: the financial devastation, the medical gaslighting, the marriages strained by stress and skepticism, and the children who are sick and cannot explain why.',
-        'That is the community ACC Building Performance serves. Every assessment AJ conducts is an act of advocacy as much as a technical service: a commitment to finding the truth and delivering it with the honesty and directness families in this situation have almost never received.',
+        'In 2019, my health took a significant downturn, leading to the unfortunate necessity of selling our HVAC business. Following a diagnosis of epilepsy, I embarked on a challenging medical journey. Eventually, it was revealed that mold toxicity was the root cause of my uncontrollable seizures, a revelation that shed light on the hazards inherent in my career, exposing me to mycotoxins prevalent in HVAC systems and buildings.',
+        "Thanks to the intervention of functional medicine, I've been seizure-free for over three years now. Glory to God!! This health ordeal profoundly reshaped my focus and passions. In 2022, I launched a new business centered on building performance, building science, and the house as a system.",
+        'Leveraging over two decades of experience and ongoing education, my mission is clear: to address the construction deficiencies that not only led to my illness but contribute to various health issues of others. I aim to drive the necessary changes in building practices, advocating for homes and buildings that are not just safer and more durable but also promote better health and sustainability.',
       ],
     },
     {
@@ -72,9 +70,54 @@ import buildingDetailImage from '../assets/images/imgi_41_photo-1768321917437-1f
         'He is also deeply human about this work. He understands that the people who call him are often exhausted, financially strained, and emotionally raw. Every phone call, assessment, and report is delivered with the same commitment: to give you the truth, in plain language, in a way that actually helps you move forward.',
         "No runaround. No generic recommendations. No upsells on things you don't need. Just the honest answer your home, and your family, deserves.",
       ],
-      quote: "The answer is almost always there. It's just that the right person hasn't looked for it yet.",
     },
   ].map((section, index) => (
+    index === 0 ? (
+      <SplitImageContent
+        section={section}
+        index={index}
+        image={{ src: coupleImage, alt: 'Close inspection of insulated wall and ceiling assemblies' }}
+        variant="full"
+      />
+    ) : index === 1 ? (
+      <section class="relative bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] px-5 py-24 text-white sm:px-6 lg:px-8">
+        <div class="hero-noise absolute inset-0 opacity-70"></div>
+        <div class="relative mx-auto max-w-3xl text-center">
+          <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">{section.eyebrow}</p>
+          <h2 class="mt-5 text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-5xl">{section.headline}</h2>
+          <div class="mx-auto mt-9 grid max-w-3xl gap-5 text-left text-base font-semibold leading-7 text-white/75">
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </div>
+      </section>
+    ) : index === 2 ? (
+      <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#4f93a2]">{section.eyebrow}</p>
+          <h2 class="mt-5 text-4xl font-black leading-[1.02] tracking-tight text-acc-ink sm:text-5xl">{section.headline}</h2>
+          <div class="mx-auto mt-9 grid max-w-3xl gap-5 text-left text-base font-semibold leading-7 text-[#164f59]/85">
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+          {section.bullets && (
+            <ul class="mx-auto mt-8 grid max-w-3xl gap-4 text-left">
+              {section.bullets.map((bullet) => (
+                <li class="flex gap-3 rounded-xl border border-[#d5ded9] bg-white p-5 text-sm font-bold leading-6 text-slate-700 shadow-sm">
+                  <Check class="mt-1 h-4 w-4 shrink-0 text-[#62aebe]" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </section>
+    ) : index === 3 ? (
+      <SplitImageContent
+        section={section}
+        index={1}
+        image={{ src: aboutImage, alt: 'AJ Callegan, founder of ACC Building Performance' }}
+        variant="full"
+      />
+    ) : (
     <section class:list={[
       'relative px-5 py-24 sm:px-6 lg:px-8',
       index % 2 === 0 ? 'bg-acc-mist' : 'bg-[linear-gradient(135deg,#0b4850_0%,#073942_48%,#02293c_100%)] text-white',
@@ -120,15 +163,15 @@ import buildingDetailImage from '../assets/images/imgi_41_photo-1768321917437-1f
         </div>
       </div>
     </section>
+    )
   ))}
 
   <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-6xl rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:px-16 lg:py-20">
-      <h2 class="max-w-3xl text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl">Ready to get real answers?</h2>
-      <a href="/contact" class="btn-primary mt-8">
-        Book Your Assessment
-        <ArrowRight class="h-5 w-5" />
-      </a>
+    <div class="mx-auto max-w-4xl text-center">
+      <!--<p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">The Method</p>-->
+      <blockquote class="mt-6 text-4xl font-black leading-[1.08] tracking-tight text-acc-ink sm:text-6xl">
+        {closingQuote}
+      </blockquote>
     </div>
   </section>
 </SiteLayout>

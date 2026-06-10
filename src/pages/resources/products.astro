@@ -1,0 +1,157 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowRight, CheckCircle2, Gauge, ShieldCheck, ThermometerSun, Wind } from '@lucide/astro';
+import ResourceTabs from '../../components/ResourceTabs.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import culleokaCompanyImage from '../../assets/images/culleokacompany.webp';
+import installImage from '../../assets/images/install.jpg';
+import santaFeImage from '../../assets/images/santafe.png';
+
+const productCategories = [
+  {
+    icon: Wind,
+    title: 'High-MERV Filtration',
+    copy: 'Use properly sized media filtration only when the HVAC system can handle the added resistance. Filter upgrades should protect air quality without creating airflow problems.',
+    checks: ['Confirm static pressure first', 'Avoid restrictive one-inch filters', 'Match filter changes to real conditions'],
+  },
+  {
+    icon: ThermometerSun,
+    title: 'Whole-Home Dehumidification',
+    copy: 'In the Gulf South, humidity control is often the difference between a comfortable home and a moisture-risk home. Equipment should be selected around load, ducting, and control strategy.',
+    checks: ['Size for latent load', 'Drain and duct correctly', 'Integrate with HVAC controls'],
+  },
+  {
+    icon: Gauge,
+    title: 'Indoor Air Monitoring',
+    copy: 'Basic monitoring can help homeowners see humidity, temperature, particulate trends, and ventilation patterns before small problems become chronic.',
+    checks: ['Track relative humidity', 'Watch PM trends', 'Use data as a clue, not a diagnosis'],
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Moisture Control Materials',
+    copy: 'Crawlspaces, attics, and assemblies need durable moisture-control details. The right material depends on the assembly, climate exposure, and drying path.',
+    checks: ['Prioritize air sealing', 'Respect drying potential', 'Do not trap moisture'],
+  },
+];
+---
+
+<SiteLayout
+  title="Product Recommendations | ACC Building Performance"
+  description="Recommended product categories for healthier Gulf South homes, including filtration, dehumidification, monitoring, and moisture control."
+>
+  <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-20 pt-32 text-white sm:px-6 lg:px-8 lg:pb-24 lg:pt-40">
+    <div class="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1fr_0.78fr]">
+      <div>
+        <p class="text-[0.72rem] font-extrabold uppercase tracking-[0.28em] text-[#86c8dc]">Resources</p>
+        <h1 class="mt-8 max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-normal text-white sm:text-7xl">Recommended Home Products.</h1>
+        <p class="reveal-body mt-8 max-w-2xl text-lg font-medium leading-8 text-white/70">
+          Product categories AJ commonly evaluates when building a healthier, drier, better-performing home.
+        </p>
+      </div>
+      <div class="reveal-body overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
+        <Image
+          src={installImage}
+          alt="High-performance home equipment installation"
+          width={760}
+          class="aspect-[1.02] w-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
+    <ResourceTabs active="products" />
+    <div class="mx-auto max-w-6xl">
+      <div>
+        <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Before You Buy</p>
+        <h2 class="mt-4 max-w-3xl text-4xl font-black leading-tight text-acc-ink sm:text-5xl">Products do not replace diagnosis.</h2>
+        <p class="mt-6 max-w-3xl text-base font-semibold leading-7 text-[#164f59]/82">
+          These recommendations are intentionally category-based. The right product depends on the home, HVAC design, moisture source, pressure relationships, and occupant health needs.
+        </p>
+      </div>
+
+      <a
+        href="https://culleokacompany.com/"
+        target="_blank"
+        rel="noreferrer"
+        class="reveal-body mt-10 grid overflow-hidden rounded-3xl bg-white shadow-2xl shadow-[#06333a]/10 ring-1 ring-[#d5ded9] transition hover:-translate-y-0.5 hover:shadow-[#06333a]/16 lg:grid-cols-[0.94fr_1.06fr]"
+      >
+        <div class="min-h-[20rem] bg-[#dcebef]">
+          <Image
+            src={culleokaCompanyImage}
+            alt="Culleoka Company product recommendation"
+            width={900}
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div class="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
+          <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Featured Resource</p>
+          <h2 class="mt-4 max-w-2xl text-4xl font-black leading-tight text-acc-ink sm:text-5xl">Culleoka Company</h2>
+          <p class="mt-6 max-w-2xl text-base font-semibold leading-7 text-[#164f59]/82">
+            Eliminate the toxicity associated with cleaning products. Culleoka's probiotic non-toxic, eco-friendly cleaning products contain multiple live strains of beneficial bacteria producing powerful enzymes to break down foul organic matter on surfaces.
+          </p>
+          <span class="mt-8 inline-flex w-fit min-h-12 items-center justify-center gap-2 rounded-full bg-[#0b4850] px-7 text-sm font-black text-white transition hover:bg-[#063f46]">
+            Visit Culleoka Company
+            <ArrowRight class="h-4 w-4" />
+          </span>
+        </div>
+      </a>
+
+      <a
+        href="https://www.santa-fe-products.com/"
+        target="_blank"
+        rel="noreferrer"
+        class="reveal-body mt-10 grid overflow-hidden rounded-3xl bg-white shadow-2xl shadow-[#06333a]/10 ring-1 ring-[#d5ded9] transition hover:-translate-y-0.5 hover:shadow-[#06333a]/16 lg:grid-cols-[1.06fr_0.94fr]"
+      >
+        <div class="order-2 flex flex-col justify-center p-8 sm:p-10 lg:order-1 lg:p-12">
+          <p class="text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#62aebe]">Featured Resource</p>
+          <h2 class="mt-4 max-w-2xl text-4xl font-black leading-tight text-acc-ink sm:text-5xl">Santa Fe Products</h2>
+          <p class="mt-6 max-w-2xl text-base font-semibold leading-7 text-[#164f59]/82">
+            Whole-home dehumidification matters in humid climates. Santa Fe Products is a featured resource for high-performance humidity control equipment used to support drier, healthier homes.
+          </p>
+          <span class="mt-8 inline-flex w-fit min-h-12 items-center justify-center gap-2 rounded-full bg-[#0b4850] px-7 text-sm font-black text-white transition hover:bg-[#063f46]">
+            Visit Santa Fe Products
+            <ArrowRight class="h-4 w-4" />
+          </span>
+        </div>
+        <div class="order-1 min-h-[20rem] bg-[#dcebef] lg:order-2">
+          <Image
+            src={santaFeImage}
+            alt="Santa Fe Products product recommendation"
+            width={900}
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </a>
+
+      <!--<div class="mt-10 grid gap-6 lg:grid-cols-2">-->
+      <!--  {productCategories.map((category) => (-->
+      <!--    <article class="reveal-body rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7">-->
+      <!--      <category.icon class="h-9 w-9 text-[#0b6b78]" />-->
+      <!--      <h2 class="mt-6 text-3xl font-black leading-tight text-acc-ink">{category.title}</h2>-->
+      <!--      <p class="mt-4 text-base font-semibold leading-7 text-[#164f59]/82">{category.copy}</p>-->
+      <!--      <ul class="mt-7 grid gap-3">-->
+      <!--        {category.checks.map((check) => (-->
+      <!--          <li class="flex gap-3 text-sm font-bold leading-6 text-[#365563]">-->
+      <!--            <CheckCircle2 class="mt-0.5 h-5 w-5 shrink-0 text-[#0b6b78]" />-->
+      <!--            <span>{check}</span>-->
+      <!--          </li>-->
+      <!--        ))}-->
+      <!--      </ul>-->
+      <!--    </article>-->
+      <!--  ))}-->
+      <!--</div>-->
+
+      <a href="/contact" class="reveal-body mt-12 block rounded-3xl bg-[linear-gradient(135deg,#6ec1d5_0%,#5372a7_100%)] p-8 text-white shadow-2xl shadow-[#06333a]/18 transition hover:-translate-y-0.5 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
+        <div>
+          <h2 class="max-w-3xl text-4xl font-black leading-tight">Need Personalized Recommendations?</h2>
+        </div>
+        <span class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-black text-[#0b4850] transition hover:bg-[#eef6f6] lg:mt-0">
+          Contact AJ
+          <ArrowRight class="h-4 w-4" />
+        </span>
+      </a>
+    </div>
+  </section>
+</SiteLayout>

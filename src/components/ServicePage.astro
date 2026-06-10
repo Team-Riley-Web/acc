@@ -10,12 +10,16 @@ import assessmentImage from '../assets/images/imgi_241_premium_photo-16619576458
 import atticDuctImage from '../assets/images/imgi_298_premium_photo-1661964387248-55856fa89031.jpeg';
 import hvacImage from '../assets/images/pexels-jose-andres-pacheco-cortes-3641213-6471913.jpg';
 import consultingImage from '../assets/images/imgi_256_premium_photo-1682148117399-5dbf32ccb622.jpeg';
-import constructionImage from '../assets/images/imgi_327_premium_photo-1683121688597-9f8e71d9d307.jpeg';
+import constructionImage from '../assets/images/imgi_326_premium_photo-1683121688597-9f8e71d9d307.jpeg';
 import sprayFoamImage from '../assets/images/imgi_284_premium_photo-1682148134234-772b74827e56.jpeg';
 import framingImage from '../assets/images/imgi_226_premium_photo-1677782977189-d2ba571a679c.jpeg';
-import finishWorkImage from '../assets/images/imgi_403_premium_photo-1682088630940-f9b84477b2f7.jpeg';
+import finishWorkImage from '../assets/images/building-science-house.jpg';
 import constructionDetailImage from '../assets/images/imgi_41_photo-1768321917437-1f1f6ae2ad28.jpg';
 import marignyRendering from '../assets/images/marigny-rendering.png';
+import moldImage from '../assets/images/mold.jpg';
+import moldImage2 from '../assets/images/mold2.jpg';
+import moldImage3 from '../assets/images/mold3.jpg';
+import moldImage4 from '../assets/images/mold4.jpg';
 
 interface Props {
   slug: string;
@@ -39,6 +43,28 @@ const serviceImageSets = {
       alt: 'Building professional inspecting insulation and moisture conditions inside a home',
     },
     split: {
+      1: {
+        src: moldImage,
+        alt: 'Mold growth discovered during a building science assessment',
+        gallery: [
+          {
+            src: moldImage,
+            alt: 'Mold growth discovered during a building science assessment',
+          },
+          {
+            src: moldImage2,
+            alt: 'Mold staining and moisture damage documented during an assessment',
+          },
+          {
+            src: moldImage3,
+            alt: 'Close view of mold and building material damage',
+          },
+          {
+            src: moldImage4,
+            alt: 'Mold conditions identified during a home assessment',
+          },
+        ],
+      },
       3: {
         src: atticDuctImage,
         alt: 'Building professional inspecting ducts and attic conditions inside a home',
@@ -71,13 +97,13 @@ const serviceImageSets = {
   },
   'hvac-design': {
     hero: {
-      src: hvacImage,
-      alt: 'HVAC technician checking system pressures during mechanical diagnostics',
+      src: atticDuctImage,
+      alt: 'Attic ductwork being inspected for building performance issues',
     },
     split: {
       0: {
-        src: atticDuctImage,
-        alt: 'Attic ductwork being inspected for building performance issues',
+        src: hvacImage,
+        alt: 'HVAC technician checking system pressures during mechanical diagnostics',
       },
     },
     final: {
@@ -97,8 +123,8 @@ const serviceImageSets = {
       },
     },
     final: {
-      src: constructionDetailImage,
-      alt: 'Close detail of construction materials and building envelope work',
+      src: constructionImage,
+      alt: 'New custom home framing under construction',
     },
   },
   'new-construction': {
@@ -164,8 +190,8 @@ const heroBadge = heroBadges[slug] ?? {
 };
 const HeroBadgeIcon = heroBadge.icon;
 const isSplitImageSection = (section) => section.body && !section.bullets && !section.items && !section.steps && !section.quote;
-const shouldUseSplit = (section) => section.layout === 'split-full' || isSplitImageSection(section);
-const getSplitVariant = (section, index) => (section.layout === 'split-full' || (slug === 'new-construction' && index === 0) ? 'full' : 'contained');
+const shouldUseSplit = (section) => section.layout === 'split-full' || section.layout === 'split-sticky' || isSplitImageSection(section);
+const getSplitVariant = (section, index) => (section.layout === 'split-full' || section.layout === 'split-sticky' || (slug === 'new-construction' && index === 0) ? 'full' : 'contained');
 const getSplitImage = (index) => pageImages.split[index] ?? finalImage;
 ---
 
@@ -213,7 +239,7 @@ const getSplitImage = (index) => pageImages.split[index] ?? finalImage;
 
   <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto grid max-w-6xl items-center gap-10 rounded-3xl bg-[#06333a] px-8 py-14 text-white shadow-2xl shadow-[#06333a]/25 ring-1 ring-white/10 sm:px-12 lg:grid-cols-[0.82fr_1fr] lg:px-16 lg:py-20">
-      <div class="reveal-body overflow-hidden rounded-2xl bg-white p-4 shadow-2xl shadow-black/20">
+      <div class="reveal-body overflow-hidden rounded-2xl bg-white p-1 shadow-2xl shadow-black/20">
         <Image src={finalImage.src} alt={finalImage.alt} width={900} class="aspect-[4/3] w-full rounded-xl object-cover" />
       </div>
       <div>
@@ -224,7 +250,6 @@ const getSplitImage = (index) => pageImages.split[index] ?? finalImage;
           {page.cta}
           <ArrowRight class="h-5 w-5" />
         </a>
-        <p class="reveal-body mt-4 text-sm font-bold text-white/45">Contact us at accbp.com/contact. AJ follows up personally.</p>
       </div>
     </div>
   </section>

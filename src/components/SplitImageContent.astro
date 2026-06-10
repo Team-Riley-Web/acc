@@ -8,12 +8,15 @@ interface Props {
     headline: string;
     body?: string[];
     bullets?: string[];
+    items?: { title: string; copy: string }[];
     quote?: string;
+    layout?: string;
   };
   index: number;
   image: {
     src: any;
     alt: string;
+    gallery?: { src: any; alt: string }[];
   };
   variant?: 'contained' | 'full';
 }
@@ -21,6 +24,9 @@ interface Props {
 const { section, index, image, variant = 'contained' } = Astro.props;
 const isLight = index % 2 === 0;
 const isFull = variant === 'full';
+const isSticky = section.layout === 'split-sticky';
+const galleryImages = image.gallery ?? [{ src: image.src, alt: image.alt }];
+const hasGallery = galleryImages.length > 1;
 ---
 
 <section class:list={[
@@ -29,21 +35,75 @@ const isFull = variant === 'full';
 ]}>
   {!isLight && <div class="hero-noise absolute inset-0 opacity-70"></div>}
   <div class:list={[
-    'relative grid overflow-hidden lg:grid-cols-2',
+    'relative grid',
+    isSticky ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-2',
+    !isSticky && 'overflow-hidden',
     isFull ? 'w-full' : 'mx-auto max-w-6xl rounded-3xl shadow-2xl',
     isLight
       ? ['bg-white', isFull ? '' : 'border border-[#d5ded9] shadow-slate-950/8']
       : ['bg-[#06333a]', isFull ? '' : 'border border-white/10 shadow-black/20'],
   ]}>
     <div class:list={[
-      'min-h-[22rem]',
+      'min-h-[22rem] overflow-hidden',
       isFull ? 'lg:min-h-[42rem]' : 'lg:min-h-[34rem]',
+      isSticky && 'lg:sticky lg:top-0 lg:h-screen lg:self-start',
+      !isFull && 'rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none',
     ]}>
-      <Image src={image.src} alt={image.alt} width={isFull ? 1400 : 980} class="h-full w-full object-cover" />
+      {hasGallery ? (
+        <div class="group relative h-full min-h-[22rem]" data-image-gallery>
+          <div class="relative h-full min-h-[22rem] overflow-hidden">
+            {galleryImages.map((galleryImage, galleryIndex) => (
+              <Image
+                src={galleryImage.src}
+                alt={galleryImage.alt}
+                width={isFull ? 1100 : 980}
+                class:list={[
+                  'absolute inset-0 h-full w-full object-cover transition-opacity duration-700',
+                  galleryIndex === 0 ? 'opacity-100' : 'opacity-0',
+                ]}
+                data-gallery-slide
+                data-active={galleryIndex === 0 ? 'true' : 'false'}
+              />
+            ))}
+          </div>
+          <div class="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 sm:p-5">
+            <div class="flex items-end justify-between gap-4">
+              <div class="flex gap-2">
+                {galleryImages.map((galleryImage, galleryIndex) => (
+                  <button
+                    type="button"
+                    class:list={[
+                      'h-14 w-14 overflow-hidden rounded-lg border-2 bg-white/10 transition hover:border-white sm:h-16 sm:w-16',
+                      galleryIndex === 0 ? 'border-white' : 'border-white/35',
+                    ]}
+                    aria-label={`Show mold image ${galleryIndex + 1}`}
+                    aria-pressed={galleryIndex === 0 ? 'true' : 'false'}
+                    data-gallery-thumb
+                    data-gallery-index={galleryIndex}
+                  >
+                    <Image src={galleryImage.src} alt="" width={140} class="h-full w-full object-cover" />
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                class="rounded-full border border-white/35 bg-black/30 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-white backdrop-blur transition hover:border-white hover:bg-black/45"
+                data-gallery-toggle
+                aria-pressed="false"
+              >
+                Pause
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <Image src={image.src} alt={image.alt} width={isFull ? 1400 : 980} class="h-full w-full object-cover" />
+      )}
     </div>
 
     <div class:list={[
-      'flex min-h-[22rem] items-center px-7 py-10 sm:px-10',
+      'flex min-h-[22rem] px-7 py-10 sm:px-10',
+      isSticky ? 'items-start' : 'items-center',
       isFull ? 'lg:min-h-[42rem] lg:px-20 lg:py-20 xl:px-24' : 'lg:min-h-[34rem] lg:px-14 lg:py-16',
     ]}>
       <div class:list={[isFull ? 'max-w-2xl' : '']}>
@@ -76,6 +136,26 @@ const isFull = variant === 'full';
             ))}
           </ul>
         )}
+        {section.items && (
+          <div class="reveal-body mt-8 grid gap-5">
+            {section.items.map((item) => (
+              <article class:list={[
+                'relative overflow-hidden rounded-2xl p-6 shadow-sm',
+                isLight ? 'border border-[#d5ded9] bg-[#f7fbfb] text-[#164f59]' : 'border border-white/12 bg-white/[0.055] text-white',
+              ]}>
+                <div class="absolute inset-y-0 left-0 w-1 bg-[#7fc2d0] opacity-80"></div>
+                <h3 class:list={[
+                  'text-xl font-black leading-tight',
+                  isLight ? 'text-acc-ink' : 'text-white',
+                ]}>{item.title}</h3>
+                <p class:list={[
+                  'mt-3 text-sm font-semibold leading-6',
+                  isLight ? 'text-slate-600' : 'text-white/62',
+                ]}>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        )}
         {section.quote && (
           <blockquote class:list={[
             'reveal-body mt-8 rounded-lg p-6 text-lg font-black leading-8 shadow-xl',
@@ -88,3 +168,77 @@ const isFull = variant === 'full';
     </div>
   </div>
 </section>
+
+<script>
+  const galleries = document.querySelectorAll('[data-image-gallery]');
+
+  galleries.forEach((gallery) => {
+    const slides = Array.from(gallery.querySelectorAll('[data-gallery-slide]'));
+    const thumbs = Array.from(gallery.querySelectorAll('[data-gallery-thumb]'));
+    const toggle = gallery.querySelector('[data-gallery-toggle]');
+    let activeIndex = 0;
+    let isPaused = false;
+    let intervalId;
+
+    const setActive = (nextIndex) => {
+      activeIndex = nextIndex;
+
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeIndex;
+        slide.classList.toggle('opacity-100', isActive);
+        slide.classList.toggle('opacity-0', !isActive);
+        slide.dataset.active = String(isActive);
+      });
+
+      thumbs.forEach((thumb, thumbIndex) => {
+        const isActive = thumbIndex === activeIndex;
+        thumb.classList.toggle('border-white', isActive);
+        thumb.classList.toggle('border-white/35', !isActive);
+        thumb.setAttribute('aria-pressed', String(isActive));
+      });
+    };
+
+    const advance = () => {
+      if (!isPaused && slides.length > 1) {
+        setActive((activeIndex + 1) % slides.length);
+      }
+    };
+
+    const start = () => {
+      window.clearInterval(intervalId);
+      intervalId = window.setInterval(advance, 4500);
+    };
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const nextIndex = Number(thumb.getAttribute('data-gallery-index'));
+        setActive(nextIndex);
+        start();
+      });
+    });
+
+    toggle?.addEventListener('click', () => {
+      isPaused = !isPaused;
+      toggle.textContent = isPaused ? 'Play' : 'Pause';
+      toggle.setAttribute('aria-pressed', String(isPaused));
+    });
+
+    gallery.addEventListener('mouseenter', () => {
+      isPaused = true;
+    });
+
+    gallery.addEventListener('mouseleave', () => {
+      isPaused = toggle?.getAttribute('aria-pressed') === 'true';
+    });
+
+    gallery.addEventListener('focusin', () => {
+      isPaused = true;
+    });
+
+    gallery.addEventListener('focusout', () => {
+      isPaused = toggle?.getAttribute('aria-pressed') === 'true';
+    });
+
+    start();
+  });
+</script>

@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { ArrowRight, ChevronDown, Clock3, Facebook, Instagram, Linkedin, MapPin, Menu, Phone, Share2, Youtube } from '@lucide/astro';
+import { ArrowRight, ChevronDown, Clock3, Facebook, Heart, Instagram, Linkedin, MapPin, Menu, Phone, Share2, Youtube } from '@lucide/astro';
 import logo from '../assets/images/logo.png';
 import { servicesNav } from '../content/site';
 import '../styles/global.css';
@@ -46,6 +46,16 @@ const { title, description } = Astro.props;
               </div>
               <a href="/about" class="uppercase transition">About</a>
               <a href="/blog" class="uppercase transition">Blog</a>
+              <div class="group relative py-3">
+                <button class="uppercase flex items-center gap-1 font-extrabold transition" type="button">
+                  Resources
+                  <ChevronDown class="h-4 w-4" />
+                </button>
+                <div class="invisible absolute left-0 top-full w-52 translate-y-2 rounded-2xl border border-[#d5ded9] bg-white p-2 opacity-0 shadow-2xl shadow-black/15 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  <a href="/resources" class="service-dropdown-link block rounded-xl px-4 py-3 text-sm font-extrabold hover:bg-[#edf4f4]">Videos</a>
+                  <a href="/resources/products" class="service-dropdown-link block rounded-xl px-4 py-3 text-sm font-extrabold hover:bg-[#edf4f4]">Products</a>
+                </div>
+              </div>
               <a href="/contact" class="uppercase transition">Contact</a>
           </div>
 
@@ -64,6 +74,8 @@ const { title, description } = Astro.props;
                 ))}
                 <a href="/about" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">About</a>
                 <a href="/blog" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Blog</a>
+                <a href="/resources" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Resource Videos</a>
+                <a href="/resources/products" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Product Recommendations</a>
                 <a href="/contact" class="block rounded-xl px-4 py-3 text-sm font-black text-[#315561]/78 hover:bg-[#edf4f4] hover:text-[#0b4850]">Contact</a>
               </div>
             </details>
@@ -152,16 +164,12 @@ const { title, description } = Astro.props;
 
             <div class="mt-12 grid gap-8 border-t border-white/10 pt-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <p class="flex items-center gap-2 text-[0.68rem] font-black uppercase tracking-[0.3em] text-[#65b6ca]">
-                  <Share2 class="h-4 w-4" />
-                  Share with us
-                </p>
                 <div class="mt-4 flex flex-wrap gap-3">
                   <a href="/contact" class="inline-flex h-11 items-center justify-center rounded-full border border-white/12 px-5 text-sm font-black text-white/70 transition hover:border-white/35 hover:text-white">Contact</a>
                   <a href="#" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="Facebook">
                     <Facebook class="h-4 w-4" />
                   </a>
-                  <a href="#" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="YouTube">
+                  <a href="https://www.youtube.com/@ac-supercool" target="_blank" rel="noreferrer" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="YouTube">
                     <Youtube class="h-4 w-4" />
                   </a>
                   <a href="#" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-white/70 transition hover:border-white/35 hover:text-white" aria-label="Instagram">
@@ -178,16 +186,22 @@ const { title, description } = Astro.props;
                 <a href="/about" class="hover:text-white">About</a>
                 <a href="/home-wellness-assessment" class="hover:text-white">Services</a>
                 <a href="/blog" class="hover:text-white">Blog</a>
+                <a href="/resources" class="hover:text-white">Resources</a>
                 <a href="/contact" class="hover:text-white">Contact</a>
               </nav>
             </div>
 
             <div class="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs font-bold text-white/38 sm:flex-row sm:items-center sm:justify-between">
-              <p>Copyright © ACC Building Performance 2026. All rights reserved.</p>
-              <a href="/contact" class="inline-flex items-center gap-2 text-white/55 transition hover:text-white">
-                Book Your Assessment
-                <ArrowRight class="h-3.5 w-3.5" />
-              </a>
+              <p>Copyright © ACC Building Performance 2026</p>
+              <p class="inline-flex flex-wrap items-center gap-1.5">
+                <span class="text-[#8fc8d5]">Colossians 3:23</span>
+                <span>•</span>
+                <a href="https://teamrileyweb.com/" target="_blank" rel="noreferrer" class="inline-flex items-center gap-1.5 text-white/62 transition hover:text-white">
+                  <span>Crafted with</span>
+                  <Heart class="h-3.5 w-3.5 fill-[#8fc8d5] text-[#8fc8d5]" />
+                  <span>by Team Riley</span>
+                </a>
+              </p>
             </div>
           </div>
         </section>
