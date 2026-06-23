@@ -48,46 +48,57 @@ import contactImage from '../assets/images/imgi_226_premium_photo-1677782977189-
         <input type="hidden" name="form-name" value="contact" />
         <p class="hidden"><label>Company <input name="company" /></label></p>
         <div class="grid gap-5 sm:grid-cols-2">
-          <label class="grid gap-2 text-sm font-black text-[#254858]">First Name *<input name="first_name" required class="form-field" /></label>
-          <label class="grid gap-2 text-sm font-black text-[#254858]">Last Name *<input name="last_name" required class="form-field" /></label>
-          <label class="grid gap-2 text-sm font-black text-[#254858]">Email Address *<input type="email" name="email" required class="form-field" /></label>
-          <label class="grid gap-2 text-sm font-black text-[#254858]">Phone Number *<input type="tel" name="phone" required class="form-field" /></label>
-          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">City / State *<input name="city_state" required class="form-field" /></label>
-          <label class="grid gap-2 text-sm font-black text-[#254858]">
-            What type of home do you have?
-            <select name="home_type" class="form-field">
-              <option>Single-family home</option>
-              <option>New construction</option>
-              <option>Renovation project</option>
-              <option>I'm a contractor</option>
-            </select>
-          </label>
-          <label class="grid gap-2 text-sm font-black text-[#254858]">
-            What are you experiencing?
-            <select name="situation_type" class="form-field">
-              <option>Unexplained illness</option>
-              <option>Mold or moisture concerns</option>
-              <option>HVAC performance issues</option>
-              <option>Planning a new build</option>
-              <option>Need compliance testing</option>
-              <option>HVAC design services</option>
-              <option>Other</option>
-            </select>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Full name *<input name="full_name" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Phone number *<input type="tel" name="phone" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Email address *<input type="email" name="email" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Home address *<input name="home_address" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Square footage of the home *<input type="number" name="home_square_footage" min="0" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Number of bedrooms in home *<input type="number" name="bedrooms" min="0" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Number of bathrooms in home *<input type="number" name="bathrooms" min="0" step="0.5" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">How many levels does the home have? *<input type="number" name="home_levels" min="1" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">What year was the home built? *<input type="number" name="year_built" min="1600" max="2100" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Builder's name<input name="builder_name" class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">What year did you move into the home? *<input type="number" name="move_in_year" min="1600" max="2100" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Number of heating and cooling systems<input type="number" name="heating_cooling_systems" min="0" class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Heating and cooling contractor's name<input name="heating_cooling_contractor" class="form-field" /></label>
+
+          <fieldset class="grid gap-3 text-sm font-black text-[#254858]">
+            <legend>Is the attic vented/unconditioned? *</legend>
+            <div class="flex flex-wrap gap-4 text-sm font-bold text-[#365563]">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="attic_vented_unconditioned" value="Yes" required class="h-4 w-4 accent-[#0b6b78]" /> Yes</label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="attic_vented_unconditioned" value="No" required class="h-4 w-4 accent-[#0b6b78]" /> No</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="grid gap-3 text-sm font-black text-[#254858]">
+            <legend>If the home has a crawlspace, is it vented?</legend>
+            <div class="flex flex-wrap gap-4 text-sm font-bold text-[#365563]">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="crawlspace_vented" value="Yes" class="h-4 w-4 accent-[#0b6b78]" /> Yes</label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="crawlspace_vented" value="No" class="h-4 w-4 accent-[#0b6b78]" /> No</label>
+            </div>
+          </fieldset>
+
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Number of adults living in the home *<input type="number" name="adults_in_home" min="0" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858]">Number of children living in the home *<input type="number" name="children_in_home" min="0" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Number and type of pets living in the home *<input name="indoor_pets" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Number and type of pets outside the home *<input name="outdoor_pets" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">
+            Any specific health concerns believed to be associated with the indoor built environment *
+            <textarea name="health_concerns" rows="5" required class="form-field resize-y"></textarea>
           </label>
           <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">
-            Tell us about your situation in your own words:
-            <textarea name="message" rows="8" class="form-field resize-y"></textarea>
+            When did you first notice any health symptoms after moving into your current home? *
+            <textarea name="symptom_timing" rows="4" required class="form-field resize-y"></textarea>
           </label>
           <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">
-            How did you hear about us?
-            <select name="referral_source" class="form-field">
-              <option>Doctor referral</option>
-              <option>Friend or family</option>
-              <option>Google</option>
-              <option>Social media</option>
-              <option>Other</option>
-            </select>
+            Is there anything in particular you're worried about or would like me to focus on? *
+            <textarea name="assessment_focus" rows="4" required class="form-field resize-y"></textarea>
           </label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">
+            What are you hoping to achieve through this assessment? *
+            <textarea name="assessment_goals" rows="4" required class="form-field resize-y"></textarea>
+          </label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">How did you hear about ACC Building Performance? *<input name="referral_source" required class="form-field" /></label>
         </div>
         <button type="submit" class="btn-primary mt-7">
           Send My Message
