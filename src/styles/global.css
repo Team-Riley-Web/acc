@@ -272,16 +272,16 @@
 
   @keyframes house-clean-cycle {
     0%,
-    16% {
+    14% {
       opacity: 0;
     }
 
-    28%,
-    48% {
+    26%,
+    72% {
       opacity: 1;
     }
 
-    62%,
+    88%,
     100% {
       opacity: 0;
     }
@@ -289,11 +289,11 @@
 
   @keyframes house-polluted-cycle {
     0%,
-    52% {
+    48% {
       opacity: 0;
     }
 
-    68%,
+    64%,
     86% {
       opacity: 1;
     }
