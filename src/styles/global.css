@@ -90,6 +90,7 @@
   .site-header,
   .site-nav,
   .site-logo,
+  .footer-logo,
   .site-nav-cta,
   .site-menu-button,
   .site-nav-links,
@@ -98,6 +99,7 @@
     transition:
       background-color 220ms ease,
       border-color 220ms ease,
+      filter 220ms ease,
       box-shadow 220ms ease,
       color 220ms ease,
       min-height 220ms ease,
@@ -105,6 +107,11 @@
       height 220ms ease,
       transform 220ms ease;
   }
+
+  /*.site-logo,*/
+  /*.footer-logo {*/
+  /*  filter: drop-shadow(0 2px 0 rgba(2, 41, 60, 0.82));*/
+  /*}*/
 
   .site-nav-links {
     color: rgba(255, 255, 255, 0.82);
