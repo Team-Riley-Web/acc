@@ -226,6 +226,83 @@
     z-index: 1;
   }
 
+  .home-hero-section {
+    min-height: 100svh;
+  }
+
+  .house-hero-visual {
+    aspect-ratio: 2390 / 1792;
+    filter: drop-shadow(0 2.5rem 3.5rem rgba(1, 23, 34, 0.38));
+    isolation: isolate;
+    max-height: 72svh;
+  }
+
+  .house-hero-glow {
+    background:
+      radial-gradient(ellipse at 58% 62%, rgba(134, 200, 220, 0.28), transparent 56%),
+      radial-gradient(ellipse at 66% 74%, rgba(232, 166, 0, 0.14), transparent 46%);
+    filter: blur(1.5rem);
+    inset: 10% -3% -2% 8%;
+    opacity: 0.78;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .house-hero-layer {
+    display: block;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .house-hero-layer-clean,
+  .house-hero-layer-polluted {
+    opacity: 0;
+    will-change: opacity;
+  }
+
+  .house-hero-layer-clean {
+    animation: house-clean-cycle 14s ease-in-out infinite;
+  }
+
+  .house-hero-layer-polluted {
+    animation: house-polluted-cycle 14s ease-in-out infinite;
+  }
+
+  @keyframes house-clean-cycle {
+    0%,
+    16% {
+      opacity: 0;
+    }
+
+    28%,
+    48% {
+      opacity: 1;
+    }
+
+    62%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes house-polluted-cycle {
+    0%,
+    52% {
+      opacity: 0;
+    }
+
+    68%,
+    86% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
   .hero-airflow::after {
     animation: hero-airflow 22s ease-in-out infinite alternate;
     background:
@@ -301,6 +378,12 @@
   @media (prefers-reduced-motion: reduce) {
     .hero-airflow::after {
       animation: none;
+    }
+
+    .house-hero-layer-clean,
+    .house-hero-layer-polluted {
+      animation: none;
+      opacity: 0;
     }
 
     .footer-airflow-layer {
