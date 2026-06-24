@@ -26,12 +26,12 @@ const { title, description } = Astro.props;
   <body class="bg-[#063f46] font-sans text-acc-ink">
     <div class="min-h-screen overflow-x-clip">
       <header class="site-header fixed inset-x-0 top-0 z-50 px-5 py-6 sm:px-6 lg:px-8">
-        <nav class="site-nav mx-auto grid w-full max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-3 border border-transparent sm:gap-5 lg:gap-[35px] bg-transparent px-0 py-0 text-white transition" aria-label="Primary navigation">
-          <a href="/" class="inline-flex rounded">
+        <nav class="site-nav mx-auto grid w-full max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-3 border border-transparent sm:gap-5 bg-transparent px-0 py-0 text-white transition" aria-label="Primary navigation">
+          <a href="/" class="site-logo-link inline-flex rounded">
             <Image src={logo} alt="ACC Building Performance" width={260} quality={100} class="site-logo h-12 w-auto object-contain" loading="eager" />
           </a>
 
-          <div class="site-nav-links hidden items-center justify-end gap-8 font-extrabold lg:flex">
+          <div class="site-nav-links hidden items-center justify-center gap-8 font-extrabold lg:flex">
               <!--<a href="/" class="transition">Home</a>-->
               <div class="group relative py-3">
                 <button class="uppercase flex items-center gap-1 font-extrabold transition" type="button">
@@ -61,7 +61,7 @@ const { title, description } = Astro.props;
               <!--<a href="/contact" class="uppercase transition">Contact</a>-->
           </div>
 
-          <div class="flex items-center justify-end gap-3">
+          <div class="ml-auto flex items-center justify-end gap-3">
             <a href="/contact" class="uppercase site-nav-cta btn-primary hidden min-h-12 px-6 text-sm lg:inline-flex">
               Book Your Assessment
             </a>
