@@ -65,12 +65,12 @@ const services = [
 >
     <section class="home-hero-section hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 text-white lg:px-0">
         <div class="relative z-10 flex min-h-[100svh] items-center overflow-hidden pb-10 pt-28 lg:pb-12 lg:pt-28">
-        <div class="relative mx-auto flex w-full max-w-6xl items-center">
-            <div class="relative z-20 max-w-xl text-center lg:text-left">
+        <div class="relative mx-auto flex w-full max-w-6xl items-center max-[1400px]:flex-col max-[1400px]:justify-center">
+            <div class="relative z-20 max-w-xl text-center lg:text-left max-[1400px]:mx-auto max-[1400px]:text-center">
                 <p class="text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-[#86c8dc] sm:tracking-[0.28em]">Building Science · HVAC Consulting</p>
-                <h1 class="mt-4 mx-auto max-w-xl text-5xl font-extrabold leading-[1.05] tracking-normal text-white sm:mt-9 sm:text-[5.1rem] lg:mx-0 lg:text-[5.75rem]">
+                <h1 class="mt-4 mx-auto max-w-xl text-5xl font-extrabold leading-[1.05] tracking-normal text-white sm:mt-9 sm:text-[5.1rem] lg:mx-0 lg:text-[4.5rem]">
                     Can you trust the
-                    <span class="block bg-gradient-to-b from-[#9edcea] to-[#8ca0de] bg-clip-text text-transparent">air inside your home?</span>
+                    <span class="bg-gradient-to-b from-[#9edcea] to-[#8ca0de] bg-clip-text text-transparent">air inside your home?</span>
                 </h1>
                 <p class="reveal-body mt-4 mx-auto max-w-xl text-base font-medium text-white/70 sm:mt-9 lg:mx-0">
                     ACC Building Performance specializes in healthy-home and building science consulting, testing, and training throughout the Gulf South and across the US. Our focus is on helping homeowners and professionals identify the root causes of poor indoor air quality, mold, moisture, and HVAC and dehumidification problems so homes can be healthier, safer, and built to last.
@@ -81,7 +81,7 @@ const services = [
                 </div>
             </div>
 
-            <div class="house-hero-visual absolute right-[-30vw] top-[40%] w-[68vw] max-w-none -translate-y-1/2" aria-label="Home exterior changing to reveal indoor air conditions">
+            <div class="house-hero-visual absolute right-[-30vw] top-[40%] w-[68vw] max-w-none -translate-y-1/2 max-[1400px]:relative max-[1400px]:right-auto max-[1400px]:top-auto max-[1400px]:mt-8 max-[1400px]:w-[80vw] max-[1400px]:max-w-3xl max-[1400px]:translate-y-0" aria-label="Home exterior changing to reveal indoor air conditions">
                 <div class="house-hero-glow"></div>
                 <Image src={houseOutside} alt="White home exterior" width={1195} class="house-hero-layer relative z-10 w-full" loading="eager" />
                 <Image src={houseInsideClean} alt="" width={1195} class="house-hero-layer house-hero-layer-clean absolute inset-0 z-20 w-full" loading="eager" aria-hidden="true" />
