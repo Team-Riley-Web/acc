@@ -44,7 +44,7 @@ import contactImage from '../assets/images/imgi_226_premium_photo-1677782977189-
       </section>
 
       <div class="grid gap-8">
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" class="rounded-3xl border border-[#d5ded9] bg-white p-7 shadow-2xl shadow-[#06333a]/10 sm:p-9">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" class="mx-auto w-full max-w-4xl rounded-3xl border border-[#cfe3e7] bg-[#eaf6f9] p-7 shadow-2xl shadow-[#06333a]/10 sm:p-9" data-contact-form>
         <input type="hidden" name="form-name" value="contact" />
         <p class="hidden"><label>Company <input name="company" /></label></p>
         <div class="grid gap-5 sm:grid-cols-2">
@@ -104,9 +104,10 @@ import contactImage from '../assets/images/imgi_226_premium_photo-1677782977189-
           Send My Message
           <ArrowRight class="h-5 w-5" />
         </button>
+        <p class="mt-4 hidden text-sm font-bold leading-6 text-[#9c3f2f]" data-contact-form-error>Something went wrong. Please call or text 504-248-0186.</p>
       </form>
 
-        <section class="rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm sm:p-9">
+        <section class="hidden rounded-2xl border border-[#cfe3e7] bg-[#eaf6f9] p-7 shadow-sm sm:p-9" data-contact-next>
           <h2 class="text-2xl font-black text-[#063f46]">What Happens Next</h2>
           <div class="mt-6 grid gap-4">
             {[
@@ -131,4 +132,42 @@ import contactImage from '../assets/images/imgi_226_premium_photo-1677782977189-
       </div>
     </div>
   </section>
+
+  <script>
+    const contactForm = document.querySelector('[data-contact-form]');
+    const nextStepSection = document.querySelector('[data-contact-next]');
+    const formError = document.querySelector('[data-contact-form-error]');
+
+    const encodeFormData = (formData) =>
+      new URLSearchParams(Array.from(formData.entries()).map(([key, value]) => [key, String(value)])).toString();
+
+    contactForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (!(contactForm instanceof HTMLFormElement)) return;
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      formError?.classList.add('hidden');
+      submitButton?.setAttribute('disabled', 'true');
+      submitButton?.classList.add('opacity-70');
+
+      try {
+        const body = encodeFormData(new FormData(contactForm));
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        });
+
+        if (!response.ok) throw new Error('Form submission failed');
+
+        contactForm.classList.add('hidden');
+        nextStepSection?.classList.remove('hidden');
+        nextStepSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch {
+        formError?.classList.remove('hidden');
+        submitButton?.removeAttribute('disabled');
+        submitButton?.classList.remove('opacity-70');
+      }
+    });
+  </script>
 </SiteLayout>

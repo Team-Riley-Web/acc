@@ -113,6 +113,14 @@
     width: 13rem;
   }
 
+  /*.culleoka-footer-link {*/
+  /*  background-color: rgba(255, 255, 255, 0.055);*/
+  /*}*/
+
+  /*.culleoka-footer-logo {*/
+  /*  filter: brightness(0) invert(1);*/
+  /*}*/
+
   /*.site-logo,*/
   /*.footer-logo {*/
   /*  filter: drop-shadow(0 2px 0 rgba(2, 41, 60, 0.82));*/
@@ -188,7 +196,7 @@
   .form-field {
     border: 1px solid #cfe3e7;
     border-radius: 0.375rem;
-    background: #eef6f6;
+    background: #ffffff;
     color: #02293c;
     font: inherit;
     font-weight: 650;
@@ -277,16 +285,16 @@
 
   @keyframes house-clean-cycle {
     0%,
-    14% {
+    10% {
       opacity: 0;
     }
 
-    26%,
-    72% {
+    22%,
+    58% {
       opacity: 1;
     }
 
-    88%,
+    74%,
     100% {
       opacity: 0;
     }
@@ -294,12 +302,12 @@
 
   @keyframes house-polluted-cycle {
     0%,
-    48% {
+    34% {
       opacity: 0;
     }
 
-    64%,
-    86% {
+    48%,
+    92% {
       opacity: 1;
     }
 
