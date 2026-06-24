@@ -88,6 +88,16 @@ const closingQuote = "The answer is almost always there. It's just that the righ
           <div class="mx-auto mt-9 grid max-w-3xl gap-5 text-left text-base font-semibold leading-7 text-white/75">
             {section.body.map((paragraph) => <p>{paragraph}</p>)}
           </div>
+          <div class="reveal-body mt-10 overflow-hidden rounded-2xl border border-white/12 bg-black shadow-2xl shadow-black/25">
+            <iframe
+              class="aspect-video w-full"
+              src="https://www.youtube.com/embed/UINX5VzGh1w"
+              title="ACC Building Performance video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </section>
     ) : index === 2 ? (
@@ -116,7 +126,14 @@ const closingQuote = "The answer is almost always there. It's just that the righ
         index={1}
         image={{ src: aboutImage, alt: 'AJ Callegan, founder of ACC Building Performance' }}
         variant="full"
-      />
+      >
+        <div class="reveal-body mt-8">
+          <a href="/contact" class="btn-primary">
+            Start Now
+            <ArrowRight class="h-5 w-5" />
+          </a>
+        </div>
+      </SplitImageContent>
     ) : (
     <section class:list={[
       'relative px-5 py-24 sm:px-6 lg:px-8',

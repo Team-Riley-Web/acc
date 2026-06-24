@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { Check } from '@lucide/astro';
+import { ArrowRight, Check } from '@lucide/astro';
 
 interface Props {
   section: any;
@@ -11,6 +11,9 @@ const { section, index } = Astro.props;
 const isLight = index % 2 === 0;
 const isCentered = section.layout === 'centered';
 const isImageCards = section.layout === 'image-cards';
+const isVideoGrid = section.layout === 'video-grid';
+const hasVideos = Boolean(section.videos?.length);
+const isPersonaPanels = section.itemLayout === 'persona-panels';
 ---
 
 <section class:list={[
@@ -20,10 +23,10 @@ const isImageCards = section.layout === 'image-cards';
   {!isLight && <div class="hero-noise absolute inset-0 opacity-70"></div>}
   <div class:list={[
     'relative mx-auto',
-    isCentered ? 'max-w-3xl text-center' : isImageCards ? 'max-w-6xl text-center' : 'grid max-w-6xl gap-12 lg:grid-cols-[0.42fr_1fr]',
+    isCentered && hasVideos ? 'max-w-6xl text-center' : isCentered ? 'max-w-3xl text-center' : isImageCards || isVideoGrid ? 'max-w-6xl text-center' : 'grid max-w-6xl gap-12 lg:grid-cols-[0.42fr_1fr]',
   ]}>
     <div class:list={[
-      !isCentered && !isImageCards && 'lg:sticky lg:top-32 lg:self-start',
+      !isCentered && !isImageCards && !isVideoGrid && 'lg:sticky lg:top-32 lg:self-start',
     ]}>
       <p class:list={[
         'text-[0.68rem] font-black uppercase tracking-[0.3em]',
@@ -37,8 +40,8 @@ const isImageCards = section.layout === 'image-cards';
 
     <div class:list={[
       'reveal-body',
-      isCentered && 'mx-auto mt-9 max-w-3xl text-left',
-      isImageCards && 'mx-auto mt-10 max-w-6xl text-left',
+      isCentered && (hasVideos ? 'mx-auto mt-9 max-w-6xl text-left' : 'mx-auto mt-9 max-w-3xl text-left'),
+      (isImageCards || isVideoGrid) && 'mx-auto mt-10 max-w-6xl text-left',
     ]}>
       {section.body && (
         <div class:list={[
@@ -49,8 +52,36 @@ const isImageCards = section.layout === 'image-cards';
         </div>
       )}
 
+      {section.videos && !section.items && (
+        <div class="mt-8 grid gap-6 lg:grid-cols-3">
+          {section.videos.map((video) => (
+            <article class="reveal-body overflow-hidden rounded-2xl border border-[#d5ded9] bg-white text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7">
+              <div class="aspect-video bg-black">
+                <iframe
+                  title={video.title}
+                  src={video.src}
+                  class="h-full w-full"
+                  frameborder="0"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="p-6">
+                <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#62aebe]">Project Example</p>
+                <h3 class="mt-4 text-xl font-black leading-tight text-acc-ink">{video.location}</h3>
+                <p class="mt-4 text-sm font-semibold leading-6 text-slate-600">{video.copy}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+
       {section.bullets && (
-        <ul class="mt-8 grid gap-4">
+        <ul class:list={[
+          'mt-8 grid gap-4',
+          isCentered && hasVideos && 'mx-auto max-w-3xl',
+        ]}>
           {section.bullets.map((bullet) => (
             <li class:list={[
               'flex gap-3 rounded-xl p-5 text-sm font-bold leading-6 shadow-sm',
@@ -69,28 +100,73 @@ const isImageCards = section.layout === 'image-cards';
           isImageCards && 'lg:grid-cols-2',
         ]}>
           {section.items.map((item) => (
-            <article class:list={[
-              'reveal-body group relative overflow-hidden rounded-2xl shadow-sm transition hover:-translate-y-0.5',
-              isImageCards ? '' : 'p-7',
-              isLight
-                ? 'border border-[#d5ded9] bg-white hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7'
-                : 'border border-white/12 bg-white/[0.035] hover:bg-white/[0.07]',
-            ]}>
-              {item.image && (
-                <Image src={item.image.src} alt={item.image.alt} width={900} class="h-56 w-full object-cover" />
-              )}
-              <div class:list={[
-                'relative',
-                isImageCards ? 'p-7' : '',
+            isPersonaPanels ? (
+              <article class="reveal-body flex gap-5 rounded-2xl border border-[#d5ded9] bg-white p-6 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7 sm:p-7">
+                {item.image && (
+                  <Image src={item.image.src} alt={item.image.alt} width={220} class="h-24 w-24 shrink-0 rounded-2xl object-cover sm:h-28 sm:w-28" />
+                )}
+                <div>
+                  <h3 class="text-xl font-black leading-tight text-acc-ink">{item.title}</h3>
+                  <p class="mt-3 text-sm font-semibold leading-6 text-slate-600">{item.copy}</p>
+                </div>
+              </article>
+            ) : (
+              <article class:list={[
+                'reveal-body group relative overflow-hidden rounded-2xl shadow-sm transition hover:-translate-y-0.5',
+                isImageCards ? '' : 'p-7',
+                isLight
+                  ? 'border border-[#d5ded9] bg-white hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7'
+                  : 'border border-white/12 bg-white/[0.035] hover:bg-white/[0.07]',
               ]}>
-                <h3 class:list={[
-                  'text-xl font-black leading-tight',
-                  isLight ? 'text-acc-ink' : 'text-white',
-                ]}>{item.title}</h3>
-                <p class:list={[
-                  'mt-3 text-sm font-semibold leading-6',
-                  isLight ? 'text-slate-600' : 'text-white/58',
-                ]}>{item.copy}</p>
+                {item.image && (
+                  <Image src={item.image.src} alt={item.image.alt} width={900} class="h-56 w-full object-cover" />
+                )}
+                <div class:list={[
+                  'relative',
+                  isImageCards ? 'p-7' : '',
+                ]}>
+                  <h3 class:list={[
+                    'text-xl font-black leading-tight',
+                    isLight ? 'text-acc-ink' : 'text-white',
+                  ]}>{item.title}</h3>
+                  <p class:list={[
+                    'mt-3 text-sm font-semibold leading-6',
+                    isLight ? 'text-slate-600' : 'text-white/58',
+                  ]}>{item.copy}</p>
+                </div>
+              </article>
+            )
+          ))}
+        </div>
+      )}
+
+      {section.videos && section.items && (
+        <div class:list={[
+          'mt-8 grid gap-6',
+          section.videoLayout === 'vertical-split' ? 'lg:grid-cols-1' : 'lg:grid-cols-2',
+        ]}>
+          {section.videos.map((video) => (
+            <article class:list={[
+              'reveal-body overflow-hidden rounded-2xl border border-[#d5ded9] bg-white text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7',
+              section.videoLayout === 'vertical-split' && 'grid md:grid-cols-[minmax(12rem,18rem)_1fr]',
+            ]}>
+              <div class:list={[
+                'bg-black',
+                section.videoLayout === 'vertical-split' ? 'aspect-[9/16] h-full w-full' : 'aspect-video',
+              ]}>
+                <iframe
+                  title={video.title}
+                  src={video.src}
+                  class="h-full w-full"
+                  frameborder="0"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-black leading-tight text-acc-ink">{video.location}</h3>
+                <p class="mt-4 text-sm font-semibold leading-6 text-slate-600">{video.copy}</p>
               </div>
             </article>
           ))}
@@ -117,6 +193,18 @@ const isImageCards = section.layout === 'image-cards';
               </div>
             </article>
           ))}
+        </div>
+      )}
+
+      {section.cta && (
+        <div class:list={[
+          'reveal-body mt-9',
+          isCentered ? 'text-center' : '',
+        ]}>
+          <a href={section.cta.href} class="btn-primary">
+            {section.cta.label}
+            <ArrowRight class="h-5 w-5" />
+          </a>
         </div>
       )}
 

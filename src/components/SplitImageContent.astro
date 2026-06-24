@@ -123,6 +123,7 @@ const hasGallery = galleryImages.length > 1;
             {section.body.map((paragraph) => <p>{paragraph}</p>)}
           </div>
         )}
+        <slot />
         {section.bullets && (
           <ul class="reveal-body mt-8 grid gap-3">
             {section.bullets.map((bullet) => (
