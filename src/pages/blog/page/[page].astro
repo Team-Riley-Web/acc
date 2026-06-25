@@ -1,18 +1,34 @@
 ---
 import { Image } from 'astro:assets';
-import SiteLayout from '../layouts/SiteLayout.astro';
-import BlogPostGrid from '../components/BlogPostGrid.astro';
-import { blogPosts } from '../content/site';
-import assessmentImage from '../assets/images/imgi_298_premium_photo-1661964387248-55856fa89031.jpeg';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import BlogPostGrid from '../../../components/BlogPostGrid.astro';
+import { blogPosts } from '../../../content/site';
+import assessmentImage from '../../../assets/images/imgi_298_premium_photo-1661964387248-55856fa89031.jpeg';
 
-const postsPerPage = 9;
-const currentPage = 1;
-const totalPages = Math.ceil(blogPosts.length / postsPerPage);
-const posts = blogPosts.slice(0, postsPerPage);
+export function getStaticPaths() {
+  const pageSize = 9;
+  const pageTotal = Math.ceil(blogPosts.length / pageSize);
+
+  return Array.from({ length: Math.max(pageTotal - 1, 0) }, (_, index) => {
+    const page = index + 2;
+    const start = (page - 1) * pageSize;
+
+    return {
+      params: { page: String(page) },
+      props: {
+        currentPage: page,
+        posts: blogPosts.slice(start, start + pageSize),
+        totalPages: pageTotal,
+      },
+    };
+  });
+}
+
+const { posts, currentPage, totalPages: pageCount } = Astro.props;
 ---
 
 <SiteLayout
-  title="Blog | ACC Building Performance"
+  title={`Blog Page ${currentPage} | ACC Building Performance`}
   description="Building science articles from ACC Building Performance on mold, moisture, HVAC design, and healthy homes in the Gulf South."
 >
   <section class="hero-airflow hero-noise relative isolate overflow-hidden bg-[#0b4850] px-5 pb-24 pt-36 text-white sm:px-6 lg:px-8 lg:pb-28 lg:pt-40">
@@ -34,7 +50,7 @@ const posts = blogPosts.slice(0, postsPerPage);
 
   <section class="bg-acc-mist px-5 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-6xl">
-      <BlogPostGrid posts={posts} currentPage={currentPage} totalPages={totalPages} />
+      <BlogPostGrid posts={posts} currentPage={currentPage} totalPages={pageCount} />
     </div>
   </section>
 </SiteLayout>

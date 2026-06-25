@@ -1,0 +1,129 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowLeft, ArrowRight, Gauge, Home as HomeIcon, Wind } from '@lucide/astro';
+import moldImage from '../assets/images/imgi_241_premium_photo-1661957645816-099827ce621f.jpeg';
+import hvacImage from '../assets/images/pexels-jose-andres-pacheco-cortes-3641213-6471913.jpg';
+import assessmentImage from '../assets/images/imgi_298_premium_photo-1661964387248-55856fa89031.jpeg';
+import builderImage from '../assets/images/imgi_226_premium_photo-1677782977189-d2ba571a679c.jpeg';
+import ajImage from '../assets/images/aj-callegan.jpg';
+import sprayFoamImage from '../assets/images/imgi_284_premium_photo-1682148134234-772b74827e56.jpeg';
+import buzzwordImage from '../assets/images/building-science-buzzword.jpg';
+import marignyRendering from '../assets/images/marigny-rendering.png';
+import constructionFrameImage from '../assets/images/imgi_326_premium_photo-1683121688597-9f8e71d9d307.jpeg';
+import hvacHealthImpactImage from '../assets/images/hvac-health-impact.jpg';
+
+interface Props {
+  posts: any[];
+  currentPage: number;
+  totalPages: number;
+}
+
+const { posts, currentPage, totalPages } = Astro.props;
+const blogImages = {
+  'your-ac-company-has-more-impact-on-your-health-than-you-think': {
+    src: hvacHealthImpactImage,
+    alt: 'HVAC professional responsible for indoor air and system performance',
+  },
+  'code-is-not-a-quality-standard': {
+    src: constructionFrameImage,
+    alt: 'New home framing under construction before performance details are completed',
+  },
+  'if-the-budget-is-tight-shrink-the-house': {
+    src: marignyRendering,
+    alt: 'Custom home rendering representing design and budget decisions',
+  },
+  'building-science-is-not-a-buzzword': {
+    src: buzzwordImage,
+    alt: 'Building professional reviewing residential construction drawings',
+  },
+  'why-all-the-hate-on-spf-insulation': {
+    src: sprayFoamImage,
+    alt: 'Spray foam insulation installed in a building assembly',
+  },
+  'same-science-better-pacing-more-compassion': {
+    src: ajImage,
+    alt: 'AJ Callegan of ACC Building Performance',
+  },
+  'great-builder-protects-home-from-bad-decisions': {
+    src: builderImage,
+    alt: 'Custom home framing under construction before building science details are finalized',
+  },
+  'why-mold-keeps-coming-back': {
+    src: moldImage,
+    alt: 'Building professional inspecting insulation and moisture conditions',
+  },
+  'oversized-hvac-gulf-south-humidity': {
+    src: hvacImage,
+    alt: 'HVAC technician checking system pressure gauges',
+  },
+  'what-building-science-assessment-looks-for': {
+    src: assessmentImage,
+    alt: 'Building professional inspecting ducts and attic conditions',
+  },
+};
+const categoryConfig = {
+  'Building Science': { icon: Gauge },
+  'Home Wellness': { icon: HomeIcon },
+  'HVAC Design': { icon: Wind },
+};
+
+const getPageHref = (page) => (page === 1 ? '/blog' : `/blog/page/${page}`);
+const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+---
+
+<div class="grid gap-6 lg:grid-cols-3">
+  {posts.map((post) => {
+    const category = categoryConfig[post.category] ?? categoryConfig['Building Science'];
+    const CategoryIcon = category.icon;
+
+    return (
+      <a href={post.href} class="reveal-body group flex min-h-[24rem] flex-col rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7">
+        <div class="-mx-7 -mt-7 mb-7 overflow-hidden rounded-t-2xl">
+          <Image src={blogImages[post.slug].src} alt={blogImages[post.slug].alt} width={720} class="h-52 w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
+        </div>
+        <div class="flex items-center gap-3 text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#62aebe]">
+          <CategoryIcon class="h-4 w-4" />
+          {post.category}
+        </div>
+        <h2 class="mt-8 line-clamp-2 text-3xl font-black leading-tight text-acc-ink">{post.title}</h2>
+        <p class="mt-5 line-clamp-4 text-base font-semibold leading-7 text-[#164f59]/80">{post.excerpt}</p>
+        <div class="mt-auto flex items-center justify-between gap-5 pt-10">
+          <span class="text-sm font-black text-slate-500">{post.readTime}</span>
+          <span class="inline-flex items-center gap-2 text-sm font-black text-[#0b4850]">
+            Read Article
+            <ArrowRight class="h-4 w-4 transition group-hover:translate-x-0.5" />
+          </span>
+        </div>
+      </a>
+    );
+  })}
+</div>
+
+{totalPages > 1 && (
+  <nav class="reveal-body mt-14 flex flex-wrap items-center justify-center gap-2" aria-label="Blog pagination">
+    {currentPage > 1 && (
+      <a href={getPageHref(currentPage - 1)} class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#c8d8d4] bg-white text-[#0b4850] transition hover:border-[#9fcbd0] hover:bg-[#eef6f6]" aria-label="Previous blog page">
+        <ArrowLeft class="h-4 w-4" />
+      </a>
+    )}
+    {pages.map((page) => (
+      <a
+        href={getPageHref(page)}
+        aria-current={page === currentPage ? 'page' : undefined}
+        class:list={[
+          'inline-flex h-11 min-w-11 items-center justify-center rounded-full border px-4 text-sm font-black transition',
+          page === currentPage
+            ? 'border-[#0b4850] bg-[#0b4850] text-white'
+            : 'border-[#c8d8d4] bg-white text-[#0b4850] hover:border-[#9fcbd0] hover:bg-[#eef6f6]',
+        ]}
+      >
+        {page}
+      </a>
+    ))}
+    {currentPage < totalPages && (
+      <a href={getPageHref(currentPage + 1)} class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#c8d8d4] bg-white text-[#0b4850] transition hover:border-[#9fcbd0] hover:bg-[#eef6f6]" aria-label="Next blog page">
+        <ArrowRight class="h-4 w-4" />
+      </a>
+    )}
+  </nav>
+)}
