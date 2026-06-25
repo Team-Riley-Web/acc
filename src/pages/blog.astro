@@ -6,8 +6,13 @@ import { blogPosts } from '../content/site';
 import moldImage from '../assets/images/imgi_241_premium_photo-1661957645816-099827ce621f.jpeg';
 import hvacImage from '../assets/images/pexels-jose-andres-pacheco-cortes-3641213-6471913.jpg';
 import assessmentImage from '../assets/images/imgi_298_premium_photo-1661964387248-55856fa89031.jpeg';
+import builderImage from '../assets/images/imgi_226_premium_photo-1677782977189-d2ba571a679c.jpeg';
 
 const blogImages = {
+  'great-builder-protects-home-from-bad-decisions': {
+    src: builderImage,
+    alt: 'Custom home framing under construction before building science details are finalized',
+  },
   'why-mold-keeps-coming-back': {
     src: moldImage,
     alt: 'Building professional inspecting insulation and moisture conditions',
@@ -48,7 +53,7 @@ const blogImages = {
     <div class="mx-auto max-w-6xl">
       <div class="grid gap-6 lg:grid-cols-3">
         {blogPosts.map((post) => (
-          <article class="reveal-body group flex min-h-[24rem] flex-col rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7">
+          <a href={post.href} class="reveal-body group flex min-h-[24rem] flex-col rounded-2xl border border-[#d5ded9] bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:border-[#9fcbd0] hover:shadow-xl hover:shadow-slate-950/7">
             <div class="-mx-7 -mt-7 mb-7 overflow-hidden rounded-t-2xl">
               <Image src={blogImages[post.slug].src} alt={blogImages[post.slug].alt} width={720} class="h-52 w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
             </div>
@@ -60,12 +65,12 @@ const blogImages = {
             <p class="mt-5 text-base font-semibold leading-7 text-[#164f59]/80">{post.excerpt}</p>
             <div class="mt-auto flex items-center justify-between gap-5 pt-10">
               <span class="text-sm font-black text-slate-500">{post.readTime}</span>
-              <a href={post.href} class="inline-flex items-center gap-2 text-sm font-black text-[#0b4850]">
+              <span class="inline-flex items-center gap-2 text-sm font-black text-[#0b4850]">
                 Read Article
                 <ArrowRight class="h-4 w-4 transition group-hover:translate-x-0.5" />
-              </a>
+              </span>
             </div>
-          </article>
+          </a>
         ))}
       </div>
     </div>

@@ -6,6 +6,7 @@ import { blogPosts } from '../../content/site';
 import moldImage from '../../assets/images/imgi_241_premium_photo-1661957645816-099827ce621f.jpeg';
 import hvacImage from '../../assets/images/pexels-jose-andres-pacheco-cortes-3641213-6471913.jpg';
 import assessmentImage from '../../assets/images/imgi_298_premium_photo-1661964387248-55856fa89031.jpeg';
+import builderImage from '../../assets/images/imgi_226_premium_photo-1677782977189-d2ba571a679c.jpeg';
 
 export function getStaticPaths() {
   return blogPosts.map((post) => ({
@@ -16,6 +17,10 @@ export function getStaticPaths() {
 
 const { post } = Astro.props;
 const blogImages = {
+  'great-builder-protects-home-from-bad-decisions': {
+    src: builderImage,
+    alt: 'Custom home framing under construction before building science details are finalized',
+  },
   'why-mold-keeps-coming-back': {
     src: moldImage,
     alt: 'Building professional inspecting insulation and moisture conditions',

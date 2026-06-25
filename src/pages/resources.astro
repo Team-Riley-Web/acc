@@ -85,7 +85,7 @@ const getLatestVideos = async () => {
     const feed = parser.parse(xml).feed;
     const entries = Array.isArray(feed.entry) ? feed.entry : [feed.entry].filter(Boolean);
 
-    return entries.slice(0, 12).map((entry) => ({
+    return entries.slice(0, 7).map((entry) => ({
       id: entry.videoId,
       title: entry.title,
       date: formatDate(entry.published),
@@ -99,8 +99,7 @@ const getLatestVideos = async () => {
 
 const videos = await getLatestVideos();
 const latestVideo = videos[0];
-const featuredVideo = videos.find((video) => video.title.toLowerCase().includes('crawlspace')) ?? latestVideo;
-const supportingVideos = videos.filter((video) => video.id !== featuredVideo.id).slice(0, 6);
+const supportingVideos = videos.slice(1, 7);
 ---
 
 <SiteLayout

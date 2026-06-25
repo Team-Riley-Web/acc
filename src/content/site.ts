@@ -35,6 +35,47 @@ export const serviceCards = [
 
 export const blogPosts = [
   {
+    title: 'A Great Builder Protects the Home From Bad Decisions',
+    href: '/blog/great-builder-protects-home-from-bad-decisions',
+    slug: 'great-builder-protects-home-from-bad-decisions',
+    category: 'Building Science',
+    readTime: '3 min read',
+    excerpt:
+      'A beautiful home can still fail if critical building science decisions are treated like preferences. Great builders protect the client from those failures.',
+    body: [
+      {
+        heading: 'Some decisions are preferences. Others are performance.',
+        paragraphs: [
+          'A great builder does not allow their client to make critical decisions that can negatively affect the health, durability, comfort, and performance of the home.',
+          'The client can choose style, colors, layouts, finishes, and the overall feel of the home. But the client should not be the one deciding critical building science details like vapor control, foundation assemblies, framing details, sheathing materials, air sealing strategy, mechanical design, filtration, dehumidification, ventilation, insulation details, drainage planes, or window and door flashing.',
+          'Those are not preference-based decisions. Those are performance-based decisions.',
+        ],
+      },
+      {
+        heading: 'The fundamentals should not be good, better, best.',
+        paragraphs: [
+          'When it comes to the fundamentals, there should not be “good, better, best” options. There should be correct, complete, and appropriate for the climate, assembly, and intended performance of the home.',
+          'Even aesthetic decisions still need guidance. A great builder will catch a client choosing the wrong impermeable paint, vinyl wallpaper, coated brick, LVP flooring, or any other finish that may create moisture, durability, or indoor air quality problems.',
+        ],
+      },
+      {
+        heading: 'Great builders find failure points before they become failures.',
+        paragraphs: [
+          'A great builder reviews the design of the home and identifies critical failure points before they become expensive failures.',
+          'Bad rooflines, risky wall assemblies, poor drainage details, oversized glass loads, weak flashing details, buried ductwork, complicated transitions, and unbuildable details should not be ignored just because they look good on paper.',
+        ],
+      },
+      {
+        heading: 'A great builder protects the client from the wrong savings.',
+        paragraphs: [
+          'A great builder educates the client, guides the budget, and protects them from decisions that may look like savings today but become expensive failures tomorrow.',
+          'That means not reducing critical details to the cheapest possible option just to preserve money for the things people can see. A great builder does not simply say yes to keep the job moving or win the contract.',
+          'And a great builder is willing to walk away from a job that is destined for failure. Because a beautiful home that is unhealthy, uncomfortable, inefficient, or moisture-damaged is an expensive failure with nice finishes.',
+        ],
+      },
+    ],
+  },
+  {
     title: 'Why Mold Keeps Coming Back',
     href: '/blog/why-mold-keeps-coming-back',
     slug: 'why-mold-keeps-coming-back',
