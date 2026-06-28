@@ -60,7 +60,7 @@ const { title, description } = Astro.props;
             <a href="tel:+15042480186" class="site-nav-cta btn-primary h-12 w-12 min-h-12 rounded-full p-0 text-sm lg:hidden" aria-label="Call ACC Building Performance">
               <Phone class="h-5 w-5" />
             </a>
-            <details class="relative lg:hidden">
+            <details class="relative lg:hidden" data-mobile-menu>
               <summary class="site-menu-button flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur">
                 <Menu class="menu-icon-open h-5 w-5" />
                 <X class="menu-icon-close hidden h-5 w-5" />
@@ -99,6 +99,7 @@ const { title, description } = Astro.props;
           const siteHeader = document.querySelector('.site-header');
           const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
           const revealTargets = document.querySelectorAll('.reveal-body');
+          const mobileMenu = document.querySelector('[data-mobile-menu]');
           const mobileNavToggles = document.querySelectorAll('[data-mobile-toggle]');
 
           const updateHeaderState = () => {
@@ -119,6 +120,13 @@ const { title, description } = Astro.props;
               submenu.classList.toggle('hidden', isOpen);
               toggle.querySelector('svg')?.classList.toggle('rotate-180', !isOpen);
             });
+          });
+
+          document.addEventListener('click', (event) => {
+            if (!mobileMenu?.hasAttribute('open')) return;
+            if (mobileMenu.contains(event.target)) return;
+
+            mobileMenu.removeAttribute('open');
           });
 
           revealTargets.forEach((element, index) => {
