@@ -4,6 +4,7 @@ import { ArrowRight, ChevronDown, Clock3, Facebook, Feather, Heart, Instagram, L
 import culleokaLogo from '../assets/images/Culleoka_Co_Logo-Circle.png';
 import favicon from '../assets/images/favicon.png';
 import logo from '../assets/images/logo.png';
+import socialShareImage from '../assets/images/social-share.png';
 import { servicesNav } from '../content/site';
 import '../styles/global.css';
 
@@ -13,6 +14,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const pageUrl = new URL(Astro.url.pathname, Astro.site);
+const socialShareImageUrl = new URL(socialShareImage.src, Astro.site);
 ---
 
 <!doctype html>
@@ -21,6 +24,18 @@ const { title, description } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialShareImageUrl.href} />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:image:alt" content="ACC Building Performance" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialShareImageUrl.href} />
     <link rel="icon" type="image/png" href={favicon.src} />
     <title>{title}</title>
   </head>
