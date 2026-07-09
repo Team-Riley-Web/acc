@@ -35,6 +35,62 @@ export const serviceCards = [
 
 export const blogPosts = [
   {
+    title: 'What Is the Purpose of the Building Department?',
+    href: '/blog/what-is-the-purpose-of-the-building-department',
+    slug: 'what-is-the-purpose-of-the-building-department',
+    category: 'Building Science',
+    readTime: '3 min read',
+    excerpt:
+      'Permits and inspections should protect homeowners and support code compliance. When the process only collects fees, creates delays, and shifts responsibility, trust breaks down.',
+    body: [
+      {
+        heading: 'Inspections are supposed to protect the public.',
+        paragraphs: [
+          'Building departments and inspections are supposed to serve an important purpose.',
+          'The public expectation is simple: permits, plan review, and inspections should help protect health, safety, durability, and code compliance. The process should create accountability, prevent unsafe work, and give homeowners confidence that the work being done on their property meets a reasonable standard and minimum code.',
+          'That is the expectation.',
+          'The reality in Orleans Parish is often very different.',
+        ],
+      },
+      {
+        heading: 'The process often feels like fee collection without service.',
+        paragraphs: [
+          'Too often, the process feels less like public service and more like money extortion. Orleans Parish collects the licensing fees, taxes, and permit fees, requires the inspections, delays the job, provides no communication, and then leaves the contractor or homeowner scrambling to figure out how to get final occupancy.',
+          'God forbid you have a question about the requirements. Good luck.',
+          'Then, when the city will not provide timely inspections, you are forced to hire a third-party inspector just to keep the project moving. You cannot even get someone from the city on the phone, much less get a call back, but somehow the burden is still placed on the contractor and homeowner.',
+        ],
+      },
+      {
+        heading: 'If third-party inspectors do the work, what is the department for?',
+        paragraphs: [
+          'At that point, I think the fair question is this: if the contractor is licensed, the permit fees have been paid, and Orleans Parish still requires the contractor or homeowner to hire a third-party inspector to actually get the inspection completed, then what exactly is the purpose of the building department?',
+          'Is it there to protect the public, support code compliance, and provide meaningful oversight?',
+          'Or is it simply there to collect fees, create delays, and shift the responsibility to someone else?',
+        ],
+      },
+      {
+        heading: 'Third-party inspections could help, but not like this.',
+        paragraphs: [
+          'In theory, third-party inspections could be a good solution. In reality, the contractor ends up paying another fee to another company that provides little to no real value to the contractor or the homeowner.',
+          'The contractor gets stuck paying for the city’s permit and inspection process, then paying again for a third-party inspection, while receiving zero value from either.',
+          'The contractor gets stuck wasting time, effort, coordination, and money trying to navigate what starts to feel like a pay-to-play scheme instead of a true public safety process.',
+        ],
+      },
+      {
+        heading: 'A green sticker should mean something.',
+        paragraphs: [
+          'That does not serve the homeowner.',
+          'That does not support good contractors.',
+          'That does not improve building quality.',
+          'And it certainly does not create trust in the system.',
+          'Inspections should matter. Code compliance should matter. Public safety should matter.',
+          'But if Orleans Parish is going to demand money, time, paperwork, and third-party involvement, then it should also provide competence, communication, consistency, and accountability.',
+          'A green sticker should mean something.',
+        ],
+      },
+    ],
+  },
+  {
     title: 'Your AC Company Has More Impact on Your Health Than You Think',
     href: '/blog/your-ac-company-has-more-impact-on-your-health-than-you-think',
     slug: 'your-ac-company-has-more-impact-on-your-health-than-you-think',

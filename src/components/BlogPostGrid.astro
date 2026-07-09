@@ -11,6 +11,7 @@ import buzzwordImage from '../assets/images/building-science-buzzword.jpg';
 import marignyRendering from '../assets/images/marigny-rendering.png';
 import constructionFrameImage from '../assets/images/imgi_326_premium_photo-1683121688597-9f8e71d9d307.jpeg';
 import hvacHealthImpactImage from '../assets/images/hvac-health-impact.jpg';
+import buildingInspectionImage from '../assets/images/building.avif';
 
 interface Props {
   posts: any[];
@@ -20,6 +21,10 @@ interface Props {
 
 const { posts, currentPage, totalPages } = Astro.props;
 const blogImages = {
+  'what-is-the-purpose-of-the-building-department': {
+    src: buildingInspectionImage,
+    alt: 'Residential building assembly opened for inspection and performance verification',
+  },
   'your-ac-company-has-more-impact-on-your-health-than-you-think': {
     src: hvacHealthImpactImage,
     alt: 'HVAC professional responsible for indoor air and system performance',

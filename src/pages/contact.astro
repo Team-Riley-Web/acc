@@ -47,11 +47,17 @@ import contactImage from '../assets/images/imgi_226_premium_photo-1677782977189-
       <form name="contact" method="POST" netlify data-netlify="true" netlify-honeypot="company" class="mx-auto w-full max-w-4xl rounded-3xl border border-[#cfe3e7] bg-[#eaf6f9] p-7 shadow-2xl shadow-[#06333a]/10 sm:p-9" data-contact-form>
         <input type="hidden" name="form-name" value="contact" />
         <p class="hidden"><label>Company <input name="company" /></label></p>
-        <div class="grid gap-5 sm:grid-cols-2">
+        <div class="grid gap-6 sm:grid-cols-2">
           <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Full name *<input name="full_name" required class="form-field" /></label>
           <label class="grid gap-2 text-sm font-black text-[#254858]">Phone number *<input type="tel" name="phone" required class="form-field" /></label>
           <label class="grid gap-2 text-sm font-black text-[#254858]">Email address *<input type="email" name="email" required class="form-field" /></label>
-          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Home address *<input name="home_address" required class="form-field" /></label>
+          <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Home street address *<input name="home_address" required autocomplete="street-address" class="form-field" /></label>
+          <div class="grid gap-6 sm:col-span-2 sm:grid-cols-4">
+            <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">City *<input name="home_city" required autocomplete="address-level2" class="form-field" /></label>
+            <label class="grid gap-2 text-sm font-black text-[#254858]">State *<input name="home_state" required autocomplete="address-level1" class="form-field" /></label>
+            <label class="grid gap-2 text-sm font-black text-[#254858]">ZIP code *<input name="home_zip_code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" required autocomplete="postal-code" class="form-field" /></label>
+          </div>
+          <div class="my-2 h-px bg-[#cfe3e7] sm:col-span-2" aria-hidden="true"></div>
           <label class="grid gap-2 text-sm font-black text-[#254858]">Square footage of the home *<input type="number" name="home_square_footage" min="0" required class="form-field" /></label>
           <label class="grid gap-2 text-sm font-black text-[#254858]">Number of bedrooms in home *<input type="number" name="bedrooms" min="0" required class="form-field" /></label>
           <label class="grid gap-2 text-sm font-black text-[#254858]">Number of bathrooms in home *<input type="number" name="bathrooms" min="0" step="0.5" required class="form-field" /></label>
@@ -78,10 +84,12 @@ import contactImage from '../assets/images/imgi_226_premium_photo-1677782977189-
             </div>
           </fieldset>
 
+          <div class="my-2 h-px bg-[#cfe3e7] sm:col-span-2" aria-hidden="true"></div>
           <label class="grid gap-2 text-sm font-black text-[#254858]">Number of adults living in the home *<input type="number" name="adults_in_home" min="0" required class="form-field" /></label>
           <label class="grid gap-2 text-sm font-black text-[#254858]">Number of children living in the home *<input type="number" name="children_in_home" min="0" required class="form-field" /></label>
           <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Number and type of pets living in the home *<input name="indoor_pets" required class="form-field" /></label>
           <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">Number and type of pets outside the home *<input name="outdoor_pets" required class="form-field" /></label>
+          <div class="my-2 h-px bg-[#cfe3e7] sm:col-span-2" aria-hidden="true"></div>
           <label class="grid gap-2 text-sm font-black text-[#254858] sm:col-span-2">
             Any specific health concerns believed to be associated with the indoor built environment *
             <textarea name="health_concerns" rows="5" required class="form-field resize-y"></textarea>
