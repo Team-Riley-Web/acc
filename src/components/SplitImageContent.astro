@@ -9,9 +9,10 @@ interface Props {
     body?: string[];
     bullets?: string[];
     items?: { title: string; copy: string }[];
-    quote?: string;
-    layout?: string;
-  };
+	    quote?: string;
+	    layout?: string;
+	    imagePosition?: 'left' | 'right';
+	  };
   index: number;
   image: {
     src: any;
@@ -25,6 +26,7 @@ const { section, index, image, variant = 'contained' } = Astro.props;
 const isLight = index % 2 === 0;
 const isFull = variant === 'full';
 const isSticky = section.layout === 'split-sticky';
+const isImageRight = section.imagePosition === 'right';
 const galleryImages = image.gallery ?? [{ src: image.src, alt: image.alt }];
 const hasGallery = galleryImages.length > 1;
 ---
@@ -43,12 +45,13 @@ const hasGallery = galleryImages.length > 1;
       ? ['bg-white', isFull ? '' : 'border border-[#d5ded9] shadow-slate-950/8']
       : ['bg-[#06333a]', isFull ? '' : 'border border-white/10 shadow-black/20'],
   ]}>
-    <div class:list={[
-      'order-2 min-h-[22rem] overflow-hidden lg:order-1',
-      isFull ? 'lg:min-h-[42rem]' : 'lg:min-h-[34rem]',
-      isSticky && 'lg:sticky lg:top-0 lg:h-screen lg:self-start',
-      !isFull && 'rounded-b-3xl lg:rounded-l-3xl lg:rounded-br-none lg:rounded-tl-3xl',
-    ]}>
+	    <div class:list={[
+	      'order-2 min-h-[22rem] overflow-hidden',
+	      isImageRight ? 'lg:order-2' : 'lg:order-1',
+	      isFull ? 'lg:min-h-[42rem]' : 'lg:min-h-[34rem]',
+	      isSticky && 'lg:sticky lg:top-0 lg:h-screen lg:self-start',
+	      !isFull && (isImageRight ? 'rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none lg:rounded-tr-3xl' : 'rounded-b-3xl lg:rounded-l-3xl lg:rounded-br-none lg:rounded-tl-3xl'),
+	    ]}>
       {hasGallery ? (
         <div class="group relative h-full min-h-[22rem]" data-image-gallery>
           <div class="relative h-full min-h-[22rem] overflow-hidden">
@@ -101,10 +104,11 @@ const hasGallery = galleryImages.length > 1;
       )}
     </div>
 
-    <div class:list={[
-      'order-1 flex min-h-[22rem] px-7 py-10 sm:px-10 lg:order-2',
-      isSticky ? 'items-start' : 'items-center',
-      isFull ? 'lg:min-h-[42rem] lg:px-20 lg:py-20 xl:px-24' : 'lg:min-h-[34rem] lg:px-14 lg:py-16',
+	    <div class:list={[
+	      'order-1 flex min-h-[22rem] px-7 py-10 sm:px-10',
+	      isImageRight ? 'lg:order-1' : 'lg:order-2',
+	      isSticky ? 'items-start' : 'items-center',
+	      isFull ? 'lg:min-h-[42rem] lg:px-20 lg:py-20 xl:px-24' : 'lg:min-h-[34rem] lg:px-14 lg:py-16',
     ]}>
       <div class:list={[isFull ? 'max-w-2xl' : '']}>
         <p class:list={[

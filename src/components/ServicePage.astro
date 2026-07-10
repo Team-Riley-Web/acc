@@ -6,14 +6,16 @@ import ServiceContentSection from './ServiceContentSection.astro';
 import ServiceFeatureGridSection from './ServiceFeatureGridSection.astro';
 import SplitImageContent from './SplitImageContent.astro';
 import ajCallegan from '../assets/images/aj-callegan.jpg';
-import assessmentImage from '../assets/images/imgi_241_premium_photo-1661957645816-099827ce621f.jpeg';
-import atticDuctImage from '../assets/images/imgi_298_premium_photo-1661964387248-55856fa89031.jpeg';
-import hvacImage from '../assets/images/pexels-jose-andres-pacheco-cortes-3641213-6471913.jpg';
+import assessmentImage from '../assets/images/assessment.png';
+import atticDuctImage from '../assets/images/3d.png';
+import ductImage from '../assets/images/BlowerDoorTestingaHouse-scaled.jpg';
+import hvacImage from '../assets/images/mock.png';
 import consultingImage from '../assets/images/imgi_256_premium_photo-1682148117399-5dbf32ccb622.jpeg';
-import buildingImage from '../assets/images/building.avif';
-import constructionImage from '../assets/images/imgi_326_premium_photo-1683121688597-9f8e71d9d307.jpeg';
-import sprayFoamImage from '../assets/images/imgi_284_premium_photo-1682148134234-772b74827e56.jpeg';
-import framingImage from '../assets/images/imgi_226_premium_photo-1677782977189-d2ba571a679c.jpeg';
+import buildingImage from '../assets/images/HealthHomeConsultingPackage.png';
+import constructionImage from '../assets/images/build.png';
+import sprayFoamImage from '../assets/images/ac.jpg';
+import framingImage from '../assets/images/newbuild.jpg';
+import nextStepFramingImage from '../assets/images/imgi_226_premium_photo-1677782977189-d2ba571a679c.jpeg';
 import finishWorkImage from '../assets/images/building-science-house.jpg';
 import constructionDetailImage from '../assets/images/imgi_41_photo-1768321917437-1f1f6ae2ad28.jpg';
 import marignyRendering from '../assets/images/marigny-rendering.png';
@@ -78,7 +80,7 @@ const serviceImageSets = {
   },
   'compliance-testing': {
     hero: {
-      src: atticDuctImage,
+      src: ductImage,
       alt: 'Building professional inspecting ducts and attic conditions for performance testing',
     },
     split: {
@@ -135,16 +137,20 @@ const serviceImageSets = {
     },
     split: {
       0: {
-        src: consultingImage,
+        src: sprayFoamImage,
         alt: 'High-performance home interior with spray foam insulation and framing',
       },
       2: {
         src: marignyRendering,
         alt: 'Architectural rendering for a custom home construction project',
       },
+      3: {
+        src: framingImage,
+        alt: 'Residential framing and stair construction in progress',
+      },
     },
     final: {
-      src: framingImage,
+      src: nextStepFramingImage,
       alt: 'Residential framing and stair construction in progress',
     },
   },
