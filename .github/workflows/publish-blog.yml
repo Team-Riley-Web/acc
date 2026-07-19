@@ -1,0 +1,55 @@
+name: Publish scheduled blog posts
+
+# Blog posts in src/content/site.ts with a future `publishDate: 'YYYY-MM-DD'`
+# are excluded from the build. This workflow runs daily and triggers a Netlify
+# rebuild when a scheduled date arrives, which makes the post go live.
+# No content is generated here — posts are fully authored ahead of time.
+
+on:
+  schedule:
+    - cron: '0 7 * * *' # daily at 07:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for posts due to publish
+        id: due
+        run: |
+          set -euo pipefail
+          today=$(date -u +%F)
+          # Window of 3 days so a missed run still publishes on the next one.
+          window_start=$(date -u -d "$today - 3 days" +%F)
+
+          due=0
+          while IFS= read -r pub; do
+            if [ "$pub" \> "$window_start" ] && ! [ "$pub" \> "$today" ]; then
+              echo "Post due: publishDate $pub"
+              due=1
+            fi
+          done < <(grep -o "publishDate:[[:space:]]*['\"][0-9-]*['\"]" src/content/site.ts | grep -o '[0-9-]\{10\}' || true)
+
+          echo "due=$due" >> "$GITHUB_OUTPUT"
+          [ "$due" = "0" ] && echo "No posts due today. Skipping rebuild." || true
+
+      - name: Trigger Netlify rebuild
+        if: steps.due.outputs.due == '1' || github.event_name == 'workflow_dispatch'
+        env:
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          set -euo pipefail
+          if [ -z "$NETLIFY_BUILD_HOOK" ]; then
+            echo "NETLIFY_BUILD_HOOK secret is not set. Create a build hook in" >&2
+            echo "Netlify (Site configuration > Build & deploy > Build hooks) and" >&2
+            echo "add its URL as a repository secret named NETLIFY_BUILD_HOOK." >&2
+            exit 1
+          fi
+          curl -fsS -X POST -d '{}' "$NETLIFY_BUILD_HOOK"
+          echo "Netlify rebuild triggered."

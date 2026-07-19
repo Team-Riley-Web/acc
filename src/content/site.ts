@@ -33,7 +33,315 @@ export const serviceCards = [
   },
 ];
 
-export const blogPosts = [
+// Posts with a future `publishDate` (YYYY-MM-DD) are excluded at build time.
+// The publish-blog workflow triggers a rebuild when a scheduled date arrives.
+const allBlogPosts = [
+  {
+    publishDate: '2026-07-26',
+    title: 'HVAC+D Installation: You Are Not Comparing Apples to Apples',
+    href: '/blog/hvac-d-installation-you-are-not-comparing-apples-to-apples',
+    slug: 'hvac-d-installation-you-are-not-comparing-apples-to-apples',
+    category: 'HVAC Design',
+    readTime: '12 min read',
+    excerpt:
+      'A $6,000 box swap and a $40,000 HVAC+D system are not the same product. One replaces equipment. The other is a designed, tested, balanced, and commissioned mechanical system with dedicated dehumidification.',
+    body: [
+      {
+        heading: 'Licensed and insured is a low bar.',
+        paragraphs: [
+          'Did you know that in some states, an HVAC contractor can become licensed and insured simply by paying a fee, passing a basic test, and proving a $10,000 net worth?',
+          'Now here is the part that should concern you. That same contractor may install your new HVAC system without performing a proper design, without following industry best practices, without complying with minimum code requirements, and without even following the manufacturer’s installation instructions.',
+          'An incompetent jackass can install a box, connect some ductwork, make it blow hot and cold air, and be gone before you realize what you actually paid for. They can do it fast. They can do it cheap. And they can leave you with a system that wastes energy, struggles with humidity, pulls contamination from the attic or crawlspace, creates pressure imbalances, supports mold growth, and negatively affects the health of everyone living in the home.',
+          'So, when you compare an ACCBP HVAC+D system costing $40,000 to $50,000 to “Chuck in a Truck” offering a $6,000 box-swap changeout, understand that you are not comparing the same product. There is no such thing as apples-to-apples in construction.',
+          'One is an equipment replacement. The other is a properly designed, installed, tested, balanced, and commissioned mechanical system, with dedicated dehumidification.',
+          'Your HVAC system is one of the most critical systems in your home. It influences temperature, humidity, filtration, ventilation, moisture movement, pressure, comfort, durability, and indoor air quality. In other words, it plays a major role in whether your home supports health and wellness or contributes to sickness and disease.',
+          'Cheap HVAC is rarely cheap once you understand the consequences.',
+        ],
+      },
+      {
+        heading: 'Blowing hot and cold air is not the standard.',
+        paragraphs: [
+          'Most homeowners judge an HVAC system by one question: does it heat and cool the house? That is an incredibly low standard.',
+          'Nearly any oversized piece of equipment connected to enough ductwork can blow hot and cold air. That does not mean the system is designed correctly. It does not mean it is controlling humidity. It does not mean each room is receiving the proper amount of airflow. It does not mean the duct system is sealed. It does not mean the home is being ventilated or filtered correctly. It only means the equipment turns on.',
+          'A properly functioning mechanical system should do much more than change the temperature. It should manage heat, humidity, filtration, ventilation, pressure, moisture movement, and air distribution throughout the home. It should work with the building enclosure instead of fighting against it. It should support the health, durability, comfort, and efficiency of the home.',
+          'That does not happen by accident.',
+        ],
+      },
+      {
+        heading: 'HVAC+D means HVAC plus dehumidification.',
+        paragraphs: [
+          'At ACC Building Performance, HVAC+D means heating, ventilation, and air conditioning, plus dedicated dehumidification. The “D” stands for dehumidification.',
+          'In a hot, humid climate, cooling and dehumidification are not the same thing. An air conditioner removes moisture only while it is operating in cooling mode. During mild, rainy, or low-load conditions, the home may not require enough cooling runtime to maintain acceptable indoor humidity. The thermostat may be satisfied while the house is still too humid. That is how a home can feel cold and clammy at the same time.',
+          'Dedicated dehumidification allows us to control moisture independently of temperature. The house does not have to become warmer before the equipment can begin removing moisture. This helps maintain more stable indoor conditions, protect building materials, reduce condensation risk, improve comfort, and limit the damp conditions that support suspected microbial growth.',
+          'In Louisiana and other hot-humid climates, dehumidification is not a luxury upgrade. It is often a necessary part of a complete mechanical system.',
+        ],
+      },
+      {
+        heading: 'The work still starts with design.',
+        paragraphs: [
+          'Even though the “D” in HVAC+D stands for dehumidification, the entire system must still be properly designed. Before equipment is selected, we need to understand the home.',
+          'How much heating and cooling does each room actually require? How much air needs to be delivered to each space? Where should the supply registers be located? Where will the return air come from? How will closed bedroom doors affect pressure? How much outdoor air is required? How will humidity be controlled when the air conditioner is not running long enough?',
+          'How tight is the building enclosure? Where are the ducts located? Is there a crawlspace, vented attic, encapsulated attic, or complicated knee-wall assembly? How much moisture is entering through infiltration, ventilation, occupants, cooking, bathing, and the building materials themselves?',
+          'These questions matter because the HVAC system does not operate independently from the rest of the house. The home is a system. Changing one part affects the others.',
+          'Installing equipment without understanding those interactions is not mechanical design. It is guessing with expensive machinery.',
+        ],
+      },
+      {
+        heading: 'Equipment size is not a guess.',
+        paragraphs: [
+          'A larger HVAC system is not necessarily a better HVAC system. Oversized equipment may cool the house quickly, but that is often part of the problem.',
+          'In a hot-humid climate, the system needs enough runtime to remove moisture from the air. When equipment is oversized, it may satisfy the thermostat quickly and shut off before meaningful dehumidification occurs. The result can be a home that reaches the desired temperature but remains damp and uncomfortable.',
+          'Short runtimes can also contribute to uneven temperatures, poor filtration, excessive cycling, increased equipment wear, and inconsistent comfort.',
+          'Equipment should be selected based on a proper room-by-room load calculation, the building’s orientation, windows, insulation, infiltration, internal loads, enclosure characteristics, and expected operating conditions.',
+          'Not because the old system was four tons. Not because the neighbor has a five-ton unit. Not because the contractor has a certain piece of equipment sitting in the warehouse. And definitely not because someone divided the square footage by 500.',
+        ],
+      },
+      {
+        heading: 'Air conditioning alone is not humidity control.',
+        paragraphs: [
+          'Many contractors assume that if the air conditioner is sized correctly, it will always control indoor humidity. That is not necessarily true.',
+          'A cooling load and a moisture load are related, but they are not identical. The sensible load is associated primarily with temperature. The latent load is associated with moisture. The relationship between those loads changes constantly based on weather, occupancy, infiltration, outdoor-air ventilation, cooking, bathing, laundry, and other moisture sources.',
+          'On a hot afternoon, the air conditioner may run long enough to remove a meaningful amount of moisture. On a cloudy, rainy day, the outdoor air may be extremely humid while the home has very little demand for cooling. The air conditioner remains off because the thermostat is satisfied, but moisture continues entering the building.',
+          'That is when dedicated dehumidification matters. A properly designed dehumidifier can continue removing moisture even when the home does not need additional cooling. That is the difference between hoping the air conditioner controls humidity and intentionally designing a system that does.',
+        ],
+      },
+      {
+        heading: 'The duct system is part of the equipment.',
+        paragraphs: [
+          'You are not buying only an outdoor unit and an air handler. You are buying an air-distribution system.',
+          'The most expensive and efficient equipment available cannot perform properly if it is attached to poorly designed, undersized, oversized, restrictive, disconnected, damaged, or leaking ductwork.',
+          'Duct systems determine whether air reaches the rooms where it is needed. They influence noise, comfort, pressure, filtration, humidity control, equipment performance, and energy consumption. Poor duct design can cause high static pressure, low airflow, premature equipment failure, hot and cold rooms, whistling grilles, slamming doors, and bedrooms that become pressurized when their doors are closed.',
+          'Leaking return ducts can pull insulation fibers, attic air, crawlspace air, dust, odors, and other contamination into the system. Leaking supply ducts can dump conditioned air outside the building enclosure while placing the home under negative pressure. That negative pressure can pull hot, humid, contaminated air through openings throughout the building.',
+          'This is why HVAC installation cannot be separated from duct design. The equipment and ductwork are one system.',
+        ],
+      },
+      {
+        heading: 'Dedicated dehumidification must also be designed.',
+        paragraphs: [
+          'Installing a dehumidifier is not as simple as hanging another box and connecting two pieces of flex duct.',
+          'The dehumidifier must be selected based on the home’s moisture load, enclosure characteristics, square footage, ventilation strategy, occupancy, and climate. Its location matters. Its duct configuration matters. Its controls matter. Its drainage matters. The way it interacts with the central HVAC system matters.',
+          'A poorly installed dehumidifier may short-cycle, create pressure problems, add unnecessary heat, fail to distribute dry air throughout the home, or pull contaminated air from an attic, crawlspace, garage, or wall cavity.',
+          'A complete HVAC+D system should provide a controlled return-air pathway, distribute dehumidified air appropriately, drain safely, remain accessible for service, and operate based on actual indoor humidity.',
+          'Dedicated dehumidification must be treated as part of the mechanical system, not as an afterthought.',
+        ],
+      },
+      {
+        heading: 'Installation details matter.',
+        paragraphs: [
+          'Even a properly designed system can fail when it is installed poorly.',
+          'Refrigerant charge must be verified. Airflow must be measured. Total external static pressure must be tested. Drainage must be properly configured. Duct connections must be sealed. Equipment must be accessible for service. Filters must fit correctly and seal within the cabinet. Outdoor-air systems must be adjusted. Dehumidifiers must be installed and controlled correctly. Supply and return air must be distributed as designed. Manufacturer-required clearances and installation procedures must be followed.',
+          'These details are not optional. Yet many systems are installed, switched on, and considered complete simply because air comes out of the registers.',
+          'That is not commissioning. That is startup.',
+        ],
+      },
+      {
+        heading: 'Minimum code is not high performance.',
+        paragraphs: [
+          'Homeowners often assume that a licensed contractor, building permit, or passed inspection guarantees quality. It does not. Building code represents the minimum legally acceptable standard.',
+          'Minimum code does not mean the system was designed for exceptional comfort. It does not mean the ductwork was optimized. It does not mean the system was balanced. It does not mean humidity will be controlled. It does not mean dedicated dehumidification was evaluated. It does not mean the equipment is operating at its rated capacity or efficiency. It does not mean the home will support sensitive occupants.',
+          'And unfortunately, even minimum requirements are not always enforced consistently.',
+          'Passing inspection should be the starting point, not the goal.',
+        ],
+      },
+      {
+        heading: 'The lowest bid usually removes the most work.',
+        paragraphs: [
+          'When one HVAC proposal is $6,000 and another is $40,000 to $50,000, people naturally focus on the price difference. But the real question is not why one contractor is so expensive. The better question is: what work has been removed from the cheaper proposal?',
+          'Was a room-by-room load calculation performed? Was the equipment selected based on actual loads? Was the duct system designed? Were pressure relationships considered? Was ventilation included? Was dedicated dehumidification included? Was high-efficiency filtration included?',
+          'Were the ducts sealed and tested? Was the system balanced? Was airflow measured? Was static pressure measured? Was refrigerant charge verified? Was actual system performance confirmed? Was the installation commissioned? Will performance be documented? Will the contractor return if the system does not perform as designed?',
+          'Cheap pricing becomes much easier when most of the work is eliminated. That does not make the more complete system overpriced. It means the cheaper proposal may not include an actual mechanical system. It may include nothing more than equipment and enough labor to make air come out of the vents.',
+        ],
+      },
+      {
+        heading: 'Your HVAC+D system affects the entire home.',
+        paragraphs: [
+          'Your mechanical system is one of the most critical systems in your home. It influences temperature, relative humidity, moisture accumulation, air filtration, fresh-air ventilation, pressure relationships, air movement, indoor air quality, building durability, energy consumption, occupant comfort, and equipment lifespan.',
+          'In a hot-humid climate, these issues become even more important. Poor HVAC performance can contribute to condensation, damp materials, mold growth, odors, dust accumulation, comfort complaints, and damage to the home.',
+          'The system may also pull air from wall cavities, attics, garages, crawlspaces, and other undesirable locations. That air does not always enter through a filter. It enters through cracks, penetrations, disconnected cavities, recessed lights, attic accesses, plumbing openings, and construction defects.',
+          'Your HVAC+D system can either help control those forces or make them worse.',
+        ],
+      },
+      {
+        heading: 'Health and wellness are part of the conversation.',
+        paragraphs: [
+          'Your home should provide protection from outdoor conditions and create a stable indoor environment. The HVAC+D system plays a major role in whether that happens. It cannot diagnose or treat illness, but it directly influences the environmental conditions occupants experience every day.',
+          'When humidity stays elevated, materials remain damp. When filtration is poor, particles remain airborne. When ventilation is inadequate, indoor contaminants can accumulate. When pressure imbalances exist, air can be pulled from contaminated areas. When ducts leak, the system can distribute dust, insulation fibers, odors, and other pollutants throughout the home. When dedicated dehumidification is omitted, moisture can remain uncontrolled whenever the air conditioner does not run long enough.',
+          'This is why HVAC should never be treated as a simple appliance replacement. It is a health, moisture, durability, comfort, and building-performance system.',
+        ],
+      },
+      {
+        heading: 'What you are paying for.',
+        paragraphs: [
+          'An ACCBP HVAC+D system is not priced like a basic equipment changeout because it is not a basic equipment changeout.',
+          'You are paying for professional design. You are paying for proper equipment selection. You are paying for a duct system designed around the home. You are paying for dedicated dehumidification. You are paying for filtration and ventilation strategies. You are paying for quality materials and proper installation details. You are paying for testing, balancing, verification, and commissioning. You are paying for documentation. You are paying for accountability.',
+          'Most importantly, you are paying for a complete system intended to perform as designed. A system that will promote health and wellness.',
+          'That is fundamentally different from removing an old box, installing a new box, connecting it to the same defective ductwork, and hoping for a better result.',
+        ],
+      },
+      {
+        heading: 'Stop comparing boxes.',
+        paragraphs: [
+          'The HVAC industry has trained homeowners to shop for equipment brands, efficiency ratings, tonnage, warranties, and price. Those things matter, but they do not tell you whether the system will work. The quality of the design and installation matters more than the name printed on the equipment.',
+          'A premium piece of equipment installed on a defective duct system is still a defective system. A high-efficiency unit operating at the wrong airflow will not deliver its rated performance. A variable-capacity system cannot overcome major design failures. An air conditioner cannot provide reliable year-round humidity control when it is not being called to run. Technology cannot fix incompetence.',
+          'So, when you compare an ACCBP HVAC+D installation to the lowest-priced contractor in town, stop comparing the boxes. Compare the design. Compare the materials. Compare the ductwork. Compare the dedicated dehumidification. Compare the filtration and ventilation. Compare the testing. Compare the commissioning. Compare the documentation. Compare the contractor’s understanding of building science, humidity, pressure, filtration, ventilation, and moisture. Compare what is actually included.',
+          'Then decide whether the proposals are truly comparable. They usually are not.',
+        ],
+      },
+      {
+        heading: 'Cheap HVAC is rarely cheap.',
+        paragraphs: [
+          'The lowest-priced installation can become extremely expensive when it creates moisture problems, comfort complaints, high energy bills, equipment failures, contaminated ductwork, damaged building materials, or the need for complete replacement. Many homeowners eventually pay twice. First, they pay for the cheap system. Then they pay to correct it.',
+          'Your HVAC+D system should not simply blow hot and cold air. It should be intentionally designed, properly installed, thoroughly tested, accurately balanced, and fully commissioned. It should control temperature and humidity independently. It should support the home. It should protect the building. It should manage moisture. It should provide clean, controlled air. And it should contribute to an indoor environment that promotes health and wellness rather than sickness and disease.',
+          'There is no such thing as apples-to-apples in construction. Make sure you understand exactly what you are buying.',
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Your HVAC Company May Have More Impact on Your Health Than Your Doctor',
+    href: '/blog/your-hvac-company-may-have-more-impact-on-your-health-than-your-doctor',
+    slug: 'your-hvac-company-may-have-more-impact-on-your-health-than-your-doctor',
+    category: 'Home Wellness',
+    readTime: '12 min read',
+    excerpt:
+      'In hot, humid Louisiana, HVAC is not just temperature control. Humidity, filtration, ventilation, duct leakage, pressure, and airflow shape the air your family breathes every day.',
+    body: [
+      {
+        heading: 'Yeah, let that sink in.',
+        paragraphs: [
+          'It may sound dramatic, but it is something I see every day, especially here in hot, humid Louisiana.',
+          'Most people think their HVAC system has one job: keep the house cool in the summer and warm in the winter. That is only a small part of what it actually does.',
+          'Your HVAC system affects the air you breathe every day. It influences humidity, filtration, ventilation, airflow, pressure, moisture, and where the air inside your home is coming from.',
+          'Your doctor can help treat symptoms. Your HVAC system can help prevent some of the conditions that may contribute to those symptoms, but only if it is designed, installed, and operated correctly.',
+        ],
+      },
+      {
+        heading: 'Your home is a system.',
+        paragraphs: [
+          'Your HVAC equipment does not operate by itself. It interacts with the ductwork, attic, crawlspace, walls, insulation, exhaust fans, doors, windows, and the building envelope.',
+          'When those things are not working together, the HVAC system can pull hot, humid, dusty, and contaminated air from places you were never supposed to breathe from. That may include the attic, wall cavities, crawlspace, garage, mechanical closets, floor systems, construction gaps, and penetrations.',
+          'A system can blow cold air, satisfy the thermostat, and still be completely failing the house. That is the problem.',
+          'Most HVAC companies define success by whether the house gets hot or cold. They may never look at humidity, duct leakage, filtration, ventilation, pressure, or where the system is actually pulling air from.',
+          'Then everyone wonders why the house smells nasty, stays humid, collects dust, or makes the occupants feel like crap.',
+        ],
+      },
+      {
+        heading: 'Cold air does not automatically mean clean air.',
+        paragraphs: [
+          'Comfort does not automatically mean healthy. Efficiency rating does not automatically mean the system was designed or installed correctly.',
+          'Most service calls revolve around one question: is the system cooling? That matters, but it is nowhere near enough.',
+          'A house can be 72 degrees and still have humidity above 60%. It can feel cold and wet. It can have condensation inside wall or ceiling assemblies. It can have leaking return ducts pulling attic air into the system. It can have poorly filtered air circulating through the house all day.',
+          'It can have bedrooms that become pressurized every time the doors close. The thermostat does not tell you any of that.',
+          'Your lungs do not care what the thermostat says. They care about the air reaching them: clean air, dry air, properly filtered air, and air that is not being pulled through an attic, crawlspace, garage, or wall cavity.',
+        ],
+      },
+      {
+        heading: 'Humidity control is critical in Louisiana.',
+        paragraphs: [
+          'Humidity is one of the biggest problems I see in homes across Louisiana.',
+          'An oversized air-conditioning system can cool the house too quickly and shut off before it removes enough moisture. The thermostat is satisfied, but the house is still damp.',
+          'That elevated humidity can contribute to nasty odors, condensation, dust mites, material deterioration, swelling and movement of building materials, and conditions that support mold growth.',
+          'Bigger is not better. The system should be sized using a room-by-room ACCA Manual J load calculation. The equipment should then be selected using Manual S and the manufacturer’s actual performance data.',
+          'Not a square-foot rule. Not the size of the old unit. Not what the distributor has in stock. And not what the contractor normally installs.',
+          'Homes also need a properly designed whole-home dehumidifier. That is especially true during mild, humid weather when the air conditioner does not run long enough to control moisture. A thermostat alone cannot manage a hot, humid climate.',
+        ],
+      },
+      {
+        heading: 'Filtration is more than buying a better filter.',
+        paragraphs: [
+          'Homeowners are constantly told to install a higher-MERV filter. But a filter can only clean the air that actually passes through it.',
+          'If the return duct leaks, the filter cabinet is poorly sealed, or air is bypassing the filter around the edges, contaminants are entering the system without being filtered.',
+          'A restrictive filter can also create problems if the system was not designed for it. It can reduce airflow, raise static pressure, reduce capacity, increase energy use, and damage equipment.',
+          'Good filtration requires more than a filter rating. The filter needs to be large enough, properly sealed, easy to access, compatible with the required airflow, and installed in a cabinet that prevents bypass.',
+          'You cannot fix a bad return system by sliding a more restrictive filter into it. The entire system has to be considered.',
+        ],
+      },
+      {
+        heading: 'Duct leakage changes what you breathe.',
+        paragraphs: [
+          'Leaking return ducts are one of the most important problems I find.',
+          'When the return side leaks, the system can pull air from the attic, crawlspace, garage, wall cavities, or mechanical closet. That air may contain dust, insulation fibers, pest debris, moisture, nasty odors, garage fumes, construction debris, and contaminants from hidden building cavities.',
+          'Then the HVAC system distributes that air throughout the house.',
+          'Supply leakage creates a different problem. Conditioned air escapes before it reaches the rooms. That can negatively pressurize the home and force replacement air to enter through cracks and gaps in the building envelope.',
+          'That replacement air usually does not come through a clean, filtered opening. It comes from wherever it can.',
+          'You cannot look at ductwork and know how much it leaks. It has to be tested. A duct system can look acceptable from the outside and still perform terribly.',
+        ],
+      },
+      {
+        heading: 'Pressure problems matter.',
+        paragraphs: [
+          'Air follows pressure. That may sound simple, but it explains a lot of problems inside homes.',
+          'When a bedroom has supply air but no proper return-air pathway, closing the door can pressurize the room. The rest of the house may become negatively pressurized.',
+          'Now the house starts pulling replacement air through wall cavities, ceilings, recessed lights, attic openings, plumbing penetrations, and other gaps.',
+          'The same thing can happen around an air handler installed in a closet. A leaking return plenum or poorly sealed mechanical closet can pull attic or wall-cavity air into the system every time the blower runs.',
+          'These problems are not found by checking the thermostat. They require testing.',
+          'Room pressure testing, zonal pressure diagnostics, static-pressure measurements, blower-door testing, and duct-leakage testing help show what the house is actually doing. Without measurements, everyone is guessing.',
+        ],
+      },
+      {
+        heading: 'Uncontrolled leakage is not ventilation.',
+        paragraphs: [
+          'Every home needs outdoor air. But random air leakage is not ventilation.',
+          'Air coming through the attic, crawlspace, garage, wall cavities, and construction gaps is not filtered, measured, dried, or controlled. That is infiltration.',
+          'Controlled ventilation should bring outdoor air into the home through a known pathway and at a calculated rate. In Louisiana, that outdoor air may also need to be filtered and dehumidified.',
+          'More outdoor air is not always better. Bringing hot, humid air into a house without a plan can create serious moisture problems.',
+          'Ventilation has to be designed. Not guessed at. Not created by leaving duct leaks and building gaps open.',
+        ],
+      },
+      {
+        heading: 'Exhaust systems change the whole house.',
+        paragraphs: [
+          'Range hoods, bathroom fans, clothes dryers, and fireplaces all remove air from the home. That air has to be replaced.',
+          'A large range hood can depressurize a tight home very quickly. Without properly designed makeup air, the house may pull replacement air from the attic, crawlspace, walls, garage, or fireplace.',
+          'The same applies to dryers and exhaust fans.',
+          'You cannot evaluate the HVAC system by itself. The entire building has to be treated as one system.',
+          'That includes the mechanical equipment, ductwork, building envelope, exhaust systems, and the spaces surrounding the home.',
+        ],
+      },
+      {
+        heading: 'Commissioning proves whether the system works.',
+        paragraphs: [
+          'A good design can still fail if the installation is not tested. Commissioning is what proves the system is actually operating the way it was intended to.',
+          'That may include total external static pressure, airflow verification, room-by-room balancing, refrigerant charge verification, temperature and humidity measurements, duct-leakage testing, filter pressure drop, condensate drainage, ventilation airflow, building pressure testing, and control configuration.',
+          'Turning the system on and feeling cold air at the register is not commissioning. Checking the temperature split is not commissioning.',
+          'Without measurements, the contractor does not know whether the system is moving the correct amount of air, staying within manufacturer limits, removing enough moisture, or delivering the right amount of air to each room.',
+          'You cannot verify system performance by feel.',
+        ],
+      },
+      {
+        heading: 'Maintenance cannot fix bad design.',
+        paragraphs: [
+          'HVAC systems need maintenance. Filters need to be replaced. Drain lines need to stay clear. Coils, blower wheels, dehumidifiers, and ventilation systems need to be inspected and maintained.',
+          'But maintenance cannot correct a bad design or poor installation.',
+          'You cannot solve a leaking return with a UV light. You cannot solve high humidity with duct cleaning. You cannot fix pressure problems with a more expensive thermostat. You cannot repair an unsealed air handler by installing an air purifier. And you cannot maintain your way out of an oversized system.',
+          'The actual source of the problem has to be identified and corrected.',
+          'Treating the symptom may temporarily make something look or smell better. It does not mean the problem is gone.',
+        ],
+      },
+      {
+        heading: 'Ask better questions before replacing the system.',
+        paragraphs: [
+          'Before replacing or installing an HVAC system, ask whether the contractor will perform a room-by-room Manual J load calculation, how the equipment will be selected, whether the duct system will be designed using Manual D, and how indoor humidity will be controlled.',
+          'Ask what filtration system will be installed, whether the filter cabinet and return system will be properly sealed, whether duct leakage will be tested, whether total external static pressure will be measured, and whether airflow will be verified and balanced room by room.',
+          'Ask how closed-bedroom pressure will be handled, whether the home needs controlled ventilation, whether the range hood requires makeup air, how the refrigerant charge will be verified, and what commissioning documentation will be provided.',
+          'A competent contractor should be able to answer those questions. The answers should involve calculations, measurements, testing, and documentation.',
+          'Not guesswork. Not rules of thumb. Not “this is how we always do it.”',
+        ],
+      },
+      {
+        heading: 'Fix the building, not just the symptoms.',
+        paragraphs: [
+          'A home can be cool and still have bad indoor air quality. It can have expensive HVAC equipment and still have moisture, pressure, filtration, and ventilation problems. It can meet the thermostat setting and still be working against the people living inside it.',
+          'Your doctor provides medical care. Your HVAC contractor helps control the indoor environment where you and your family may spend thousands of hours every year.',
+          'That does not mean HVAC replaces medical care. It means the condition of the home should not be ignored when health concerns continue.',
+          'Your HVAC system can support a healthier indoor environment. Or it can quietly pull contaminants into the house and distribute them every time the blower turns on.',
+          'The difference comes down to design, installation, testing, and accountability.',
+          'If your HVAC contractor only talks about temperature, equipment brands, and efficiency ratings, but never discusses humidity, filtration, ventilation, duct leakage, pressure, or the building envelope, it may be time to find one who does.',
+          'Treating symptoms matters. But we need to fix the building.',
+        ],
+      },
+    ],
+  },
   {
     title: 'What Is the Purpose of the Building Department?',
     href: '/blog/what-is-the-purpose-of-the-building-department',
@@ -563,3 +871,10 @@ export const blogPosts = [
     ],
   },
 ];
+
+const buildDate = new Date().toISOString().slice(0, 10);
+
+export const blogPosts = allBlogPosts.filter((post) => {
+  const { publishDate } = post as { publishDate?: string };
+  return !publishDate || publishDate <= buildDate;
+});
