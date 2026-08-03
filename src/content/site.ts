@@ -37,6 +37,132 @@ export const serviceCards = [
 // The publish-blog workflow triggers a rebuild when a scheduled date arrives.
 const allBlogPosts = [
   {
+    title: 'Why Am I the Bad Guy for Wanting the Work Done Right?',
+    href: '/blog/why-am-i-the-bad-guy-for-wanting-the-work-done-right',
+    slug: 'why-am-i-the-bad-guy-for-wanting-the-work-done-right',
+    category: 'Building Science',
+    readTime: '9 min read',
+    excerpt:
+      'Accountability is not perfectionism. When a home fails because water, air, humidity, ductwork, or building assemblies were handled incorrectly, the repair has to correct the cause instead of rewarding the same failed approach.',
+    body: [
+      {
+        heading: 'I am baffled.',
+        paragraphs: [
+          'I regularly get called into homes because someone in the family is experiencing health-related issues that may be connected to the indoor environment.',
+          'I perform the assessment, and as usual, I find a long list of deficiencies. Sometimes the problems were caused by the builder. Sometimes it was the HVAC contractor, plumber, roofer, insulation contractor, or another trade. Most of the time, it is not one isolated mistake. It is several failures layered on top of one another.',
+          'Water is entering the building. Ductwork is leaking. Humidity is uncontrolled. Mechanical systems were improperly designed or installed. Attics, crawlspaces, walls, and mechanical spaces were assembled in ways that create moisture problems.',
+          'The home is not functioning as a system, and the occupants are dealing with the consequences.',
+        ],
+      },
+      {
+        heading: 'Then we get to accountability.',
+        paragraphs: [
+          'I document the conditions, explain what caused them, provide recommendations, send the report, and complete the follow-up consultation.',
+          'By this point, I have usually built a strong relationship with the homeowners. We can speak openly. They see the problems. They understand the causes. They understand which contractors or construction decisions contributed to the failures.',
+          'Then we get to accountability. That is where everything changes.',
+          'Not only do many homeowners choose not to hold the responsible parties accountable, but they often hire the exact same contractors to perform the repairs.',
+          'The same people who created the problem are brought back to solve it.',
+        ],
+      },
+      {
+        heading: 'How does this keep happening?',
+        paragraphs: [
+          'How do contractors get paid to perform the work incorrectly, avoid accountability for the damage they caused, and then get rewarded with the job again?',
+          'They are not just allowed back into the project. They are paid again to correct the very conditions their work created in the first place.',
+          'Sometimes they are paid to repeat essentially the same work, using the same methods, while everyone somehow expects a different outcome.',
+          'I honestly do not understand it.',
+        ],
+      },
+      {
+        heading: 'Oversight turns into a battle.',
+        paragraphs: [
+          'I have been retained on several projects as a consultant to lead the process and oversee the repairs. In every one of those situations, it has become an absolute battle.',
+          'The builder or contractor who performed the original work begins fighting nearly every recommendation.',
+          '“This is how we have always done it.” “We have never had a problem before.” “That is unnecessary.” “That is excessive.” “That costs too much.”',
+          'Meanwhile, we are standing inside the house looking directly at the damage and failures created by that same approach.',
+          'Water intrusion is visible. Condensation is occurring. Materials are deteriorating. Suspected microbial growth is present. The indoor environment is unhealthy.',
+          'They are witnessing the consequences of their own work while simultaneously denying that their work contributed to the problem.',
+        ],
+      },
+      {
+        heading: 'Then the blame starts moving.',
+        paragraphs: [
+          'The weather gets blamed. The architect gets blamed. The homeowner gets blamed for maintenance. The house gets blamed for being old.',
+          'Anyone and anything becomes responsible except the person who designed, installed, or approved the failed work.',
+          'In some cases, the contractor even convinces the homeowner that the homeowner caused the problem.',
+          'Think about that.',
+          'The homeowner pays for the original work. The work fails. The homeowner lives with the damage, disruption, expense, and possible health consequences. Then the homeowner gets blamed and pays the same contractor again.',
+          'How is that accountability?',
+        ],
+      },
+      {
+        heading: 'Cheap, fast, and easy sounds reasonable.',
+        paragraphs: [
+          'The homeowners usually understand my position. They understand the deficiencies. They understand the cause. They understand the level of execution required to correct the problem properly.',
+          'But then the contractor offers a cheaper, quicker, and easier recommendation. Suddenly, I am the unreasonable one.',
+          'People look at me sideways as though I am asking for perfection. They say I am excessive. They act as though the recommendations are ridiculous. They assume I am trying to make the project more complicated than it needs to be.',
+          'The contractor who created the problem is treated like the reasonable one because the proposed fix is cheap, fast, and easy.',
+          'I become the bad guy because I am explaining that the cheap, fast, and easy option will not correct the underlying failure.',
+          'That makes absolutely no sense to me.',
+        ],
+      },
+      {
+        heading: 'I am not asking for perfection.',
+        paragraphs: [
+          'I am asking for the home to remain dry.',
+          'I am asking for the HVAC system to be properly designed, installed, sealed, and commissioned. I am asking for water-control layers to actually control water. I am asking for materials to be installed according to building codes, industry standards, and manufacturer instructions.',
+          'I am asking for the repairs to address the cause of the problem instead of covering up the symptoms.',
+          'Most importantly, I am asking for the home to provide a safe and healthy environment for the people living inside it.',
+          'That should not be considered extreme. It should be the minimum acceptable standard.',
+        ],
+      },
+      {
+        heading: 'A repair has to solve the failure.',
+        paragraphs: [
+          'Cheap, quick, and easy repairs are often the reason I was called to the house in the first place.',
+          'Applying another coating, adding more caulk, spraying something over suspected microbial growth, replacing damaged materials without stopping the moisture source, or swapping equipment without correcting the duct system may make the problem appear better temporarily.',
+          'That does not mean the problem has been solved.',
+          'A repair is not successful because it looks good when the contractor leaves. It is successful when the underlying failure has been corrected, and the home can manage water, heat, air, pressure, and humidity over time.',
+        ],
+      },
+      {
+        heading: 'Accountability is not an attack.',
+        paragraphs: [
+          'Homeowners must understand that accountability is not about attacking a contractor or demanding perfection.',
+          'It is about requiring people to stand behind their work. It is about protecting your home, your investment, and your family.',
+          'It is also about recognizing that the person offering the easiest answer is not always the person offering the correct answer.',
+          'A confident contractor can make a shortcut sound completely reasonable. They may say the failure is normal. They may say every house does it. They may say they have installed it this way for twenty years without a problem.',
+          'But the number of times someone has repeated a bad practice does not make it a good practice. Experience repeating the same mistake is not expertise.',
+        ],
+      },
+      {
+        heading: 'You do not owe failed work another chance.',
+        paragraphs: [
+          'You do not have to accept the same failed methods simply because someone says, “That is how we have always done it.”',
+          'You do not have to accept the cheapest recommendation when the cheapest recommendation does not correct the actual problem.',
+          'You do not have to allow the same contractor to repeat the same work in the same way and expect a different result.',
+          'You also do not owe another job to someone simply because they performed the original work.',
+          'The contractor who caused the failure should not automatically be rewarded with another opportunity to experiment on your home.',
+          'And you should never be made to feel unreasonable for expecting your home to stay dry and provide a healthy indoor environment.',
+        ],
+      },
+      {
+        heading: 'So let me be clear.',
+        paragraphs: [
+          'I care deeply about my clients and their families. I know what it is like for a home to negatively affect your health.',
+          'I refuse to knowingly recommend shortcuts that leave moisture, contamination, durability, or indoor air quality problems unresolved.',
+          'If expecting the home to stay dry is considered excessive, I am excessive.',
+          'If expecting contractors to follow proper design and installation practices is considered extreme, I am extreme.',
+          'If expecting repairs to correct the cause instead of hiding the evidence is considered unreasonable, I am unreasonable.',
+          'But if you are only looking for the cheapest, fastest, and easiest answer, please do not involve me in the project.',
+          'Do not bring me in to identify the cause, explain the failures, and develop a proper corrective plan, only to ignore that plan and reward the same people who created the problem.',
+          'I am not interested in helping repeat the same failures that brought me into the home in the first place. I am there to help make the home dry, safe, healthy, and durable.',
+          'That is not perfection. That is simply doing the work correctly.',
+        ],
+      },
+    ],
+  },
+  {
     publishDate: '2026-07-26',
     title: 'HVAC+D Installation: You Are Not Comparing Apples to Apples',
     href: '/blog/hvac-d-installation-you-are-not-comparing-apples-to-apples',

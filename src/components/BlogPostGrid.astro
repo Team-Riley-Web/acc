@@ -14,6 +14,7 @@ import hvacHealthImpactImage from '../assets/images/hvac-health-impact.jpg';
 import buildingInspectionImage from '../assets/images/building.avif';
 import indoorAirImage from '../assets/images/house-inside-polluted.png';
 import hvacdInstallImage from '../assets/images/install.jpg';
+import buildingScienceHouseImage from '../assets/images/building-science-house.jpg';
 
 interface Props {
   posts: any[];
@@ -23,6 +24,10 @@ interface Props {
 
 const { posts, currentPage, totalPages } = Astro.props;
 const blogImages = {
+  'why-am-i-the-bad-guy-for-wanting-the-work-done-right': {
+    src: buildingScienceHouseImage,
+    alt: 'Diagram showing whole-house building science forces including rain, air leakage, heat, and moisture movement',
+  },
   'hvac-d-installation-you-are-not-comparing-apples-to-apples': {
     src: hvacdInstallImage,
     alt: 'Dedicated dehumidifier and ductwork installed as part of an ACC Building Performance HVAC+D system',
