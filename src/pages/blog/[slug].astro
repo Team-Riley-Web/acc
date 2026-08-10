@@ -15,6 +15,7 @@ import constructionFrameImage from '../../assets/images/imgi_326_premium_photo-1
 import hvacHealthImpactImage from '../../assets/images/hvac-health-impact.jpg';
 import buildingInspectionImage from '../../assets/images/building.avif';
 import indoorAirImage from '../../assets/images/house-inside-polluted.png';
+import cleanIndoorAirImage from '../../assets/images/house-inside-clean.png';
 import hvacdInstallImage from '../../assets/images/install.jpg';
 import buildingScienceHouseImage from '../../assets/images/building-science-house.jpg';
 
@@ -27,6 +28,10 @@ export function getStaticPaths() {
 
 const { post } = Astro.props;
 const blogImages = {
+  'indoor-air-quality-broken-down-in-its-simplest-form': {
+    src: cleanIndoorAirImage,
+    alt: 'Cutaway home showing clean indoor living spaces and building assemblies',
+  },
   'why-am-i-the-bad-guy-for-wanting-the-work-done-right': {
     src: buildingScienceHouseImage,
     alt: 'Diagram showing whole-house building science forces including rain, air leakage, heat, and moisture movement',

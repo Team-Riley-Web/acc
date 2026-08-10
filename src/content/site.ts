@@ -37,6 +37,137 @@ export const serviceCards = [
 // The publish-blog workflow triggers a rebuild when a scheduled date arrives.
 const allBlogPosts = [
   {
+    title: 'Indoor Air Quality, Broken Down in Its Simplest Form',
+    href: '/blog/indoor-air-quality-broken-down-in-its-simplest-form',
+    slug: 'indoor-air-quality-broken-down-in-its-simplest-form',
+    category: 'Home Wellness',
+    readTime: '7 min read',
+    excerpt:
+      'Healthy indoor air does not start with gadgets. It starts with moisture control, source control, effective filtration, and controlled mechanical ventilation.',
+    body: [
+      {
+        heading: 'Keep it simple.',
+        paragraphs: [
+          'Indoor air quality gets made way more complicated than it needs to be.',
+          'There are endless products, gadgets, air cleaners, UV lights, ionizers, monitors, sprays, coatings, certifications, and marketing claims all promising to make the air in your home healthier.',
+          'But when you strip all of that away, healthy indoor air comes down to four basic principles.',
+          "AJ's KISS for indoor air quality: Keep It Simple.",
+        ],
+      },
+      {
+        heading: '1. Moisture control',
+        paragraphs: [
+          'Moisture kills houses, and it kills us in the process.',
+          'If you do not control moisture, almost everything else you do for indoor air quality becomes secondary.',
+          'High indoor humidity, condensation, bulk-water intrusion, wet building materials, poorly controlled crawlspaces, vented attics in humid climates, oversized HVAC equipment, duct leakage, and uncontrolled outdoor-air infiltration all create conditions that allow biological growth and building deterioration.',
+          'The goal is not simply to cool the house. The goal is to keep the building dry.',
+          'That means controlling indoor relative humidity, managing bulk water, controlling vapor movement, keeping building materials from reaching conditions that support microbial growth, and designing the HVAC system around latent moisture removal, not just temperature.',
+          'In a hot-humid climate, moisture control has to be intentional. You cannot accidentally get this right.',
+        ],
+      },
+      {
+        heading: '2. Source control',
+        paragraphs: [
+          'The second principle is simple: if it is toxic, do not bring it into the house.',
+          'Obviously, that is impossible to accomplish completely.',
+          'Modern homes are filled with manufactured materials. Flooring, cabinets, furniture, paint, adhesives, cleaning products, fragrances, plastics, mattresses, textiles, insulation, sealants, and hundreds of other products can introduce chemicals into the indoor environment.',
+          'We are never going to eliminate every contaminant. But we can dramatically reduce the load.',
+          'Choose lower-emitting building materials and finishes whenever possible. Be intentional about furniture and textiles. Pay attention to cleaning products, fragrances, pesticides, solvents, and other chemicals brought into the home.',
+          'Do not intentionally introduce pollutants and then try to buy a machine to remove them afterward.',
+          'Source control comes first. The less contamination we introduce into the house, the less we have to manage later.',
+        ],
+      },
+      {
+        heading: '3. Effective filtration',
+        paragraphs: [
+          'This is where people often tell me, "I already have a really good filter."',
+          'Then I look up and see a one-inch filter shoved into a return grille in the ceiling. That is not effective filtration.',
+          'Filtration is a system.',
+          'For filtration to work properly, the duct system has to be tight enough that the air entering the HVAC system actually passes through the filter.',
+          'No return leaks pulling attic air into the system. No filter bypass around the edges. No poorly fitted filter racks. No giant gaps between the filter cabinet and air handler.',
+          'All of the air going through the system needs to go through the filter.',
+          'MERV 13 as a minimum and MERV 16 when practical.',
+        ],
+      },
+      {
+        heading: 'A great filter is not always great filtration.',
+        paragraphs: [
+          'There is an important catch.',
+          'You cannot simply install a restrictive high-efficiency filter into an HVAC system that was never designed for it.',
+          'The filter cabinet, return ductwork, blower, airflow, and available static pressure all have to be considered during the design.',
+          'A great filter installed in a terrible duct system is not great filtration. It is just a great filter.',
+        ],
+      },
+      {
+        heading: '4. Ventilation',
+        paragraphs: [
+          'Finally, we need controlled mechanical ventilation.',
+          'Homes produce pollutants constantly. People breathe. We cook. We clean. We shower. Furniture and building materials off-gas. Indoor activities generate particles, carbon dioxide, moisture, odors, and chemicals.',
+          'The answer is dilution.',
+          'But I do not want random outdoor air leaking through cracks in the walls, attic, crawlspace, recessed lights, electrical outlets, or other holes in the building.',
+          'I want outdoor air brought into the house on my terms.',
+          'I tell it when to come in. I tell it how much to bring in. I filter it. I dry it. And I distribute it properly throughout the home.',
+          'That is ventilation. Not random infiltration. Not opening a window and hoping for the best. Controlled mechanical ventilation.',
+        ],
+      },
+      {
+        heading: 'Notice what I did not say.',
+        paragraphs: [
+          'I did not say UV light.',
+          'I did not say photocatalytic oxidation.',
+          'I did not say bipolar ionization.',
+          'I did not say we need another gadget hanging in the ductwork supposedly "cleaning" the air.',
+          'None of those devices are one of the four pillars.',
+          'Why? Because our goal is not to add crap to the air. My goal is to take things out of the air.',
+          'That distinction matters.',
+        ],
+      },
+      {
+        heading: 'Ask what the device is producing.',
+        paragraphs: [
+          'Anytime someone sells you a device that intentionally introduces ions, reactive chemistry, oxidants, or some other process into your indoor air, you need to understand what you are actually buying.',
+          'What is that device producing? What are the byproducts? What happens when what it produces reacts with the chemicals already present inside the home? What secondary chemistry is taking place?',
+          'In most homes, we already have an incredibly complex mixture of cleaning products, fragrances, off-gassing materials, cooking emissions, personal-care products, furniture, flooring, adhesives, and countless other chemicals.',
+          'I have no interest in intentionally creating additional chemistry in that environment unless there is a very good reason to do so.',
+          'And I certainly do not believe a gadget should become the substitute for proper moisture control, source control, filtration, and ventilation.',
+        ],
+      },
+      {
+        heading: 'The fundamentals are the system.',
+        paragraphs: [
+          'The fundamentals come first. Actually, the fundamentals are the system.',
+          'You do not fix a moisture problem with an air purifier.',
+          'You do not fix contaminated return air with a UV light.',
+          'You do not fix poor filtration with an ionizer.',
+          'You do not fix inadequate ventilation with photocatalytic oxidation.',
+          'Stop trying to treat the symptoms with gadgets and fix the building.',
+        ],
+      },
+      {
+        heading: 'That is it.',
+        paragraphs: [
+          'Moisture control. Source control. Effective filtration. Mechanical ventilation.',
+          'Those are the four pillars.',
+          'Get those four principles right and you have fundamentally changed what the indoor environment is doing to the people living inside it.',
+          'The home is no longer simply a shelter that happens to have an air conditioner. It becomes an environment designed to promote health and wellness.',
+          'This is incredibly easy in concept. There is nothing revolutionary about these four principles.',
+          'The hard part is execution.',
+        ],
+      },
+      {
+        heading: 'Execution is where homes fall apart.',
+        paragraphs: [
+          'Getting the building enclosure, HVAC system, dehumidification, ductwork, filtration, ventilation, pressure relationships, materials, and controls to actually work together requires knowledge across multiple trades.',
+          'That is where most homes fall apart.',
+          'Everyone is responsible for their individual piece of the house, but almost nobody is responsible for how all of those pieces interact.',
+          'Indoor air quality does not need to be mysterious.',
+          'Control the moisture. Reduce the sources. Filter the air. Ventilate intentionally.',
+          'Keep It Super Simple.',
+        ],
+      },
+    ],
+  },
+  {
     title: 'Why Am I the Bad Guy for Wanting the Work Done Right?',
     href: '/blog/why-am-i-the-bad-guy-for-wanting-the-work-done-right',
     slug: 'why-am-i-the-bad-guy-for-wanting-the-work-done-right',
