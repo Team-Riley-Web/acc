@@ -16,6 +16,7 @@ import indoorAirImage from '../assets/images/house-inside-polluted.png';
 import cleanIndoorAirImage from '../assets/images/house-inside-clean.png';
 import hvacdInstallImage from '../assets/images/install.jpg';
 import crossedArmsImage from '../assets/images/hvac-health-impact.jpg';
+import atticHvacImage from '../assets/images/ac.jpg';
 
 interface Props {
   posts: any[];
@@ -25,6 +26,10 @@ interface Props {
 
 const { posts, currentPage, totalPages } = Astro.props;
 const blogImages = {
+  'hvac-related-condensation-when-you-can-blame-the-hvac-contractor-and-when-you-cant': {
+    src: atticHvacImage,
+    alt: 'HVAC air handler and insulated ductwork installed inside a spray-foam-encapsulated attic',
+  },
   'indoor-air-quality-broken-down-in-its-simplest-form': {
     src: cleanIndoorAirImage,
     alt: 'Cutaway home showing clean indoor living spaces and building assemblies',
