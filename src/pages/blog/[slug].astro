@@ -19,6 +19,7 @@ import cleanIndoorAirImage from '../../assets/images/house-inside-clean.png';
 import hvacdInstallImage from '../../assets/images/install.jpg';
 import buildingScienceHouseImage from '../../assets/images/building-science-house.jpg';
 import atticHvacImage from '../../assets/images/ac.jpg';
+import crossLogoImage from '../../assets/images/social-share.png';
 
 export function getStaticPaths() {
   return blogPosts.map((post) => ({
@@ -29,6 +30,11 @@ export function getStaticPaths() {
 
 const { post } = Astro.props;
 const blogImages = {
+  'theres-a-cross-in-my-logo': {
+    src: crossLogoImage,
+    alt: 'ACC Building Performance logo with a cross centered beneath the roofline',
+    contain: true,
+  },
   'hvac-related-condensation-when-you-can-blame-the-hvac-contractor-and-when-you-cant': {
     src: atticHvacImage,
     alt: 'HVAC air handler and insulated ductwork installed inside a spray-foam-encapsulated attic',
@@ -124,7 +130,16 @@ const CategoryIcon = category.icon;
           <p class="reveal-body mt-4 max-w-3xl text-lg font-medium leading-8 text-white/70 sm:mt-8">{post.excerpt}</p>
         </div>
         <div class="reveal-body overflow-hidden rounded-2xl border border-white/10 bg-[#0f545e] shadow-2xl shadow-black/20">
-          <Image src={articleImage.src} alt={articleImage.alt} width={760} class="aspect-[1.02] w-full object-cover" loading="eager" />
+          <Image
+            src={articleImage.src}
+            alt={articleImage.alt}
+            width={760}
+            class:list={[
+              'aspect-[1.02] w-full',
+              articleImage.contain ? 'bg-[#0e3d47] object-contain' : 'object-cover',
+            ]}
+            loading="eager"
+          />
         </div>
       </div>
     </section>
